@@ -654,8 +654,10 @@ header {
 }
 
 .navbar>ul {
-    width: 91%;
-    margin: 0 auto;
+    width:90%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar>ul>li {
@@ -666,8 +668,7 @@ header {
 
 .navbar>ul>li>a {
     display: block;
-    width: 86px;
-    height: 50px;
+    padding: 0 10px;
     line-height: 50px;
     font-size: 16px;
     color: #3E3E3E;
@@ -691,9 +692,14 @@ li.second ul {
     display: none;
     position: absolute;
     z-index: 10000;
-    /*top: 33px;*/
+    top: 50px;
     left: 0px;
     margin: 0;
+    background-color: #0FA7D6;
+}
+li.second>ul>li.second>ul{
+    top: 0px;
+    left:105px;
     background-color: #0FA7D6;
 }
 li.second ul li {
