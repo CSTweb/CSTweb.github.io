@@ -10,6 +10,140 @@ jQuery(document).ready(function($) {
 		$(this).children('ul.li-third').stop(true,false).slideUp("fast");
 	});
 
+	// course页 课程模块header 控制
+	$(".course-a2").click(function(){
+            $(".course-a").removeClass('course-a-active');
+            $(".course-a2").addClass('course-a-active');
+           	$(".course-icon1").css(
+           	  "background-position","0 -54px"
+              );
+            $(".course-icon2").css(
+              "background-position","-54px 0"
+              );
+            $(".course-icon3").css(
+              "background-position","-108px -54px"
+              );
+            $(".course-icon4").css(
+              "background-position","-162px -54px"
+              );
+            $(".course-icon5").css(
+              "background-position","-216px -54px"
+              );
+            $(".course-content").css("display","none");
+            $(".course-content2").css("display","block");
+
+    });
+    $(".course-a3").click(function(){
+            $(".course-a").removeClass('course-a-active');
+            $(".course-a3").addClass('course-a-active');
+           	$(".course-icon1").css(
+           	  "background-position","0 -54px"
+              );
+            $(".course-icon2").css(
+              "background-position","-54px -54px"
+              );
+            $(".course-icon3").css(
+              "background-position","-108px 0"
+              );
+            $(".course-icon4").css(
+              "background-position","-162px -54px"
+              );
+            $(".course-icon5").css(
+              "background-position","-216px -54px"
+              );
+            $(".course-content").css("display","none");
+            $(".course-content3").css("display","block");
+
+    });
+    $(".course-a4").click(function(){
+            $(".course-a").removeClass('course-a-active');
+            $(".course-a4").addClass('course-a-active');
+           	$(".course-icon1").css(
+           	  "background-position","0 -54px"
+              );
+            $(".course-icon2").css(
+              "background-position","-54px -54px"
+              );
+            $(".course-icon3").css(
+              "background-position","-108px -54px"
+              );
+            $(".course-icon4").css(
+              "background-position","-162px -0"
+              );
+            $(".course-icon5").css(
+              "background-position","-216px -54px"
+              );
+            $(".course-content").css("display","none");
+            $(".course-content4").css("display","block");
+
+    });
+    $(".course-a5").click(function(){
+            $(".course-a").removeClass('course-a-active');
+            $(".course-a5").addClass('course-a-active');
+           	$(".course-icon1").css(
+           	  "background-position","0 -54px"
+              );
+            $(".course-icon2").css(
+              "background-position","-54px -54px"
+              );
+            $(".course-icon3").css(
+              "background-position","-108px -54px"
+              );
+            $(".course-icon4").css(
+              "background-position","-162px -54px"
+              );
+            $(".course-icon5").css(
+              "background-position","-216px 0"
+              );
+            $(".course-content").css("display","none");
+            $(".course-content5").css("display","block");
+
+    });
+    $(".course-a1").click(function(){
+            $(".course-a").removeClass('course-a-active');
+            $(".course-a1").addClass('course-a-active');
+           	$(".course-icon1").css(
+           	  "background-position","0 0"
+              );
+            $(".course-icon2").css(
+              "background-position","-54px -54px"
+              );
+            $(".course-icon3").css(
+              "background-position","-108px -54px"
+              );
+            $(".course-icon4").css(
+              "background-position","-162px -54px"
+              );
+            $(".course-icon5").css(
+              "background-position","-216px -54px"
+              );
+            $(".course-content").css("display","none");
+            $(".course-content1").css("display","block");
+
+    });	
+	
+	$("li.selection1>a").click(function() {
+		$("li.selection>a").css("color","#333")
+		$("li.selection1>a").css("color","#fff")
+		$(".teacher-list").hide();
+		$(".teacher-list1").show();
+	});
+	$("li.selection2>a").click(function() {
+		$("li.selection>a").css("color","#333")
+		$("li.selection2>a").css("color","#fff")
+		$(".teacher-list").hide();
+		$(".teacher-list2").show();
+	});
+	$("li.selection3>a").click(function() {
+		$("li.selection>a").css("color","#333")
+		$("li.selection3>a").css("color","#fff")
+		$(".teacher-list").hide();
+		$(".teacher-list3").show();
+	});
+	
+	
+	
+
 
 	try {
 		if (window.console && window.console.log) {

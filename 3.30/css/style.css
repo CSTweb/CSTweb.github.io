@@ -155,8 +155,8 @@ section.container {
 }
 
 section.container section {
-    background-color: #F8F7F6;
-}
+/*    background-color: #F8F7F6;
+*/}
 
 
 /*============== teacher-list(by liu) ================*/
@@ -232,10 +232,88 @@ section.container section {
     text-decoration: underline !important;
 }
 
+
+section.right-all{
+    float: right;
+    width: 70%;
+    position: relative;
+}
+
+section.right-all >header{
+    background-color: #F8F7F6;
+}
+
+.right-header{
+    width: 100%;
+    height: 47px;
+    background-color: #F8F7F6;
+}
+
+.right-header>ul{
+    padding-left: 149px;
+    background-color: #f5f4f2;
+}
+
+.right-header>ul>li{
+    display: block;
+    float: left;
+    font-size: 15px;
+    line-height: 200%;
+}
+
+.right-header>ul>li:first-child{
+    position: relative;
+}
+
+.right-header>ul>li:first-child:before{
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 30px;
+    left: -13px;
+    top:0px;
+    background: url(../images/left-tri.png) no-repeat center center;
+}
+
+.right-header>ul>li.selection{
+    padding: 0 10px;
+    background-color: #0fa7d6;
+}
+
+.right-header>ul>li.selection>a{
+    color: #333;
+}
+
+.right-header>ul>li.time{
+    float: right;
+    color: #959595;
+}
+
+header.header-normal{
+    position: relative;
+    width: 140px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 47px;
+    color:#fff;
+    text-align: center;
+    background-color: #0fa7d6;
+}
+
+header.header-normal:after{
+    content: "";
+    position: absolute;
+    right: -49px;
+    top: 0;
+    width: 49px;
+    height: 47px;
+    background: url(../images/title-after.png) no-repeat center center;
+}
+
 header.header-default{
     position: relative;
-    top:-33px;
-    left: -33px;
+    top: -30px;
+    left: -30px;
     width: 140px;
     font-size: 20px;
     font-weight: 600;
@@ -256,8 +334,14 @@ header.header-default:after{
     background: url(../images/title-after.png) no-repeat center center;
 }
 
+
+
 .teacher-list{
     padding-bottom: 25px;
+}
+
+.teacher-list2,.teacher-list3{
+    display: none;
 }
 
 .teacher-list>header{
@@ -360,9 +444,10 @@ section.personl-introduction>header,section.paper>header{
 
 .right-content{
     float: right;
-    width: 70%;
+    width: 94.7%;
     position: relative;
     padding: 30px;
+    background-color: #F8F7F6;
 } 
 
 .news-list >ul{
@@ -429,6 +514,116 @@ section.personl-introduction>header,section.paper>header{
 .news-list >footer ul.paging li a:hover{
     color: #3CBEE6;
     text-decoration: underline !important;
+}
+
+/*===============course css by(liu)=====================*/
+section.course>header{
+    height: 124px;
+    margin-bottom: 20px;
+}
+
+section.course>header>div{
+    float: left;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    width: 24px;
+    padding: 10px 15px;
+    margin-right: 80px;
+    background-color: #0fa7d6;
+}
+
+section.course>header>ul li{
+    display: block;
+    float: left;
+    height: 124px;
+    margin: 0 5%;
+}
+
+section.course>header>ul li>a.course-a{
+    display: block;
+    font-size: 18px;
+    color: #868686;
+    height: 87px;
+    padding: 18px 0 19px;
+}
+
+section.course>header>ul li>a.course-a-active{
+    color: #0fa7d6;
+}
+
+span.course-icon{
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: 10px auto;
+}
+
+span.course-icon1{
+    background: url(../images/course-icon.png)  no-repeat;
+    background-position: 0 0;
+}
+
+span.course-icon2{
+    background: url(../images/course-icon.png)  no-repeat;
+    background-position: -54px -54px;
+}
+
+span.course-icon3{
+    background: url(../images/course-icon.png)  no-repeat;
+    background-position: -108px -54px;
+}
+
+span.course-icon4{
+    background: url(../images/course-icon.png)  no-repeat;
+    background-position: -162px -54px;
+}
+
+span.course-icon5{
+    background: url(../images/course-icon.png)  no-repeat;
+    background-position: -216px -54px;
+}
+
+
+section.course-content>ul{
+    width: 100%;
+}
+
+section.course-content>ul li{
+    display: block;
+    float: left;
+    width: 25.33333%;
+    padding:0 4%;
+    min-height: 150px;
+}
+
+section.course-content>ul li>p{
+    font-size: 12px;
+    line-height: 150%;
+    color: #868686;
+}
+
+section.course-content>ul li>p:first-child{
+    display: block;
+    font-size: 16px;
+    line-height: 220%;
+    color:#333;
+    text-align: center;
+    border-bottom: 1px solid #B6B6B6;
+    margin-bottom: 5px;
+}
+
+section.course-content>ul li:hover>p{
+    color: #0fa7d6;
+}
+
+section.course-content>ul li:hover>p:first-child{
+    border-bottom: 1px solid #0fa7d6;
+}
+
+section.course-content2,section.course-content3,
+section.course-content4,section.course-content5{
+    display: none;
 }
 
 /*============媒体查询================*/
