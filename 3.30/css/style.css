@@ -156,8 +156,12 @@ section.container {
 
 section.container section {
 /*    background-color: #F8F7F6;
-*/}
+*/
+}
 
+.hide{
+    display: none;
+}
 
 /*============== teacher-list(by liu) ================*/
 .border-dotted{
@@ -284,6 +288,10 @@ section.right-all >header{
     color: #333;
 }
 
+.right-header>ul>li.selection:first-child>a{
+    color: #fff;
+}
+
 .right-header>ul>li.time{
     float: right;
     color: #959595;
@@ -340,11 +348,8 @@ header.header-default:after{
     padding-bottom: 25px;
 }
 
-.teacher-list2,.teacher-list3{
-    display: none;
-}
-
 .teacher-list>header{
+
     font-size: 22px;
     width: 90%;
     padding-bottom: 10px;

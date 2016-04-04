@@ -11,134 +11,58 @@ jQuery(document).ready(function($) {
 	});
 
 	// course页 课程模块header 控制
-	$(".course-a2").click(function(){
-            $(".course-a").removeClass('course-a-active');
-            $(".course-a2").addClass('course-a-active');
-           	$(".course-icon1").css(
+ 	$("a.course-a").each(function(index, el) {
+ 		$(this).on('click', function() {
+ 			$(".course-a").removeClass('course-a-active');
+			$(this).addClass('course-a-active');
+			$($(".course-icon")[0]).css(
            	  "background-position","0 -54px"
               );
-            $(".course-icon2").css(
-              "background-position","-54px 0"
-              );
-            $(".course-icon3").css(
-              "background-position","-108px -54px"
-              );
-            $(".course-icon4").css(
-              "background-position","-162px -54px"
-              );
-            $(".course-icon5").css(
-              "background-position","-216px -54px"
-              );
-            $(".course-content").css("display","none");
-            $(".course-content2").css("display","block");
-
-    });
-    $(".course-a3").click(function(){
-            $(".course-a").removeClass('course-a-active');
-            $(".course-a3").addClass('course-a-active');
-           	$(".course-icon1").css(
-           	  "background-position","0 -54px"
-              );
-            $(".course-icon2").css(
+            $($(".course-icon")[1]).css(
               "background-position","-54px -54px"
               );
-            $(".course-icon3").css(
-              "background-position","-108px 0"
-              );
-            $(".course-icon4").css(
-              "background-position","-162px -54px"
-              );
-            $(".course-icon5").css(
-              "background-position","-216px -54px"
-              );
-            $(".course-content").css("display","none");
-            $(".course-content3").css("display","block");
-
-    });
-    $(".course-a4").click(function(){
-            $(".course-a").removeClass('course-a-active');
-            $(".course-a4").addClass('course-a-active');
-           	$(".course-icon1").css(
-           	  "background-position","0 -54px"
-              );
-            $(".course-icon2").css(
-              "background-position","-54px -54px"
-              );
-            $(".course-icon3").css(
+            $($(".course-icon")[2]).css(
               "background-position","-108px -54px"
               );
-            $(".course-icon4").css(
-              "background-position","-162px -0"
-              );
-            $(".course-icon5").css(
-              "background-position","-216px -54px"
-              );
-            $(".course-content").css("display","none");
-            $(".course-content4").css("display","block");
-
-    });
-    $(".course-a5").click(function(){
-            $(".course-a").removeClass('course-a-active');
-            $(".course-a5").addClass('course-a-active');
-           	$(".course-icon1").css(
-           	  "background-position","0 -54px"
-              );
-            $(".course-icon2").css(
-              "background-position","-54px -54px"
-              );
-            $(".course-icon3").css(
-              "background-position","-108px -54px"
-              );
-            $(".course-icon4").css(
+            $($(".course-icon")[3]).css(
               "background-position","-162px -54px"
               );
-            $(".course-icon5").css(
-              "background-position","-216px 0"
-              );
-            $(".course-content").css("display","none");
-            $(".course-content5").css("display","block");
-
-    });
-    $(".course-a1").click(function(){
-            $(".course-a").removeClass('course-a-active');
-            $(".course-a1").addClass('course-a-active');
-           	$(".course-icon1").css(
-           	  "background-position","0 0"
-              );
-            $(".course-icon2").css(
-              "background-position","-54px -54px"
-              );
-            $(".course-icon3").css(
-              "background-position","-108px -54px"
-              );
-            $(".course-icon4").css(
-              "background-position","-162px -54px"
-              );
-            $(".course-icon5").css(
+            $($(".course-icon")[4]).css(
               "background-position","-216px -54px"
               );
-            $(".course-content").css("display","none");
-            $(".course-content1").css("display","block");
+            $(".course-content").hide();
+            $($(".course-content")[index]).show();
+			switch(index)
+			{
+				case 0:
+					$($(".course-icon")[index]).css("background-position","0 0");
+					break;
+				case 1:
+					$($(".course-icon")[index]).css("background-position","-54px 0");
+					break;
+				case 2:
+					$($(".course-icon")[index]).css("background-position","-108px 0");
+					break;
+				case 3:
+					$($(".course-icon")[index]).css("background-position","-162px 0");
+					break;
+				case 4:
+					$($(".course-icon")[index]).css("background-position","-216px 0");
+					break;				
+				default:
+					break;
+			}
+ 		});
+ 	});	
+	//teacher-list页 right-header中的导航的控制
 
-    });	
-	
-	$("li.selection1>a").click(function() {
-		$("li.selection>a").css("color","#333")
-		$("li.selection1>a").css("color","#fff")
-		$(".teacher-list").hide();
-		$(".teacher-list1").show();
-	});
-	$("li.selection2>a").click(function() {
-		$("li.selection>a").css("color","#333")
-		$("li.selection2>a").css("color","#fff")
-		$(".teacher-list").hide();
-		$(".teacher-list2").show();
-	});
-	$("li.selection3>a").click(function() {
-		$("li.selection>a").css("color","#333")
-		$("li.selection3>a").css("color","#fff")
-		$(".teacher-list").hide();
-		$(".teacher-list3").show();
+	$("li.selection>a").each(function(index, el) {
+		$(this).on('click', function() {
+			$("li.selection>a").css("color","#333");
+			$(this).css("color","#fff");
+			$(".teacher-list-all").hide();
+			$($(".teacher-list-all")[index]).show();
+		});
 	});
 	
 	
