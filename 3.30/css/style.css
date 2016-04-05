@@ -173,7 +173,7 @@ section.container {
     -webkit-box-shadow: 1px 2px 3px 1px rgba(0,0,0,0.06);
     -moz-box-shadow: 1px 2px 3px 1px rgba(0,0,0,0.06);
     box-shadow: 1px 2px 3px 1px rgba(0,0,0,0.06);
-    background-color: #F8F7F6;
+    background-color: #FDFDFD;
 }
 
 .left-list{
@@ -325,7 +325,6 @@ header.header-default{
     color:#fff;
     text-align: center;
     background-color: #0fa7d6;
-    margin-bottom: 10px;
 }
 
 header.header-default:after{
@@ -557,6 +556,7 @@ section.course>header>ul li>a.course-a{
 
 section.course>header>ul li>a.course-a-active{
     color: #0fa7d6;
+    border-bottom: 3px solid #0fa7d6;
 }
 
 span.course-icon{
@@ -677,4 +677,13 @@ section.course-content4,section.course-content5{
 }
 .other-news span{
     color:#fd5959;
+}
+
+.usu-comp{
+    margin-bottom: 20px;
+}
+.comp-list>a{
+    font-size: 22px;
+    font-weight:bold;
+    margin-right: 70px;
 }

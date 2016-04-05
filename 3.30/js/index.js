@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 
 	// course页 课程模块header 控制
  	$("a.course-a").each(function(index, el) {
- 		$(this).on('click', function() {
+ 		$(this).hover(function() {
  			$(".course-a").removeClass('course-a-active');
 			$(this).addClass('course-a-active');
 			$($(".course-icon")[0]).css(
