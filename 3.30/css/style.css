@@ -182,7 +182,6 @@ section.container {
     left: 0;
     top: 0;
 }
-
 .left-list header{
     height: 47px;
     font-size: 20px;
@@ -338,7 +337,14 @@ header.header-default:after{
     height: 47px;
     background: url(../images/title-after.png) no-repeat center center;
 }
-
+@media(max-width:1100px){
+    .left-list{
+        display: none;
+    }
+    section.right-all{
+        width: 100%
+    }
+}
 
 
 .teacher-list{
@@ -368,6 +374,9 @@ header.header-default:after{
 .teacher-list>ul li a:hover{
     color: rgb(60,190,230);
     border-bottom: 1px rgb(60,190,230) solid;
+}
+.teacher-list-all{
+    margin-top:30px;
 }
 
 
@@ -443,7 +452,6 @@ section.personl-introduction>header,section.paper>header{
 /*==================news css(by liu)============*/
 
 .right-content{
-    float: right;
     position: relative;
     padding: 30px;
     background-color: #fdfdfd;
@@ -583,9 +591,12 @@ span.course-icon5{
     background-position: -216px -54px;
 }
 
-
+.course-content{
+    background: #fdfdfd;
+}
 section.course-content>ul{
     width: 100%;
+    padding: 15px 0;
 }
 
 section.course-content>ul li{
@@ -641,12 +652,17 @@ section.course-content4,section.course-content5{
     color: #0fa7d6;
     text-align: center;
     padding-bottom: 15px;
-    margin-bottom: 15px;
 }
 .intro-con article p{
     text-indent: 2em;
     line-height: 1.5em;
     padding-bottom: 1em;
+}
+.right-content div.news-time{
+    color:#868686;
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 15px;
 }
 .other-news{
     margin-top: 20px;
