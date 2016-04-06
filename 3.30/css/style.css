@@ -416,36 +416,11 @@ header.header-default:after{
 }
 
 
-.education >ul li span{
-    display: inline-block;
-    font-size: 20px;
-    color: #0fa7d6;
-    text-align: center;
-    padding-right: 10px;
-}
-
-.education-time{
-    display: inline-block;
-    margin: 5px 0;
-    padding-right:20px; 
-}
-
-.personl-introduction >p{
-    text-indent: 2em;
-    line-height: 150%;
-}
-
-.paper>ul li p{
-    line-height: 150%;
-}
-
-section.basicInfomation,section.education,
-section.personl-introduction,section.paper{
+section.personl-introduction,section.basicInfomation{
     padding-bottom: 30px;
 }
 
-section.basicInfomation>header,section.education>header,
-section.personl-introduction>header,section.paper>header{
+section.personl-introduction>header,.basicInfomation>header{
     margin-bottom: 20px;
 }
 /*==================news css(by liu)============*/
@@ -540,7 +515,6 @@ section.course>header>div{
 }
 
 section.course>header>ul li{
-    display: block;
     float: left;
     height: 124px;
     margin: 0 5%;
