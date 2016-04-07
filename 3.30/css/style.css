@@ -263,7 +263,11 @@ section.right-all >header{
     font-size: 15px;
     line-height: 200%;
 }
-
+@media(max-width:700px){
+    .right-header>ul>li{
+        float:none;
+    }
+}
 .right-header>ul>li:first-child{
     position: relative;
 }
