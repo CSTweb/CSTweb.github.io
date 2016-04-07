@@ -16,7 +16,7 @@ body{
 .logo{
     width: 320px;
     height: 85px;
-    background: url(../images/logo.png) 0 0 no-repeat;
+    background: url(../images/logo.png) 50% 50% no-repeat;
     float: left;
 }
 .logo-right{
@@ -58,6 +58,10 @@ body{
 @media(max-width:595px){
     .logo-right{
         display: none;
+    }
+    .logo{
+        width: 80%;
+        background-size: contain;
     }
 }
 .top-con:after{
