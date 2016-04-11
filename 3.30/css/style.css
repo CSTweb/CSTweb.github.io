@@ -162,6 +162,14 @@ section.container {
     display: none;
 }
 
+.foot-con{
+    margin-top: 40px;
+    padding: 6px 0;
+    font-size: 12px;
+    text-align: center;
+    background-color: #3c3c3c;
+    color:#646464;
+}
 /*============== teacher-list(by liu) ================*/
 .border-dotted{
     border-bottom: 1px #ADADAD dotted;
@@ -238,6 +246,7 @@ section.container {
 section.right-all{
     float: right;
     width: 75%;
+    min-height: 520px;
     position: relative;
 }
 
