@@ -170,7 +170,7 @@ section.container {
     background-color: #3c3c3c;
     color:#646464;
 }
-/*============== teacher-list(by liu) ================*/
+
 .border-dotted{
     border-bottom: 1px #ADADAD dotted;
 }
@@ -254,6 +254,12 @@ section.right-all >header{
     background-color: #fdfdfd;
 }
 
+.right-content{
+    position: relative;
+    padding: 30px;
+    background-color: #fdfdfd;
+} 
+
 .right-header{
     width: 100%;
     height: 47px;
@@ -272,11 +278,7 @@ section.right-all >header{
     font-size: 15px;
     line-height: 200%;
 }
-@media(max-width:700px){
-    .right-header>ul>li{
-        float:none;
-    }
-}
+
 .right-header>ul>li:first-child{
     position: relative;
 }
@@ -353,15 +355,8 @@ header.header-default:after{
     height: 47px;
     background: url(../images/title-after.png) no-repeat center center;
 }
-@media(max-width:1100px){
-    .left-list{
-        display: none;
-    }
-    section.right-all{
-        width: 100%
-    }
-}
 
+/*============== teacher-list(by liu) ================*/
 
 .teacher-list{
     padding-bottom: 25px;
@@ -443,11 +438,6 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 /*==================news css(by liu)============*/
 
-.right-content{
-    position: relative;
-    padding: 30px;
-    background-color: #fdfdfd;
-} 
 
 .news-list >ul{
     min-height: 400px;
@@ -586,6 +576,7 @@ span.course-icon5{
 .course-content{
     background: #fdfdfd;
 }
+
 section.course-content>ul{
     width: 100%;
     padding: 15px 0;
@@ -629,6 +620,7 @@ section.course-content4,section.course-content5{
     display: none;
 }
 
+/*==============intro css======================*/
 
 .intro-ban{
     height: 235px;
@@ -671,11 +663,64 @@ section.course-content4,section.course-content5{
     color:#fd5959;
 }
 
-.usu-comp{
-    margin-bottom: 20px;
+
+/*================================competition css=======================================*/
+.competition-news-list{
+    margin-bottom: 30px;
 }
-.comp-list>a{
-    font-size: 22px;
-    font-weight:bold;
-    margin-right: 70px;
+.competition-news-list > ul{
+    min-height: 220px;
+    padding-bottom: 20px;
+}
+
+.competition-intro >ul li{
+    padding: 10px 20px 10px 60px;
+    display: block;
+}
+
+.competition-intro >ul li a{
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #333333;
+}
+
+.competition-intro >ul li a:before,.competition-intro >ul li a:hover:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:-35px;
+    display: inline-block;
+    width: 29px;
+    height: 22px;
+}
+
+.competition-intro >ul li a:before{
+    background: url("../images/comp.png") no-repeat center center;
+}
+
+.competition-intro >ul li a:hover{
+    color: #3CBEE6;
+}
+
+.competition-intro >ul li a:hover:before{
+    background: url("../images/comp2.png") no-repeat center center;
+}
+
+/*============media===========*/
+@media(max-width:700px){
+    .right-header>ul>li{
+        float:none;
+    }
+}
+
+@media(max-width:1100px){
+    .left-list{
+        display: none;
+    }
+    section.right-all{
+        width: 100%
+    }
 }
