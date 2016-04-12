@@ -507,12 +507,12 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 
 /*===============course css by(liu)=====================*/
-section.course>header{
+.course>header{
     height: 124px;
     margin-bottom: 20px;
 }
 
-section.course>header>div{
+.course>header>div{
     float: left;
     font-size: 20px;
     color: #fff;
@@ -522,13 +522,13 @@ section.course>header>div{
     background-color: #0fa7d6;
 }
 
-section.course>header>ul li{
+.course>header>ul li{
     float: left;
     height: 124px;
     margin: 0 5%;
 }
 
-section.course>header>ul li>a.course-a{
+.course>header>ul li>a.course-a{
     display: block;
     font-size: 18px;
     color: #868686;
@@ -536,7 +536,7 @@ section.course>header>ul li>a.course-a{
     padding: 18px 0 19px;
 }
 
-section.course>header>ul li>a.course-a-active{
+.course>header>ul li>a.course-a-active{
     color: #0fa7d6;
     border-bottom: 3px solid #0fa7d6;
 }
@@ -571,6 +571,34 @@ span.course-icon4{
 span.course-icon5{
     background: url(../images/course-icon.png)  no-repeat;
     background-position: -216px -54px;
+}
+
+header.course-header-mobie{
+    display: none;
+    height: 32px;
+    width: 100%;
+}
+
+header.course-header-mobie>ul li{
+    display: inline-block;
+    float: left;
+    width: 20%;
+    height: 32px;
+    margin: 0;
+}
+a.course-ma{
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #a6a6a6;
+}
+
+a.course-ma-active{
+    background-color: #0fa7d6;
 }
 
 .course-content{
@@ -735,5 +763,38 @@ section.course-content4,section.course-content5{
     }
     section.right-all{
         width: 100%
+    }
+}
+/*===course media===*/
+@media (max-width: 850px) {
+    .course > header:first-child{
+        display: none;
+    }
+    header.course-header-mobie{
+        display: block;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .course > header:first-child{
+        display: none;
+    }
+    header.course-header-mobie{
+        display: block;
+        height: 240px;
+    }
+    header.course-header-mobie>ul li{
+        width: 100%;
+        height: 48px;
+    }
+    a.course-ma:first-child{
+        border-top: 1px rgba(0,0,0,0.1) solid;
+    }
+    a.course-ma{
+        line-height: 48px;
+        border-left: 1px rgba(0,0,0,0.1) solid;
+        border-right: 1px rgba(0,0,0,0.1) solid;
+        border-bottom: 1px rgba(0,0,0,0.1) solid;
     }
 }

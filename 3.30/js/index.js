@@ -53,7 +53,16 @@ jQuery(document).ready(function($) {
 					break;
 			}
  		});
- 	});	
+ 	});
+	//课程模块 mobie-header控制
+	$("a.course-ma").each(function(index, el) {
+		$(this).on('click', function() {
+			$(".course-ma").removeClass('course-ma-active');
+			$(this).addClass('course-ma-active');
+			$(".course-content").hide();
+			$($(".course-content")[index]).show();
+		});
+	});
 	//teacher-list页 right-header中的导航的控制
 
 	$("li.selection>a").each(function(index, el) {
