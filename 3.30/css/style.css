@@ -55,15 +55,6 @@ body{
     top: 1px;
     cursor: pointer;
 }
-@media(max-width:595px){
-    .logo-right{
-        display: none;
-    }
-    .logo{
-        width: 80%;
-        background-size: contain;
-    }
-}
 .top-con:after{
     content:'';
     display: block;
@@ -132,7 +123,17 @@ nav>ul>li{
 .li-second>li:hover a{
     background-color: #1C95BA;
 }
-
+.menu-btn{
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    background: url(../images/menu-btn.png) 50% 50% no-repeat;
+    position: fixed;
+    right: 6%;
+    top: 30px;
+    display: none;
+    cursor: pointer;
+}
 
 
 /*================ 可复用组件 ==================*/
@@ -751,12 +752,45 @@ section.course-content4,section.course-content5{
 
 
 /*============media===========*/
+@media(max-width:595px){
+    .logo-right{
+        display: none;
+    }
+    .logo{
+        width: 80%;
+        background-size: contain;
+    }
+    .menu-btn{
+        display: block;
+    }
+    nav>ul{
+        display: none;
+        position: fixed;
+        top: 60px;
+        right: 6%;
+        padding: 0;
+        z-index: 99999;
+    }
+    .li-second{
+        top:0;
+        left:-100%;
+    }
+    .li-third{
+        top:0;
+        left:-100%;
+    }
+    nav>ul>li{
+        float: none;
+    }
+    nav,nav>ul>li{
+        background: rgb(60,190,230);
+    }
+}
 @media(max-width:700px){
     .right-header>ul>li{
         float:none;
     }
 }
-
 @media(max-width:1100px){
     .left-list{
         display: none;
@@ -765,6 +799,7 @@ section.course-content4,section.course-content5{
         width: 100%
     }
 }
+
 /*===course media===*/
 @media (max-width: 850px) {
     .course > header:first-child{
@@ -776,7 +811,7 @@ section.course-content4,section.course-content5{
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 595px) {
     .course > header:first-child{
         display: none;
     }

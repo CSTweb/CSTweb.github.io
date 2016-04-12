@@ -74,6 +74,9 @@ jQuery(document).ready(function($) {
 		});
 	});
 	
+	$(".menu-btn").click(function(event) {
+		$("nav>ul").toggle(400);
+	});
 	
 	
 
