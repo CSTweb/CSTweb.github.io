@@ -357,6 +357,95 @@ header.header-default:after{
     background: url(../images/title-after.png) no-repeat center center;
 }
 
+/*====================index===========================*/
+
+section.index-content{
+    margin-top: 0;
+}
+
+.index-news-list{
+    float: left;
+    width: 35%;
+    min-height: 300px;
+    padding: 20px 1%;
+    background-color: #fdfdfd;
+    margin-right: 2%;
+    margin-top: 20px;
+}
+
+.index-news-list:first-child{
+    margin-right: 0;
+}
+
+.index-news-list > header{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0FA7D6;
+    line-height: 130%;
+    padding-bottom: 20px;
+}
+
+.index-news-list >ul li{
+    display: block;
+    padding: 3px 0;
+}
+
+.index-news-list >ul li a{
+    display: inline-block;
+    color: #333333;
+    min-width: 270px;
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+
+.index-news-list >ul li a:hover{
+    color: rgb(60,190,230);
+    text-decoration: underline;
+}
+
+.lunbo{
+    float: left;
+    width: 63%;
+    height: 340px;
+    margin-top: 20px;
+}
+
+.expressway{
+    float: left;
+    width: 20%;
+    height: 300px;
+    padding: 20px 1%;
+    background-color: #fdfdfd;
+    margin-top: 20px;
+}
+
+.expressway > header{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0FA7D6;
+    line-height: 130%;
+    padding-bottom: 20px;
+}
+
+.expressway >ul li a{
+    display: block;
+    width: 185px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 50px;
+    text-align: center;
+    background-color: #0D8DB5;
+    margin:0 auto 20px;
+}
+
+.expressway >ul li a:hover{
+    background-color: #1C95BA;
+}
+
 /*============== teacher-list(by liu) ================*/
 
 .teacher-list{
@@ -786,6 +875,7 @@ section.course-content4,section.course-content5{
         background: rgb(60,190,230);
     }
 }
+
 @media(max-width:700px){
     .right-header>ul>li{
         float:none;
@@ -797,6 +887,14 @@ section.course-content4,section.course-content5{
     }
     section.right-all{
         width: 100%
+    }
+}
+
+/*==========index media========*/
+@media (max-width: 1400px){
+    .index-news-list{
+        width: 33%;
+        padding: 20px 2%;
     }
 }
 
