@@ -472,7 +472,7 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 
 .news-list >ul li a span.news-title{
-    max-width: 650px;
+    max-width: 73%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis;
