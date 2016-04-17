@@ -1,0 +1,27 @@
+@media(max-width:595px){
+    .menu-btn{
+        display: block;
+    }
+    nav>ul{
+        display: none;
+        position: fixed;
+        top: 60px;
+        right: 6%;
+        padding: 0;
+        z-index: 99999;
+    }
+    .li-second{
+        top:0;
+        left:-100%;
+    }
+    .li-third{
+        top:0;
+        left:-100%;
+    }
+    nav>ul>li{
+        float: none;
+    }
+    nav,nav>ul>li{
+        background: rgb(60,190,230);
+    }
+}

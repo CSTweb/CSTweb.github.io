@@ -75,11 +75,30 @@ jQuery(document).ready(function($) {
 	});
 	
 	$(".menu-btn").click(function(event) {
-		$("nav>ul").toggle(400);
+		$("nav>ul").slideToggle(400);
 	});
-	
-	
 
+	function IsPC() {
+	    var userAgentInfo = navigator.userAgent;
+	    var Agents = ["Android", "iPhone",
+	                "SymbianOS", "Windows Phone",
+	                "iPad", "iPod"];
+	    var flag = true;
+	    for (var v = 0; v < Agents.length; v++) {
+	        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+	            flag = false;
+	            break;
+	        }
+	    }
+	    return flag;
+	}
+	if(!IsPC()){
+		var fileref = document.createElement('link');
+        fileref.setAttribute("rel","stylesheet");
+        fileref.setAttribute("type","text/css");
+        fileref.setAttribute("href","css/moCss.css");
+        document.getElementsByTagName("head")[0].appendChild(fileref);
+	}
 
 	try {
 		if (window.console && window.console.log) {
