@@ -3,6 +3,7 @@
         display: block;
     }
     nav>ul{
+        width: 70%;
         display: none;
         position: fixed;
         top: 60px;
@@ -18,9 +19,7 @@
         top:0;
         left:-100%;
     }
-    nav>ul>li{
-        float: none;
-    }
+
     nav,nav>ul>li{
         background: rgb(60,190,230);
     }
