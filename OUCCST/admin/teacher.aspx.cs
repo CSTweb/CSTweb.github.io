@@ -2,30 +2,28 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_teacher : System.Web.UI.Page
+public partial class admin_teacher1 : System.Web.UI.Page
 {
     int teaid;
     protected void Page_Load(object sender, EventArgs e)
     {
-            try
-            {
-                teaid = Convert.ToInt32(Request.QueryString["id"]);
- 
-            }
-            catch
-            {
-                teaid = 0;
-            }
-            if (!IsPostBack)
-            {
-                initDDL();
-                if(teaid !=0)
+        try
+        {
+            teaid = Convert.ToInt32(Request.QueryString["id"]);
+
+        }
+        catch
+        {
+            teaid = 0;
+        }
+        if (!IsPostBack)
+        {
+            initDDL();
+            if (teaid != 0)
                 using (var db = new CstwebEntities())
                 {
                     var tea = db.teachers.FirstOrDefault(a => a.id == teaid);
@@ -34,7 +32,7 @@ public partial class admin_teacher : System.Web.UI.Page
                     TxtHome.Text = tea.home;
                     Txtfield.Text = tea.field;
                     Txtetc.Text = rstrp(tea.etc);
-                    TxtCourse.Text = tea.course; 
+                    TxtCourse.Text = tea.course;
                     TxtMail.Text = tea.mail;
                     TxtOffice.Text = tea.office;
                     TxtPaper.Text = rstrp(tea.paper);
@@ -47,7 +45,7 @@ public partial class admin_teacher : System.Web.UI.Page
                     DDLTitle.SelectedValue = tea.title.ToString();
                     ImgIco.ImageUrl = tea.photo;
                 }
-            }
+        }
     }
 
     protected void initDDL()
@@ -151,7 +149,7 @@ public partial class admin_teacher : System.Web.UI.Page
                         db.SaveChanges();
                         Response.Write("<script language=javascript>alert('修改成功');window.location = 'teachers.aspx';</script>");
                     }
-                       
+
 
                 }
                 catch
@@ -238,14 +236,14 @@ public partial class admin_teacher : System.Web.UI.Page
     }
     protected string strp(string str1)
     {
-        str1=str1.Replace("\r\n", "<br/>");
+        str1 = str1.Replace("\r\n", "<br/>");
         return str1;
     }
 
     protected string rstrp(string str1)
     {
-        if(str1!=null)
-        str1 = str1.Replace("<br/>", "\r\n");
+        if (str1 != null)
+            str1 = str1.Replace("<br/>", "\r\n");
         return str1;
     }
 

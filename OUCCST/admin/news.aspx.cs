@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_news : System.Web.UI.Page
+public partial class admin_news1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,7 +19,7 @@ public partial class admin_news : System.Web.UI.Page
     }
     protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
-        int id=Convert.ToInt32(e.CommandArgument);
+        int id = Convert.ToInt32(e.CommandArgument);
         if (e.CommandName == "del")
         {
             using (var db = new CstwebEntities())
@@ -41,7 +41,7 @@ public partial class admin_news : System.Web.UI.Page
         using (var db = new CstwebEntities())
         {
             var dataSource = from items in db.news
-                             where items.@class==1
+                             where items.@class == 1
                              orderby items.id descending
                              select new { items.id, items.title, items.time };
             int totalAmount = dataSource.Count();

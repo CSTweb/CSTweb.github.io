@@ -94,6 +94,11 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
         </asp:ContentPlaceHolder>
+            <footer>
+        <div class="foot-con">
+            Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
+        </div>
+    </footer>
     </form>
 </body>
 </html>

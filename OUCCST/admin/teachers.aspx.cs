@@ -5,15 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_teachers : System.Web.UI.Page
+public partial class admin_teachers1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack){
-        databind();
-        initDDL();
+        if (!IsPostBack)
+        {
+            databind();
+            initDDL();
         }
-        
+
     }
 
     protected void databind()
@@ -32,10 +33,10 @@ public partial class admin_teachers : System.Web.UI.Page
         using (var db = new CstwebEntities())
         {
             var d1 = (from it in db.title
-                     select it).ToList();
+                      select it).ToList();
             var d2 = (from it in db.teachlevel
-                     select it).ToList();
-            int i=0;
+                      select it).ToList();
+            int i = 0;
             for (i = 0; i < d1.Count; i++)
             {
                 DDLTitle.Items.Add(new ListItem(d1[i].name, d1[i].id.ToString()));
@@ -52,7 +53,7 @@ public partial class admin_teachers : System.Web.UI.Page
     }
     protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
-        if (e.CommandName == "del") 
+        if (e.CommandName == "del")
         {
             using (var db = new CstwebEntities())
             {

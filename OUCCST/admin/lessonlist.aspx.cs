@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_lessonlist : System.Web.UI.Page
+public partial class admin_lessonlist1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -87,18 +87,17 @@ public partial class admin_lessonlist : System.Web.UI.Page
             if (str == "1")
             {
                 Session["First1"] = null;
-            }                       
-            else if (str == "2")    
-            {                       
+            }
+            else if (str == "2")
+            {
                 Session["First2"] = null;
-            }                     
-            else if (str == "3")   
-            {                       
+            }
+            else if (str == "3")
+            {
                 Session["First3"] = null;
             }
             Response.Redirect("lesson.aspx");
         }
     }
-
 
 }

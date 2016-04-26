@@ -5,29 +5,29 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_newsadd : System.Web.UI.Page
+public partial class admin_newsadd1 : System.Web.UI.Page
 {
     int neid;
     protected void Page_Load(object sender, EventArgs e)
     {
 
-            try
+        try
+        {
+            neid = Convert.ToInt32(Request.QueryString["id"]);
+            if (!IsPostBack)
             {
-                neid = Convert.ToInt32(Request.QueryString["id"]);
-                if (!IsPostBack)
+                using (var db = new CstwebEntities())
                 {
-                      using (var db = new CstwebEntities())
-                     {
-                         news ne = db.news.First<news>(a => a.id == neid);
-                         TxtTitle.Text = ne.title;
-                         myEditor.InnerHtml = ne.body;
-                     }
+                    news ne = db.news.First<news>(a => a.id == neid);
+                    TxtTitle.Text = ne.title;
+                    myEditor.InnerHtml = ne.body;
                 }
             }
-            catch
-            {
-                neid = 0;
-            }
+        }
+        catch
+        {
+            neid = 0;
+        }
 
     }
     protected void BtnReturn_Click(object sender, EventArgs e)
@@ -68,10 +68,9 @@ public partial class admin_newsadd : System.Web.UI.Page
 
                 }
             }
-            catch 
+            catch
             {
                 Response.Write("<script>alert('失败')</script>");
             }
     }
-
 }

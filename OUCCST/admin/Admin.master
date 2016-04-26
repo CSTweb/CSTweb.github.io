@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="admin_Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head1" runat="server">
+    </asp:ContentPlaceHolder>
+        <link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
+    <!--<link rel="stylesheet" href="css/fluid.css" type="text/css" media="screen" charset="utf-8" />-->
+    <link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <h1 id="head">中国海洋大学计算机系网站后台系统</h1>
+
+        <ul id="navigation">
+            <li><a href="#">首页</a></li>
+            <li><a href="news.aspx">新闻</a></li>
+            <li><a href="teachers.aspx">教师</a></li>
+            <li><a href="lessons.aspx">课程</a></li>
+        </ul>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                <div id="foot">
+            <a href="http://itstudio.club">爱特工作室2016年制作</a>
+
+        </div>
+    </form>
+</body>
+</html>

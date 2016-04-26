@@ -30,63 +30,63 @@
                             <li>
                                 <p><%#Eval("classname")%></p>
                                 <p>学时：讲授 <%#Eval("teach")%> 实验 <%#Eval("experiment")%></p>
-                                <p>先修课程：无</p>
+                                <p>先修课程：<%#Eval("first")%></p>
                                 <p>学分：<%#Eval("credits")%></p>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
             </section>
-            <section class="right-content course-content box-shadow clearfix">
+            <section class="hide course-content box-shadow clearfix">
                 <ul class="clearfix">
                     <asp:Repeater ID="Rptclass2" runat="server">
                         <ItemTemplate>
                             <li>
                                 <p><%#Eval("classname")%></p>
                                 <p>学时：讲授 <%#Eval("teach")%> 实验 <%#Eval("experiment")%></p>
-                                <p>先修课程：无</p>
+                                <p>先修课程：<%#Eval("first")%></p>
                                 <p>学分：<%#Eval("credits")%></p>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
             </section>
-            <section class="right-content course-content box-shadow clearfix">
+            <section class="hide course-content box-shadow clearfix">
                 <ul class="clearfix">
                     <asp:Repeater ID="Rptclass3" runat="server">
                         <ItemTemplate>
                             <li>
                                 <p><%#Eval("classname")%></p>
                                 <p>学时：讲授 <%#Eval("teach")%> 实验 <%#Eval("experiment")%></p>
-                                <p>先修课程：无</p>
+                                <p>先修课程：<%#Eval("first")%></p>
                                 <p>学分：<%#Eval("credits")%></p>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
             </section>
-            <section class="right-content course-content box-shadow clearfix">
+            <section class="hide course-content box-shadow clearfix">
                 <ul class="clearfix">
                     <asp:Repeater ID="Rptclass4" runat="server">
                         <ItemTemplate>
                             <li>
                                 <p><%#Eval("classname")%></p>
                                 <p>学时：讲授 <%#Eval("teach")%> 实验 <%#Eval("experiment")%></p>
-                                <p>先修课程：无</p>
+                                <p>先修课程：<%#Eval("first")%></p>
                                 <p>学分：<%#Eval("credits")%></p>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
             </section>
-            <section class="right-content course-content box-shadow clearfix">
+            <section class="hide course-content box-shadow clearfix">
                 <ul class="clearfix">
                     <asp:Repeater ID="Rptclass5" runat="server">
                         <ItemTemplate>
                             <li>
                                 <p><%#Eval("classname")%></p>
                                 <p>学时：讲授 <%#Eval("teach")%> 实验 <%#Eval("experiment")%></p>
-                                <p>先修课程：无</p>
+                                <p>先修课程：<%#Eval("first")%></p>
                                 <p>学分：<%#Eval("credits")%></p>
                             </li>
                         </ItemTemplate>

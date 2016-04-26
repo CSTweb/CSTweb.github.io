@@ -1,25 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="lesson.aspx.cs" Inherits="admin_lesson" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="lesson.aspx.cs" Inherits="lesson1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Steal My Admin</title>
-    <link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
-    <!--<link rel="stylesheet" href="css/fluid.css" type="text/css" media="screen" charset="utf-8" />-->
-    <link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <h1 id="head">Steal My Admin Template</h1>
-        <ul id="navigation">
-            <li><span class="active">Overview</span></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Users</a></li>
-        </ul>
-        <div id="content" class="container_16 clearfix">
+<asp:Content ID="Content1" ContentPlaceHolderID="head1" Runat="Server">
+    <title>课程</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div id="content" class="container_16 clearfix">
             <div class="grid_16">
                 <h2>添加/修改课程</h2>
                 <p class="error">Something went wronk.</p>
@@ -74,10 +59,5 @@
                 </p>
             </div>
         </div>
-        <div id="foot">
-            <a href="#">爱特工作室2016年制作</a>
+</asp:Content>
 
-        </div>
-    </form>
-</body>
-</html>

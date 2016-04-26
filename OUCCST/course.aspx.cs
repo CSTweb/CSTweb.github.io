@@ -23,10 +23,53 @@ public partial class course : System.Web.UI.Page
         using (var db = new CstwebEntities())
         {
             var se = (from it in db.lesson
-                     where it.lesscla == i
-                     select it).ToList();
-            r1.DataSource = se;
+                      where it.lesscla == i
+                      select it).ToList();
+
+            List<course1> co = new List<course1>();
+            course1 cour;
+            string first = "";
+            foreach (lesson less in se)
+            {
+                cour = new course1();
+                cour.id = less.id;
+                cour.lesscla = less.lesscla;
+                cour.teach = less.teach;
+                cour.experiment = less.experiment;
+                cour.credits = less.credits;
+                cour.classname = less.classname;
+                var rela = (from it in db.lesrelation
+                            where it.lesson == less.id
+                            select it).ToList();
+                foreach (lesrelation le in rela)
+                {
+                    first += db.lesson.First(a => a.id == le.firstlesson).classname +"、";
+                }
+                if (first == "")
+                {
+                    first = "无";
+                }
+                else
+                    first = first.Substring(0, first.Length - 1);
+                cour.first = first;
+                co.Add(cour);
+                first = "";
+
+            }
+
+            r1.DataSource = co;
             r1.DataBind();
         }
+    }
+
+    public class course1
+    {
+        public int id { get; set; }
+        public string classname { get; set; }
+        public int teach { get; set; }
+        public int experiment { get; set; }
+        public double credits { get; set; }
+        public int lesscla { get; set; }
+        public string first { get; set; }
     }
 }

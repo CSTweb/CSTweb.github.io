@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_lessons : System.Web.UI.Page
+public partial class admin_lessons1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -23,7 +23,7 @@ public partial class admin_lessons : System.Web.UI.Page
     }
     protected void initDDL()
     {
-        DDLClass.Items.Add(new ListItem("全部","0"));
+        DDLClass.Items.Add(new ListItem("全部", "0"));
         using (var db = new CstwebEntities())
         {
             var d1 = (from it in db.lesclass
@@ -81,12 +81,13 @@ public partial class admin_lessons : System.Web.UI.Page
             if (DDLClass.SelectedValue == "0")
             {
                 var se = (from it in db.lessonandclass
-                         select it).ToList();
-                Repeater1.DataSource = se.Where(a => a.classname.IndexOf(TxtName.Text.Trim())>0);
+                          select it).ToList();
+                Repeater1.DataSource = se.Where(a => a.classname.IndexOf(TxtName.Text.Trim()) > 0);
                 Repeater1.DataBind();
             }
-            else{
-                int cl=Convert.ToInt32(DDLClass.SelectedValue);
+            else
+            {
+                int cl = Convert.ToInt32(DDLClass.SelectedValue);
                 var se = from it in db.lessonandclass
                          where it.lesscla == cl
                          select it;

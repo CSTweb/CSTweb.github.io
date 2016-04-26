@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_lesson : System.Web.UI.Page
+public partial class lesson1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -92,7 +92,7 @@ public partial class admin_lesson : System.Web.UI.Page
                 var less = db.lesrelation.Where(a => a.lesson == id).ToList();
                 try
                 {
-                    id=Convert.ToInt32(less[0].firstlesson);
+                    id = Convert.ToInt32(less[0].firstlesson);
                     Label1.Text = id.ToString();
                     LinFirst1.Text = db.lesson.First(a => a.id == id).classname;
                     try
@@ -180,7 +180,7 @@ public partial class admin_lesson : System.Web.UI.Page
             else Session["First3"] = Label3.Text;
         }
     }
-    
+
 
     protected void LinFirst1_Click(object sender, EventArgs e)
     {
@@ -240,137 +240,139 @@ public partial class admin_lesson : System.Web.UI.Page
     {
         int temp;
         double cr;
-        if(IsOK()){
-                using (var db = new CstwebEntities())
+        if (IsOK())
+        {
+            using (var db = new CstwebEntities())
+            {
+                if (Session["lessonID"].ToString() != "0")
                 {
-                    if (Session["lessonID"].ToString()!="0")
+                    try
                     {
+                        temp = Convert.ToInt32(Session["lessonID"].ToString());
+                        var del = db.lesrelation.Where(a => a.lesson == temp).ToList();
+                        lesrelation les1;
                         try
                         {
-                            temp = Convert.ToInt32(Session["lessonID"].ToString());
-                            var del = db.lesrelation.Where(a => a.lesson == temp).ToList();
-                            lesrelation les1;
-                            try
-                            {
-                                les1 = del[0];
-                                db.lesrelation.Remove(les1);
-                                db.SaveChanges();
-                            }
-                            catch { }
-                            try
-                            {
-                                les1 = del[1];
-                                db.lesrelation.Remove(les1);
-                                db.SaveChanges();
-                            }
-                            catch { }
-                            try
-                            {
-                                les1 = del[2];
-                                db.lesrelation.Remove(les1);
-                                db.SaveChanges();
-                            }
-                            catch { }
-                            lesson les = db.lesson.First(a=>a.id==temp);
-                            les.classname = TxtLessonName.Text.Trim();
-                            cr = Convert.ToDouble(TxtCredits.Text.Trim());
-                            les.credits = cr;
-                            temp = Convert.ToInt32(TxtTeach.Text.Trim());
-                            les.teach = temp;
-                            temp = Convert.ToInt32(TxtExp.Text.Trim());
-                            les.experiment = temp;
-                            temp = Convert.ToInt32(DDLClass.SelectedValue);
-                            les.lesscla = temp;
-                            temp = Convert.ToInt32(Session["lessonID"].ToString());
-                            les1 = new lesrelation();
-                            les1.lesson = temp;
+                            les1 = del[0];
+                            db.lesrelation.Remove(les1);
                             db.SaveChanges();
-                            if(Label1.Text!="0"){
-                                temp = Convert.ToInt32(Label1.Text);
-                                les1.firstlesson = temp;
-                                db.lesrelation.Add(les1);
-                                db.SaveChanges();
-                            }
-                            if (Label2.Text != "0")
-                            {
-                                temp = Convert.ToInt32(Label2.Text);
-                                les1.firstlesson = temp;
-                                db.lesrelation.Add(les1);
-                                db.SaveChanges();
-                            }
-                            if (Label3.Text != "0")
-                            {
-                                temp = Convert.ToInt32(Label3.Text);
-                                les1.firstlesson = temp;
-                                db.lesrelation.Add(les1);
-                                db.SaveChanges();
-                            }
-                            Session["FList"] = null;
-                            Session["Less"] = null;
-                            Session["First1"] = null;
-                            Session["First2"] = null;
-                            Session["First3"] = null;
-                            Session["lessonID"] = null;
-                            Response.Write("<script language=javascript>alert('修改成功');window.location = 'lessons.aspx';</script>");
                         }
-                        catch 
+                        catch { }
+                        try
                         {
-                            Response.Write("<script>alert('修改失败')</script>");
+                            les1 = del[1];
+                            db.lesrelation.Remove(les1);
+                            db.SaveChanges();
                         }
+                        catch { }
+                        try
+                        {
+                            les1 = del[2];
+                            db.lesrelation.Remove(les1);
+                            db.SaveChanges();
+                        }
+                        catch { }
+                        lesson les = db.lesson.First(a => a.id == temp);
+                        les.classname = TxtLessonName.Text.Trim();
+                        cr = Convert.ToDouble(TxtCredits.Text.Trim());
+                        les.credits = cr;
+                        temp = Convert.ToInt32(TxtTeach.Text.Trim());
+                        les.teach = temp;
+                        temp = Convert.ToInt32(TxtExp.Text.Trim());
+                        les.experiment = temp;
+                        temp = Convert.ToInt32(DDLClass.SelectedValue);
+                        les.lesscla = temp;
+                        temp = Convert.ToInt32(Session["lessonID"].ToString());
+                        les1 = new lesrelation();
+                        les1.lesson = temp;
+                        db.SaveChanges();
+                        if (Label1.Text != "0")
+                        {
+                            temp = Convert.ToInt32(Label1.Text);
+                            les1.firstlesson = temp;
+                            db.lesrelation.Add(les1);
+                            db.SaveChanges();
+                        }
+                        if (Label2.Text != "0")
+                        {
+                            temp = Convert.ToInt32(Label2.Text);
+                            les1.firstlesson = temp;
+                            db.lesrelation.Add(les1);
+                            db.SaveChanges();
+                        }
+                        if (Label3.Text != "0")
+                        {
+                            temp = Convert.ToInt32(Label3.Text);
+                            les1.firstlesson = temp;
+                            db.lesrelation.Add(les1);
+                            db.SaveChanges();
+                        }
+                        Session["FList"] = null;
+                        Session["Less"] = null;
+                        Session["First1"] = null;
+                        Session["First2"] = null;
+                        Session["First3"] = null;
+                        Session["lessonID"] = null;
+                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'lessons.aspx';</script>");
                     }
-                    else
+                    catch
                     {
-                        try
+                        Response.Write("<script>alert('修改失败')</script>");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        lesson les = new lesson();
+                        lesrelation les1 = new lesrelation();
+                        les.classname = TxtLessonName.Text.Trim();
+                        cr = Convert.ToDouble(TxtCredits.Text.Trim());
+                        les.credits = cr;
+                        temp = Convert.ToInt32(TxtTeach.Text.Trim());
+                        les.teach = temp;
+                        temp = Convert.ToInt32(TxtExp.Text.Trim());
+                        les.experiment = temp;
+                        temp = Convert.ToInt32(DDLClass.SelectedValue);
+                        les.lesscla = temp;
+                        temp = Convert.ToInt32(Session["lessonID"].ToString());
+                        db.lesson.Add(les);
+                        db.SaveChanges();
+                        temp = db.lesson.First(a => a.classname == TxtLessonName.Text.Trim()).id;
+                        les1.lesson = temp;
+                        if (Label1.Text != "0")
                         {
-                            lesson les = new lesson();
-                            lesrelation les1 = new lesrelation();
-                            les.classname = TxtLessonName.Text.Trim();
-                            cr = Convert.ToDouble(TxtCredits.Text.Trim());
-                            les.credits = cr;
-                            temp = Convert.ToInt32(TxtTeach.Text.Trim());
-                            les.teach = temp;
-                            temp = Convert.ToInt32(TxtExp.Text.Trim());
-                            les.experiment = temp;
-                            temp = Convert.ToInt32(DDLClass.SelectedValue);
-                            les.lesscla = temp;
-                            temp = Convert.ToInt32(Session["lessonID"].ToString());
-                            db.lesson.Add(les);
+                            temp = Convert.ToInt32(Label1.Text);
+                            les1.firstlesson = temp;
+                            db.lesrelation.Add(les1);
                             db.SaveChanges();
-                            temp = db.lesson.First(a => a.classname == TxtLessonName.Text.Trim()).id;
-                            les1.lesson = temp;
-                            if (Label1.Text != "0")
-                            {
-                                temp = Convert.ToInt32(Label1.Text);
-                                les1.firstlesson = temp;
-                                db.lesrelation.Add(les1);
-                                db.SaveChanges();
-                            }
-                            if (Label2.Text != "0")
-                            {
-                                temp = Convert.ToInt32(Label2.Text);
-                                les1.firstlesson = temp;
-                                db.lesrelation.Add(les1);
-                                db.SaveChanges();
-                            }
-                            if (Label3.Text != "0")
-                            {
-                                temp = Convert.ToInt32(Label3.Text);
-                                les1.firstlesson = temp;
-                                db.lesrelation.Add(les1);
-                                db.SaveChanges();
-                            }
-                            Session["FList"] = null;
-                            Session["Less"] = null;
-                            Session["First1"] = null;
-                            Session["First2"] = null;
-                            Session["First3"] = null;
-                            Session["lessonID"] = null;
-                            Response.Write("<script language=javascript>alert('添加成功');window.location = 'lessons.aspx';</script>");
+                        }
+                        if (Label2.Text != "0")
+                        {
+                            temp = Convert.ToInt32(Label2.Text);
+                            les1.firstlesson = temp;
+                            db.lesrelation.Add(les1);
+                            db.SaveChanges();
+                        }
+                        if (Label3.Text != "0")
+                        {
+                            temp = Convert.ToInt32(Label3.Text);
+                            les1.firstlesson = temp;
+                            db.lesrelation.Add(les1);
+                            db.SaveChanges();
+                        }
+                        Session["FList"] = null;
+                        Session["Less"] = null;
+                        Session["First1"] = null;
+                        Session["First2"] = null;
+                        Session["First3"] = null;
+                        Session["lessonID"] = null;
+                        Response.Write("<script language=javascript>alert('添加成功');window.location = 'lessons.aspx';</script>");
 
-                        }
-                        catch { Response.Write("<script>alert('添加失败')</script>"); }
                     }
-                } 
+                    catch { Response.Write("<script>alert('添加失败')</script>"); }
+                }
+            }
         }
     }
 }

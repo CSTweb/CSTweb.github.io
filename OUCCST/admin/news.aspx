@@ -1,32 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="news.aspx.cs" Inherits="admin_news" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="news.aspx.cs" Inherits="admin_news1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <title>新闻公告</title>
-    <link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
-    <!--<link rel="stylesheet" href="css/fluid.css" type="text/css" media="screen" charset="utf-8" />-->
-    <link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
+<asp:Content ID="Content1" ContentPlaceHolderID="head1" Runat="Server">
     <style type="text/css">
         .auto-style1 {
             width: 523px;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <h1 id="head">中国海洋大学计算机系网站后台系统</h1>
-
-        <ul id="navigation">
-            <li><a href="#">首页</a></li>
-            <li><span class="active">新闻</span></li>
-            <li><a href="#">教师</a></li>
-        </ul>
-        <div id="content" class="container_16 clearfix">
+        <title>新闻公告</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div id="content" class="container_16 clearfix">
             <div class="grid_16">
                 <table>
                     <thead>
@@ -72,12 +55,5 @@
                 </table>
             </div>
         </div>
-        <div id="foot">
-            <a href="#">爱特工作室2016年制作</a>
+</asp:Content>
 
-        </div>
-
-
-    </form>
-</body>
-</html>

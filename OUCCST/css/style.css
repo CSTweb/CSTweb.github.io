@@ -16,7 +16,7 @@ body{
 .logo{
     width: 320px;
     height: 85px;
-    background: url(../images/logo.png) 0 0 no-repeat;
+    background: url(../images/logo.png) 50% 50% no-repeat;
     float: left;
 }
 .logo-right{
@@ -54,11 +54,6 @@ body{
     left: -25px;
     top: 1px;
     cursor: pointer;
-}
-@media(max-width:595px){
-    .logo-right{
-        display: none;
-    }
 }
 .top-con:after{
     content:'';
@@ -104,6 +99,13 @@ nav>ul>li{
     float: left;
     position: relative;
 }
+nav>ul:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 .li-second,.li-third{
     display: none;
     position: absolute;
@@ -128,7 +130,17 @@ nav>ul>li{
 .li-second>li:hover a{
     background-color: #1C95BA;
 }
-
+.menu-btn{
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    background: url(../images/menu-btn.png) 50% 50% no-repeat;
+    position: fixed;
+    right: 6%;
+    top: 30px;
+    display: none;
+    cursor: pointer;
+}
 
 
 /*================ 可复用组件 ==================*/
@@ -158,7 +170,15 @@ section.container {
     display: none;
 }
 
-/*============== teacher-list(by liu) ================*/
+.foot-con{
+    margin-top: 40px;
+    padding: 6px 0;
+    font-size: 12px;
+    text-align: center;
+    background-color: #3c3c3c;
+    color:#646464;
+}
+
 .border-dotted{
     border-bottom: 1px #ADADAD dotted;
 }
@@ -234,12 +254,19 @@ section.container {
 section.right-all{
     float: right;
     width: 75%;
+    min-height: 520px;
     position: relative;
 }
 
 section.right-all >header{
     background-color: #fdfdfd;
 }
+
+.right-content{
+    position: relative;
+    padding: 30px;
+    background-color: #fdfdfd;
+} 
 
 .right-header{
     width: 100%;
@@ -336,15 +363,97 @@ header.header-default:after{
     height: 47px;
     background: url(../images/title-after.png) no-repeat center center;
 }
-@media(max-width:1100px){
-    .left-list{
-        display: none;
-    }
-    section.right-all{
-        width: 100%
-    }
+
+/*====================index===========================*/
+
+section.index-content{
+    margin-top: 0;
 }
 
+.index-news-list{
+    float: left;
+    width: 35%;
+    min-height: 300px;
+    padding: 20px 1%;
+    background-color: #fdfdfd;
+    margin-right: 2%;
+    margin-top: 20px;
+}
+
+.index-news-list:first-child{
+    margin-right: 0;
+}
+
+.index-news-list > header{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0FA7D6;
+    line-height: 130%;
+    padding-bottom: 20px;
+}
+
+.index-news-list >ul li{
+    display: block;
+    padding: 3px 0;
+}
+
+.index-news-list >ul li a{
+    display: inline-block;
+    color: #333333;
+    min-width: 270px;
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+
+.index-news-list >ul li a:hover{
+    color: rgb(60,190,230);
+    text-decoration: underline;
+}
+
+.lunbo{
+    float: left;
+    width: 63%;
+    height: 340px;
+    margin-top: 20px;
+}
+
+.expressway{
+    float: left;
+    width: 20%;
+    height: 300px;
+    padding: 20px 1%;
+    background-color: #fdfdfd;
+    margin-top: 20px;
+}
+
+.expressway > header{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0FA7D6;
+    line-height: 130%;
+    padding-bottom: 20px;
+}
+
+.expressway >ul li a{
+    display: block;
+    width: 185px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 50px;
+    text-align: center;
+    background-color: #0D8DB5;
+    margin:0 auto 20px;
+}
+
+.expressway >ul li a:hover{
+    background-color: #1C95BA;
+}
+
+/*============== teacher-list(by liu) ================*/
 
 .teacher-list{
     padding-bottom: 25px;
@@ -406,6 +515,7 @@ header.header-default:after{
     float: left;
     display: block;
     padding: 5px 10px 5px 0;
+    width:70%;
 }
 
 .basicInfomation ul>li{
@@ -425,11 +535,6 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 /*==================news css(by liu)============*/
 
-.right-content{
-    position: relative;
-    padding: 30px;
-    background-color: #fdfdfd;
-} 
 
 .news-list >ul{
     min-height: 400px;
@@ -463,7 +568,7 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 
 .news-list >ul li a span.news-title{
-    max-width: 650px;
+    max-width: 73%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis;
@@ -499,12 +604,12 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 
 /*===============course css by(liu)=====================*/
-section.course>header{
+.course>header{
     height: 124px;
     margin-bottom: 20px;
 }
 
-section.course>header>div{
+.course>header>div{
     float: left;
     font-size: 20px;
     color: #fff;
@@ -514,13 +619,13 @@ section.course>header>div{
     background-color: #0fa7d6;
 }
 
-section.course>header>ul li{
+.course>header>ul li{
     float: left;
     height: 124px;
     margin: 0 5%;
 }
 
-section.course>header>ul li>a.course-a{
+.course>header>ul li>a.course-a{
     display: block;
     font-size: 18px;
     color: #868686;
@@ -528,7 +633,7 @@ section.course>header>ul li>a.course-a{
     padding: 18px 0 19px;
 }
 
-section.course>header>ul li>a.course-a-active{
+.course>header>ul li>a.course-a-active{
     color: #0fa7d6;
     border-bottom: 3px solid #0fa7d6;
 }
@@ -565,9 +670,38 @@ span.course-icon5{
     background-position: -216px -54px;
 }
 
+header.course-header-mobie{
+    display: none;
+    height: 32px;
+    width: 100%;
+}
+
+header.course-header-mobie>ul li{
+    display: inline-block;
+    float: left;
+    width: 20%;
+    height: 32px;
+    margin: 0;
+}
+a.course-ma{
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #a6a6a6;
+}
+
+a.course-ma-active{
+    background-color: #0fa7d6;
+}
+
 .course-content{
     background: #fdfdfd;
 }
+
 section.course-content>ul{
     width: 100%;
     padding: 15px 0;
@@ -611,6 +745,7 @@ section.course-content4,section.course-content5{
     display: none;
 }
 
+/*==============intro css======================*/
 
 .intro-ban{
     height: 235px;
@@ -653,11 +788,128 @@ section.course-content4,section.course-content5{
     color:#fd5959;
 }
 
-.usu-comp{
-    margin-bottom: 20px;
+
+/*================================competition css=======================================*/
+.competition-news-list{
+    margin-bottom: 30px;
 }
-.comp-list>a{
-    font-size: 22px;
-    font-weight:bold;
-    margin-right: 70px;
+.competition-news-list > ul{
+    min-height: 220px;
+    padding-bottom: 20px;
+}
+.competition-intro >ul li{
+    padding: 10px 20px 10px 60px;
+    display: block;
+}
+
+.competition-intro >ul li a{
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #333333;
+}
+
+.competition-intro >ul li a:before,.competition-intro >ul li a:hover:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:-35px;
+    display: inline-block;
+    width: 29px;
+    height: 22px;
+}
+
+.competition-intro >ul li a:before{
+    background: url("../images/comp.png") no-repeat center center;
+}
+
+.competition-intro >ul li a:hover{
+    color: #3CBEE6;
+}
+
+.competition-intro >ul li a:hover:before{
+    background: url("../images/comp2.png") no-repeat center center;
+}
+.comp-status{
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 4px; 
+    color:#fff;
+    float: right;
+}
+.comp-ing{
+    background-color: #50D270;
+}
+.comp-noting{
+    background-color: #BFBFBF;
+}
+
+
+/*============media===========*/
+@media(max-width:595px){
+    .logo-right{
+        display: none;
+    }
+    .logo{
+        width: 80%;
+        background-size: contain;
+    }
+}
+
+@media(max-width:700px){
+    .right-header>ul>li{
+        float:none;
+    }
+}
+@media(max-width:1100px){
+    .left-list{
+        display: none;
+    }
+    section.right-all{
+        width: 100%
+    }
+}
+
+/*==========index media========*/
+@media (max-width: 1400px){
+    .index-news-list{
+        width: 33%;
+        padding: 20px 2%;
+    }
+}
+
+/*===course media===*/
+@media (max-width: 850px) {
+    .course > header:first-child{
+        display: none;
+    }
+    header.course-header-mobie{
+        display: block;
+    }
+
+}
+
+@media (max-width: 595px) {
+    .course > header:first-child{
+        display: none;
+    }
+    header.course-header-mobie{
+        display: block;
+        height: 240px;
+    }
+    header.course-header-mobie>ul li{
+        width: 100%;
+        height: 48px;
+    }
+    a.course-ma:first-child{
+        border-top: 1px rgba(0,0,0,0.1) solid;
+    }
+    a.course-ma{
+        line-height: 48px;
+        border-left: 1px rgba(0,0,0,0.1) solid;
+        border-right: 1px rgba(0,0,0,0.1) solid;
+        border-bottom: 1px rgba(0,0,0,0.1) solid;
+    }
 }
