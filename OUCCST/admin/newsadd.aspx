@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="newsadd.aspx.cs" Inherits="admin_newsadd1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" validateRequest="false" AutoEventWireup="true" CodeFile="newsadd.aspx.cs" Inherits="admin_newsadd1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="Server">
     <title>新闻添加</title>
@@ -24,16 +24,17 @@
             <p>
                 <label>正文 </label>
                 <textarea id="myEditor" runat="server" onblur="setUeditor()"></textarea>
+                <%--<textarea id="myEditor" runat="server" ></textarea>--%>
             </p>
         </div>
         <asp:Button ID="BtnReturn" runat="server" Text="返回" OnClick="BtnReturn_Click" />
         <script type="text/javascript">
             //实例化编辑器
-            var um = UM.getEditor('myEditor');
+            var um = UM.getEditor('<%=myEditor.ClientID %>');
         </script>
         <script type="text/javascript">
             function setUeditor() {
-                var myEditor = document.getElementById("myEditor");
+                var myEditor = document.getElementById("<%=myEditor.ClientID %>");
                 myEditor.value = editor.getContent();
             }
         </script>

@@ -29,8 +29,8 @@
             </section>
             <nav class="mid-con">
                 <ul>
-                    <li><a href="../index.html">首页</a></li>
-                    <li><a href="cs-intro.html">本系简介</a></li>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="本系简介.html">本系简介</a></li>
                     <li>
                         <a href="teacher-list.aspx">师资队伍</a>
                         <ul class="li-second">
@@ -52,7 +52,7 @@
                             <li>
                                 <a href="#">本科生</a>
                                 <ul class="li-third">
-                                    <li><a href="#">培养方案</a></li>
+                                    <li><a href="培养方案.html">培养方案</a></li>
                                     <li><a href="course.aspx">课程大纲</a></li>
                                     <li><a href="#">学生竞赛</a></li>
                                 </ul>
