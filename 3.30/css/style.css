@@ -846,6 +846,62 @@ section.course-content4,section.course-content5{
     background-color: #BFBFBF;
 }
 
+.text-content article h2{
+    margin-bottom: 15px;
+}
+.text-content article h2:before{
+    content: url(../images/greenline_03.png);
+    margin-right: 10px;
+    position: relative;
+    top: 13px;
+}
+.text-content article p span{
+    color: #3ea79d;
+}
+.text-content article img{
+    margin: 20px 0;
+}
+
+/*文章目录颜色修改*/
+.tocible_header{
+    background-color: #131327 !important;
+}
+.tocible .tocible_heading{
+    background: #2B3352;
+}
+
+.note li{
+    background-color: #E6E6E6;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.note li:hover{
+    background-color: #e2e1e1;
+}
+.note li h4{
+    font-size: 18px;
+    line-height: 50px;
+    margin: 0 0 0 10px;
+    position: relative;
+}
+.note li i{
+    position: absolute;
+    left: 92%;
+    top: 26%;
+}
+.noteHide{
+    cursor: auto;
+    background-color: #FFFFFF !important;
+    margin: -7px 0 10px 0;
+    padding: 10px;
+}
+.toggleNote{
+    background-color: #0fa7d6 !important;
+    color: #fff !important;
+}
+.toggleNote i:before{
+    content: "\f077";
+}
 
 /*============media===========*/
 @media(max-width:595px){
