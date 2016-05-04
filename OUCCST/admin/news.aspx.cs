@@ -7,10 +7,12 @@ using System.Web.UI.WebControls;
 
 public partial class admin_news1 : System.Web.UI.Page
 {
+    int newsclass;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            newsclass = 1;
             int currentPage = 1;
             int pageSize = 20;
             Session["pagenum"] = 1;
@@ -41,7 +43,7 @@ public partial class admin_news1 : System.Web.UI.Page
         using (var db = new CstwebEntities())
         {
             var dataSource = from items in db.news
-                             where items.@class == 1
+                             where items.@class == newsclass
                              orderby items.id descending
                              select new { items.id, items.title, items.time };
             int totalAmount = dataSource.Count();
@@ -154,5 +156,13 @@ public partial class admin_news1 : System.Web.UI.Page
     protected void BtnAddnews_Click(object sender, EventArgs e)
     {
         Response.Redirect("newsadd.aspx");
+    }
+    protected void DdlSeClass_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        newsclass = Convert.ToInt32(DdlSeClass.SelectedValue);
+        int currentPage = 1;
+        int pageSize = 20;
+        Session["pagenum"] = 1;
+        ArticlesBind(currentPage, pageSize);
     }
 }

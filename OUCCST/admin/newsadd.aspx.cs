@@ -52,7 +52,7 @@ public partial class admin_newsadd1 : System.Web.UI.Page
 
                     ne.title = TxtTitle.Text.Trim();
                     ne.body = str.Trim();
-                    ne.@class = 1;
+                    ne.@class =Convert.ToInt32(DdlNew.SelectedValue);
                     ne.time = DateTime.Now;
                     if (neid == 0)
                     {

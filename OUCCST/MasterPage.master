@@ -30,7 +30,7 @@
             <nav class="mid-con">
                 <ul>
                     <li><a href="index.html">首页</a></li>
-                    <li><a href="本系简介.html">本系简介</a></li>
+                    <li><a href="introduce.aspx">本系简介</a></li>
                     <li>
                         <a href="teacher-list.aspx">师资队伍</a>
                         <ul class="li-second">
@@ -73,9 +73,9 @@
                         <a href="#">新闻动态</a>
                         <ul class="li-second">
                             <li><a href="news-list.aspx">本系动态</a></li>
-                            <li><a href="#">科研动态</a></li>
-                            <li><a href="#">教务动态</a></li>
-                            <li><a href="#">学术报告</a></li>
+                            <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
+                            <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
+                            <li><a href="news-list.aspx?newclass=4">学术报告</a></li>
                         </ul>
                     </li>
                     <li>

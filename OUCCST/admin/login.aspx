@@ -77,7 +77,7 @@
     <form id="form1" class="login" runat="server">
         <header>计算机科学与技术系 - 登录</header>
         <asp:TextBox ID="TxtAccount" class="username" runat="server" placeholder="用户名"></asp:TextBox>
-        <asp:TextBox ID="TxtPassword" class="password" runat="server" placeholder="密码"></asp:TextBox>
+        <asp:TextBox ID="TxtPassword" class="password" runat="server" placeholder="密码" TextMode="Password"></asp:TextBox>
         <asp:Button ID="BtnSubmit" class="submit" runat="server" Text="登录" OnClick="BtnSubmit_Click" />
     </form>
 

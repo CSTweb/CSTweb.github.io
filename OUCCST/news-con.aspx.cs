@@ -20,7 +20,8 @@ public partial class news_con : System.Web.UI.Page
                 Repeater1.DataBind();
                 try
                 {
-                    news ne1 = db.news.OrderByDescending(a=>a.id).FirstOrDefault(a => a.id < id && a.@class == 1);
+                    int cl = db.news.FirstOrDefault(a => a.id == id).@class;
+                    news ne1 = db.news.OrderByDescending(a=>a.id).FirstOrDefault(a => a.id < id && a.@class == cl);
                     Linpre.Text = ne1.title;
                     Linpre.PostBackUrl = "news-con.aspx?id=" + ne1.id.ToString();
                 }
@@ -29,7 +30,8 @@ public partial class news_con : System.Web.UI.Page
                 }
                 try
                 {
-                    news ne2 = db.news.FirstOrDefault(a => a.id > id && a.@class == 1);
+                    int cl = db.news.FirstOrDefault(a => a.id == id).@class;
+                    news ne2 = db.news.FirstOrDefault(a => a.id > id && a.@class == cl);
                     Linnext.Text = ne2.title;
                     Linnext.PostBackUrl = "news-con.aspx?id=" + ne2.id.ToString();
                 }
@@ -39,7 +41,9 @@ public partial class news_con : System.Web.UI.Page
                 }
 
             }
-        }catch{}
+        }catch{
+            Response.Redirect("news-list.aspx");
+        }
     }
 
 }

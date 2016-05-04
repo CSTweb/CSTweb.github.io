@@ -18,7 +18,8 @@
         <h1 id="head">中国海洋大学计算机系网站后台系统</h1>
 
         <ul id="navigation">
-            <li><a href="#">首页</a></li>
+            <li><a href="index.aspx">首页</a></li>
+            <li><a href="introduce.aspx">简介</a></li>
             <li><a href="news.aspx">新闻</a></li>
             <li><a href="teachers.aspx">教师</a></li>
             <li><a href="lessons.aspx">课程</a></li>
