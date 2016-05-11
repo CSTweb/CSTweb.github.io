@@ -21,6 +21,15 @@ public partial class accounts
     public virtual teachers teachers { get; set; }
 }
 
+public partial class games
+{
+    public int id { get; set; }
+    public string gamename { get; set; }
+    public int status { get; set; }
+    public string body { get; set; }
+    public Nullable<System.DateTime> addtime { get; set; }
+}
+
 public partial class lesclass
 {
     public lesclass()

@@ -15,7 +15,7 @@ public partial class admin_introduce : System.Web.UI.Page
             {
                 try
                 {
-                    news new1 = db.news.FirstOrDefault(a => a.@class == 0);
+                    news new1 = db.news.FirstOrDefault(a => a.@class == 5);
                     TxtTitle.Text = new1.title;
                     myEditor.InnerText = new1.body;
                 }
@@ -33,12 +33,12 @@ public partial class admin_introduce : System.Web.UI.Page
         {
             try
             {
-                news new1 = db.news.FirstOrDefault(a => a.@class == 0);
+                news new1 = db.news.FirstOrDefault(a => a.@class == 5);
                 new1.title = TxtTitle.Text;
                 new1.body = myEditor.InnerText;
                 new1.time = DateTime.Now;
                 db.SaveChanges();
-                Response.Write("<script language=javascript>alert('修改成功');window.location = 'introduce.aspx';</script>");
+                Response.Write("<script language=javascript>alert('修改成功');window.location = 'training.aspx';</script>");
             }
             catch
             {
@@ -46,10 +46,10 @@ public partial class admin_introduce : System.Web.UI.Page
                 new1.title = TxtTitle.Text;
                 new1.body = myEditor.InnerText;
                 new1.time = DateTime.Now;
-                new1.@class = 0;
+                new1.@class = 5;
                 db.news.Add(new1);
                 db.SaveChanges();
-                Response.Write("<script language=javascript>alert('修改成功');window.location = 'introduce.aspx';</script>");
+                Response.Write("<script language=javascript>alert('修改成功');window.location = 'training.aspx';</script>");
             }
         }
     }

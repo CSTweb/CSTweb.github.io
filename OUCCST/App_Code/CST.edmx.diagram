@@ -22,6 +22,7 @@
         <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson" />
         <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson1" />
         <EntityTypeShape EntityType="CstwebModel.lessonandclass" Width="1.5" PointX="8.47422851457923" PointY="30.5666880451919" />
+        <EntityTypeShape EntityType="CstwebModel.games" Width="1.5" PointX="8.625" PointY="3.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

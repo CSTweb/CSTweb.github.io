@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+     <ul id="navigation2">
+            <li><a href="training.aspx">培养方案</a></li>
+            <li><a href="lessons.aspx">课程</a></li>
+            <li><a href="games.aspx">学生竞赛</a></li>
+            <li><a href="competionnews.aspx">竞赛公告</a></li>
+        </ul>
     <div id="content" class="container_16 clearfix">
         <div class="grid_4">
             <p>

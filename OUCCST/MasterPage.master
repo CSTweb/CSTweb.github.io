@@ -9,6 +9,7 @@
     <meta name="viewport" content="initial-scale=1.0,width=device-width" />
     <title>计算机科学与技术系网站</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -52,9 +53,9 @@
                             <li>
                                 <a href="#">本科生</a>
                                 <ul class="li-third">
-                                    <li><a href="培养方案.html">培养方案</a></li>
+                                    <li><a href="training.aspx">培养方案</a></li>
                                     <li><a href="course.aspx">课程大纲</a></li>
-                                    <li><a href="#">学生竞赛</a></li>
+                                    <li><a href="games-list.aspx">学生竞赛</a></li>
                                 </ul>
                             </li>
                             <li>

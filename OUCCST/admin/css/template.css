@@ -84,6 +84,10 @@ label, #navigation, .error, .success, input[type="submit"], input[type="reset"] 
 	font-weight:bold;
 }
 
+label, #navigation2, .error, .success, input[type="submit"], input[type="reset"]  {
+	font-weight:bold;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	border-bottom:1px solid;
 }
@@ -141,6 +145,23 @@ th, td {
 	padding:5px 10px;
 	text-decoration:none;
 }
+#navigation2 {
+	-moz-border-radius-bottomleft:10px;
+	margin:0 auto 10px auto;
+	padding:10px 30px;
+	width:940px;
+}
+
+#navigation2 > li {
+	display:inline;
+	margin:0
+}
+
+#navigation2 > li > a, #navigation2 > li > span {
+	display:inline-block;
+	padding:5px 10px;
+	text-decoration:none;
+}
 
 /* Content */
 
@@ -159,6 +180,13 @@ th, td {
 }
 
 .curved, #navigation a, #navigation span, .error, .success, .box, .utils a {
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-topright:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+}
+
+.curved, #navigation2 a, #navigation2 span, .error, .success, .box, .utils a {
 	-moz-border-radius-bottomleft:5px;
 	-moz-border-radius-topright:5px;
 	-webkit-border-bottom-left-radius:5px;

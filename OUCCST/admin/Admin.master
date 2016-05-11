@@ -22,7 +22,7 @@
             <li><a href="introduce.aspx">简介</a></li>
             <li><a href="news.aspx">新闻</a></li>
             <li><a href="teachers.aspx">教师</a></li>
-            <li><a href="lessons.aspx">课程</a></li>
+            <li><a href="lessons.aspx">本科生</a></li>
         </ul>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
