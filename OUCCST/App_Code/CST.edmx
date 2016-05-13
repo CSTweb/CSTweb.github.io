@@ -7,7 +7,9 @@
     <Schema Namespace="CstwebModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="CstwebModelStoreContainer">
           <EntitySet Name="accounts" EntityType="CstwebModel.Store.accounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cooperation" EntityType="CstwebModel.Store.cooperation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="games" EntityType="CstwebModel.Store.games" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="labs" EntityType="CstwebModel.Store.labs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lesclass" EntityType="CstwebModel.Store.lesclass" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lesrelation" EntityType="CstwebModel.Store.lesrelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lesson" EntityType="CstwebModel.Store.lesson" store:Type="Tables" Schema="dbo" />
@@ -86,6 +88,16 @@
           <Property Name="accountlevel" Type="int" Nullable="false" />
           <Property Name="teacherid" Type="int" />
         </EntityType>
+        <EntityType Name="cooperation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cooperation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="addtime" Type="date" Nullable="false" />
+          <Property Name="class" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="games">
           <Key>
             <PropertyRef Name="id" />
@@ -94,7 +106,16 @@
           <Property Name="gamename" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="status" Type="int" Nullable="false" />
           <Property Name="body" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="addtime" Type="date" />
+          <Property Name="addtime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="labs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="labname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="labbody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="addtime" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="lesclass">
           <Key>
@@ -415,6 +436,8 @@
           </AssociationSet>
           <EntitySet Name="lessonandclass" EntityType="CstwebModel.lessonandclass" />
           <EntitySet Name="games" EntityType="CstwebModel.games" />
+          <EntitySet Name="cooperation" EntityType="CstwebModel.cooperation" />
+          <EntitySet Name="labs" EntityType="CstwebModel.labs" />
         </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -668,7 +691,26 @@
           <Property Type="String" Name="gamename" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="status" Nullable="false" />
           <Property Type="String" Name="body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="addtime" Precision="0" />
+          <Property Type="DateTime" Name="addtime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cooperation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="cooperation1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="addtime" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="class" Nullable="false" />
+        </EntityType>
+        <EntityType Name="labs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="labname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="labbody" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="addtime" Nullable="false" Precision="0" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -849,6 +891,27 @@
                 <ScalarProperty Name="body" ColumnName="body" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="gamename" ColumnName="gamename" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cooperation">
+            <EntityTypeMapping TypeName="CstwebModel.cooperation">
+              <MappingFragment StoreEntitySet="cooperation">
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="cooperation1" ColumnName="cooperation" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="labs">
+            <EntityTypeMapping TypeName="CstwebModel.labs">
+              <MappingFragment StoreEntitySet="labs">
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="labbody" ColumnName="labbody" />
+                <ScalarProperty Name="labname" ColumnName="labname" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

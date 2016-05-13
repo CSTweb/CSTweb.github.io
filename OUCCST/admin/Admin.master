@@ -21,8 +21,10 @@
             <li><a href="index.aspx">首页</a></li>
             <li><a href="introduce.aspx">简介</a></li>
             <li><a href="news.aspx">新闻</a></li>
+            <li><a href="labslist.aspx">研究</a></li>
             <li><a href="teachers.aspx">教师</a></li>
             <li><a href="lessons.aspx">本科生</a></li>
+            <li><a href="cooperation.aspx">合作</a></li>
         </ul>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

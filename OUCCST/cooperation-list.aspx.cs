@@ -5,34 +5,35 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class news_list : System.Web.UI.Page
+public partial class games_list : System.Web.UI.Page
 {
-    int artclass;
+    int neid;
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
-            artclass=Convert.ToInt16(Request.QueryString["newclass"]);
-           // Response.Write("<script>alert('"+artclass.ToString()+"')</script>");
-        }
-        catch
-        {
-            artclass = 1;
-        }
-        switch (artclass)
-        {
-            case 1: hea.Text = "本系新闻"; break;
-            case 2: hea.Text = "科研动态"; break;
-            case 3: hea.Text = "教务动态"; break;
-            case 4: hea.Text = "学术报告"; break;
-            default: artclass = 1; hea.Text = "本系新闻"; break;
-        }
+        
         if (!IsPostBack)
         {
+            try
+            {
+                neid = Convert.ToInt16(Request.QueryString["cooperation"]);
+            }
+            catch
+            {
+                neid = 1;
+            }
             int currentPage = 1;
             int pageSize = 10;
             Session["pagenum"] = 1;
             ArticlesBind(currentPage, pageSize);
+            
+        }
+        using (var db = new CstwebEntities())
+        {
+            var lo = (from it in db.cooperation
+                      where it.@class == neid
+                     select it).ToList();
+                RptGame.DataSource = lo;
+            RptGame.DataBind();
         }
         effect();
     }
@@ -41,7 +42,7 @@ public partial class news_list : System.Web.UI.Page
         using (var db = new CstwebEntities())
         {
             var dataSource = from items in db.news
-                             where items.@class == artclass
+                             where items.@class == neid + 6
                              orderby items.id descending
                              select new { items.id, items.title, items.time };
             int totalAmount = dataSource.Count();
@@ -170,5 +171,13 @@ public partial class news_list : System.Web.UI.Page
             }
         }
     }
+}
 
+public partial class games1
+{
+    public int id { get; set; }
+    public string gamename { get; set; }
+    public int status { get; set; }
+    public string body { get; set; }
+    public string gamestatus { get; set; }
 }

@@ -5,53 +5,62 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class news_list : System.Web.UI.Page
+public partial class admin_news1 : System.Web.UI.Page
 {
-    int artclass;
+    int newsclass;
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
-            artclass=Convert.ToInt16(Request.QueryString["newclass"]);
-           // Response.Write("<script>alert('"+artclass.ToString()+"')</script>");
-        }
-        catch
-        {
-            artclass = 1;
-        }
-        switch (artclass)
-        {
-            case 1: hea.Text = "本系新闻"; break;
-            case 2: hea.Text = "科研动态"; break;
-            case 3: hea.Text = "教务动态"; break;
-            case 4: hea.Text = "学术报告"; break;
-            default: artclass = 1; hea.Text = "本系新闻"; break;
-        }
         if (!IsPostBack)
         {
+            newsclass = 1;
             int currentPage = 1;
-            int pageSize = 10;
+            int pageSize = 20;
             Session["pagenum"] = 1;
             ArticlesBind(currentPage, pageSize);
         }
-        effect();
     }
+    protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        int id = Convert.ToInt32(e.CommandArgument);
+        if (e.CommandName == "del")
+        {
+            using (var db = new CstwebEntities())
+            {
+                try
+                {
+                    cooperation ne = db.cooperation.FirstOrDefault<cooperation>(a => a.id == id);
+                    db.cooperation.Remove(ne);
+                    db.SaveChanges();
+                    Response.Write("<script>alert('删除成功');window.location = 'cooperation.aspx';</script>");
+                }
+                catch { Response.Write("<script>alert('删除失败')</script>"); }
+            }
+        }
+    }
+
     void ArticlesBind(int CurrentPage, int PageSize) //文章绑定
     {
         using (var db = new CstwebEntities())
         {
-            var dataSource = from items in db.news
-                             where items.@class == artclass
+            var dataSource = from items in db.cooperation
+                             where items.@class == newsclass
                              orderby items.id descending
-                             select new { items.id, items.title, items.time };
+                             select new { items.id, items.cooperation1, items.addtime };
             int totalAmount = dataSource.Count();
             Session["pageCount"] = Math.Ceiling((double)totalAmount / (double)PageSize); //总页数，向上取整
             dataSource = dataSource.Skip(PageSize * (CurrentPage - 1)).Take(PageSize); //分页
             Repeater1.DataSource = dataSource.ToList();
             Repeater1.DataBind();
+            LtlArticlesCount.Text = totalAmount.ToString();
         }
     }
 
+    protected void DdlPageSize_SelectedIndexChanged(object sender, EventArgs e) // pageSize下拉列表改变
+    {
+        ArticlesBind(1, 20); //从第一页绑定，防止单页项目数量变多，导致页码超出范围。
+        TxtPageNum.Text = "1";
+        Session["pagenum"] = 1;
+    }
 
     int getPageCount(int pageSize) //获得总页数
     {
@@ -60,7 +69,7 @@ public partial class news_list : System.Web.UI.Page
         {
             using (var db = new CstwebEntities())
             {
-                var dataSource = from items in db.news
+                var dataSource = from items in db.cooperation
                                  orderby items.id
                                  select new { items };
                 int totalAmount = dataSource.Count();
@@ -75,6 +84,13 @@ public partial class news_list : System.Web.UI.Page
         return pageCount;
     }
 
+
+    int getPageNum() //获得当前文本框中的合法数字页码
+    {
+        int pageNum = Convert.ToInt16(Session["pagenum"]);
+        return pageNum;
+    }
+
     protected void BtnPreviousPage_Click(object sender, EventArgs e)
     {
         int pageNum = Convert.ToInt16(Session["pagenum"]) - 1;
@@ -86,26 +102,32 @@ public partial class news_list : System.Web.UI.Page
         }
         Session["pagenum"] = pageNum;
         ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        TxtPageNum.Text = pageNum.ToString();
     }
 
     protected void BtnNextPage_Click(object sender, EventArgs e)
     {
         int pageNum = Convert.ToInt16(Session["pagenum"]) + 1;
-        int pageSize = 10;
+        int pageSize = 20;
         if (pageNum >= getPageCount(pageSize))
         {
             pageNum = getPageCount(pageSize);
         }
         Session["pagenum"] = pageNum;
         ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        TxtPageNum.Text = pageNum.ToString();
     }
 
+    protected void BtnHomePage_Click(object sender, EventArgs e)
+    {
+        ArticlesBind(1, 20);
+        TxtPageNum.Text = "1";
+        Session["pagenum"] = 1;
+    }
 
     protected void BtnTrailerPage_Click(object sender, EventArgs e)
     {
-        int pageSize = 10;
+        int pageSize = 20;
         int pageNum = getPageCount(pageSize);
         if (pageNum <= 0) //没有内容的情况
         {
@@ -113,14 +135,13 @@ public partial class news_list : System.Web.UI.Page
         }
         Session["pagenum"] = pageNum;
         ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        TxtPageNum.Text = pageNum.ToString();
     }
 
-    protected void LinbtnJump(object sender, EventArgs e)
+    protected void BtnJumpPage_Click(object sender, EventArgs e)
     {
-        LinkButton link = (LinkButton)sender;
-        int pageNum = Convert.ToInt32(link.Text);
-        int pageSize = 10;
+        int pageNum = getPageNum();
+        int pageSize = 20;
         if (pageNum < 1)
         {
             pageNum = 1;
@@ -130,45 +151,18 @@ public partial class news_list : System.Web.UI.Page
             pageNum = getPageCount(pageSize);
         }
         ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        TxtPageNum.Text = pageNum.ToString();
     }
-
-
-    protected void effect()
+    protected void BtnAddnews_Click(object sender, EventArgs e)
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]);
-        int pageCount = getPageCount(10);
-        LinPageNum.Text = pageNum.ToString();
-        LinPageNumnext.Text = (pageNum + 1).ToString();
-        LinPageNumpre.Text = (pageNum - 1).ToString();
-        LinLastpage.Text = pageCount.ToString();
-        if (pageNum <= 3)
-        {
-            Lblpre.Visible = false;
-            if (pageNum <= 2)
-            {
-                LinPageNumpre.Visible = false;
-                if (pageNum == 1)
-                {
-                    LinFirstpage.Visible = false;
-                    Linpre.Visible = false;
-                    LinPageNum.Visible = false;
-                }
-            }
-        }
-        if (pageCount - pageNum <= 2)
-        {
-            Lblnext.Visible = false;
-            if (pageCount - pageNum <= 1)
-            {
-                LinPageNumnext.Visible = false;
-                if (pageCount == pageNum)
-                {
-                    LinLastpage.Visible = false;
-                    Linnext.Visible = false;
-                }
-            }
-        }
+        Response.Redirect("cooperationadd.aspx");
     }
-
+    protected void DdlSeClass_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        newsclass = Convert.ToInt32(DdlSeClass.SelectedValue);
+        int currentPage = 1;
+        int pageSize = 20;
+        Session["pagenum"] = 1;
+        ArticlesBind(currentPage, pageSize);
+    }
 }

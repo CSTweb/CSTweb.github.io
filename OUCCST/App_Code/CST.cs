@@ -21,13 +21,30 @@ public partial class accounts
     public virtual teachers teachers { get; set; }
 }
 
+public partial class cooperation
+{
+    public int id { get; set; }
+    public string cooperation1 { get; set; }
+    public string body { get; set; }
+    public System.DateTime addtime { get; set; }
+    public int @class { get; set; }
+}
+
 public partial class games
 {
     public int id { get; set; }
     public string gamename { get; set; }
     public int status { get; set; }
     public string body { get; set; }
-    public Nullable<System.DateTime> addtime { get; set; }
+    public System.DateTime addtime { get; set; }
+}
+
+public partial class labs
+{
+    public int id { get; set; }
+    public string labname { get; set; }
+    public string labbody { get; set; }
+    public System.DateTime addtime { get; set; }
 }
 
 public partial class lesclass

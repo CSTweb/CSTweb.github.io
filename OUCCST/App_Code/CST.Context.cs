@@ -38,6 +38,8 @@ public partial class CstwebEntities : DbContext
     public DbSet<lesson> lesson { get; set; }
     public DbSet<lessonandclass> lessonandclass { get; set; }
     public DbSet<games> games { get; set; }
+    public DbSet<cooperation> cooperation { get; set; }
+    public DbSet<labs> labs { get; set; }
 
     public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
     {

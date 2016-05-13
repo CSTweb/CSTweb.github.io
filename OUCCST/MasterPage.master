@@ -43,7 +43,7 @@
                     <li>
                         <a href="#">科学研究</a>
                         <ul class="li-second">
-                            <li><a href="#">研究方向</a></li>
+                            <li><a href="labsshow.aspx">研究方向</a></li>
                             <li><a href="#">科研动态</a></li>
                         </ul>
                     </li>
@@ -82,8 +82,8 @@
                     <li>
                         <a href="#">校外合作</a>
                         <ul class="li-second">
-                            <li><a href="#">校校合作</a></li>
-                            <li><a href="#">校企合作</a></li>
+                            <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
+                            <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
                             <li><a href="#">企业招聘</a></li>
                         </ul>
                     </li>
