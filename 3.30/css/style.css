@@ -824,6 +824,10 @@ section.course-content4,section.course-content5{
     line-height: 1.5em;
     padding-bottom: 1em;
 }
+.intro-con embed{
+    width:100%;
+    height:800px;
+}
 .right-content div.news-time{
     color:#868686;
     text-align: right;
