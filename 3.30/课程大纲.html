@@ -420,7 +420,37 @@
             Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
         </div>
     </footer>
+    <div class="screen-bg">
+      <div class="one-con">
+        <div class="one-close">X</div>
+        <h1>高级程序设计语言</h1>
+        <p><span>课程编号：</span>3462728284</p>
+        <p><span>课程教学目标及基本要求：</span>配合高级程序设计语言的课堂教学，通过本实验课使学生更好地理解和掌握课程内容，增强学生对高级程序设计语言的动手编程能力。实验任务是完成在理论课中布置的实验作业，学生在业余时间编写程序，在实验室进行程序的调试和运行。学生经过编程和调试学习，达到一定的编程能力。</p>
+        <p><span>考试形式：</span>实验报告等</p>
+        <p><span>参考书：</span>无</p>
+        <p><span>了解更多：</span><a href="#">点击下载</a></p>
+      </div>
+    </div>
     <script src="js/jquery-v1.10.2.min.js"></script>
     <script src="js/index.js"></script>
+    <script>
+      $(document).ready(function() {
+        var box = $('.screen-bg');
+        var con = $('.one-con');
+        $("section.course-content>ul>li").click(function(event) {
+          box.fadeIn('fast');
+        });
+        $(".one-close").click(function(event) {
+          box.fadeOut('fast');
+        });
+        box.click(function(event) {
+          box.fadeOut('fast');
+        });
+        con.click(function(event) {
+          event.stopPropagation();
+        });
+      });
+      
+    </script>
 </body>
 </html>
