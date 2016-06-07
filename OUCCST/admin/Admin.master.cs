@@ -14,4 +14,11 @@ public partial class admin_Admin : System.Web.UI.MasterPage
             Response.Redirect("login.aspx");
         }
     }
+
+
+    protected void logout_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Response.Write("<script language=javascript>alert('注销成功');window.location = 'login.aspx';</script>");
+    }
 }

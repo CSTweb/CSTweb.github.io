@@ -20,6 +20,7 @@
         <ul id="navigation">
             <li><a href="index2.aspx">首页</a></li>
             <li><a href="introduce.aspx">个人信息</a></li>
+            <asp:LinkButton ID="logout" style="float:right" runat="server" OnClick="logout_Click">注销</asp:LinkButton>
         </ul>
         <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
         

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -88,6 +89,19 @@ public partial class lesson1 : System.Web.UI.Page
                 TxtTeach.Text = les.teach.ToString();
                 TxtExp.Text = les.experiment.ToString();
                 TxtCredits.Text = les.credits.ToString();
+                try
+                {
+                    LblFilename.Text = les.lesfile;
+                }
+                catch { }
+                try
+                {
+                    TxtBook.Text = les.lesbook;
+                }
+                catch { }
+                TxtGoal.Text = les.lesgoal;
+                TxtNum.Text = les.lesnum;
+                TxtTest.Text = les.lestest;
                 DDLClass.SelectedValue = les.lesclass.ToString();
                 var less = db.lesrelation.Where(a => a.lesson == id).ToList();
                 try
@@ -171,6 +185,46 @@ public partial class lesson1 : System.Web.UI.Page
                 }
             }
             catch { }
+            try
+            {
+                if (TxtNum.Text.Trim() != "")
+                {
+                    les.lesnum = TxtNum.Text.Trim();
+                }
+            }
+            catch { }
+            try
+            {
+                if (TxtBook.Text.Trim() != "")
+                {
+                    les.lesbook = TxtBook.Text.Trim();
+                }
+            }
+            catch { }
+            try
+            {
+                if (TxtTest.Text.Trim() != "")
+                {
+                    les.lestest = TxtTest.Text.Trim();
+                }
+            }
+            catch { }
+            try
+            {
+                if (TxtGoal.Text.Trim() != "")
+                {
+                    les.lesgoal = TxtGoal.Text.Trim();
+                }
+            }
+            catch { }
+            try
+            {
+                if (LblFilename.Text != "")
+                {
+                    les.lesfile = LblFilename.Text;
+                }
+            }
+            catch { }
             Session["Less"] = les;
             if (Label1.Text == "0") Session["First1"] = null;
             else Session["First1"] = Label1.Text;
@@ -213,27 +267,43 @@ public partial class lesson1 : System.Web.UI.Page
 
     protected bool IsOK()
     {
-        if (TxtLessonName.Text.Trim() != "")
+        if (TxtLessonName.Text.Trim() == "")
         {
-            if (TxtTeach.Text.Trim() != "")
-            {
-                if (TxtExp.Text.Trim() != "")
-                {
-                    if (TxtCredits.Text.Trim() != "")
-                    {
-                        return true;
-                    }
-                    else Response.Write("<script>alert('学分不能为空')</script>");
-                    return false;
-                }
-                else Response.Write("<script>alert('实验学时不能为空')</script>");
-                return false;
-            }
-            else Response.Write("<script>alert('教授学时不能为空')</script>");
+            Response.Write("<script>alert('课程名不能为空')</script>");
             return false;
         }
-        else Response.Write("<script>alert('课程名不能为空')</script>");
-        return false;
+        if (TxtTeach.Text.Trim() == "")
+        {
+            Response.Write("<script>alert('教授学时不能为空')</script>");
+            return false;
+        }
+
+        if (TxtExp.Text.Trim() == "")
+        {
+            Response.Write("<script>alert('实验学时不能为空')</script>");
+            return false;
+        }
+        if (TxtCredits.Text.Trim() == "")
+        {
+            Response.Write("<script>alert('学分不能为空')</script>");
+            return false;
+        }
+        if (TxtGoal.Text.Trim() == "")
+        {
+            Response.Write("<script>alert('课程教学目标及基本要求不能为空')</script>");
+            return false;
+        }
+        if (TxtNum.Text.Trim() == "")
+        {
+            Response.Write("<script>alert('课程编号不能为空')</script>");
+            return false;
+        }
+        if (TxtTest.Text.Trim() == "")
+        {
+            Response.Write("<script>alert('考核方式不能为空')</script>");
+            return false;
+        }
+        return true;
     }
 
     protected void BtnPost_Click(object sender, EventArgs e)
@@ -283,6 +353,17 @@ public partial class lesson1 : System.Web.UI.Page
                         temp = Convert.ToInt32(DDLClass.SelectedValue);
                         les.lesscla = temp;
                         temp = Convert.ToInt32(Session["lessonID"].ToString());
+                        if (LblFilename.Text != "")
+                        {
+                            les.lesfile = LblFilename.Text;
+                        }
+                        if (TxtBook.Text.Trim() != "")
+                        {
+                            les.lesbook = TxtBook.Text.Trim();
+                        }
+                        les.lesgoal = TxtGoal.Text.Trim();
+                        les.lesnum = TxtNum.Text.Trim();
+                        les.lestest = TxtTest.Text.Trim();
                         les1 = new lesrelation();
                         les1.lesson = temp;
                         db.SaveChanges();
@@ -336,6 +417,18 @@ public partial class lesson1 : System.Web.UI.Page
                         temp = Convert.ToInt32(DDLClass.SelectedValue);
                         les.lesscla = temp;
                         temp = Convert.ToInt32(Session["lessonID"].ToString());
+                        if (LblFilename.Text != "")
+                        {
+                            les.lesfile = LblFilename.Text;
+                            
+                        }
+                        if (TxtBook.Text.Trim() != "")
+                        {
+                            les.lesbook = TxtBook.Text.Trim();
+                        }
+                        les.lesgoal = TxtGoal.Text.Trim();
+                        les.lesnum = TxtNum.Text.Trim();
+                        les.lestest = TxtTest.Text.Trim();
                         db.lesson.Add(les);
                         db.SaveChanges();
                         temp = db.lesson.First(a => a.classname == TxtLessonName.Text.Trim()).id;
@@ -375,4 +468,53 @@ public partial class lesson1 : System.Web.UI.Page
             }
         }
     }
+
+    protected void UploadButton_Click(object sender, EventArgs e)
+    {
+        string strName = FileUploadControl.PostedFile.FileName;//使用fileupload控件获取上传文件的文件名
+        if (strName != "")//如果文件名存在
+        {
+            bool fileOK = false;
+            int i = strName.LastIndexOf(".");//获取。的索引顺序号，在这里。代表图片名字与后缀的间隔
+            string kzm = strName.Substring(i);//获取文件扩展名的另一种方法 string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+
+
+            string xiangdui = @"~\files\";//设置文件相对网站根目录的保存路径 ，~号表示当前目录，在此表示根目录下的images文件夹
+            string juedui = Server.MapPath("~\\files\\");//设置文件保存的本地目录绝对路径，对于路径中的字符“＼”在字符串中必须以“＼＼”表示，因为“＼”为特殊字符。或者可以使用上一行的给路径前面加上＠
+            string newFileName = juedui + strName;
+            if (FileUploadControl.HasFile)//验证 FileUpload 控件确实包含文件
+            {
+
+                String[] allowedExtensions = { ".doc", ".docx", ".txt" };
+                for (int j = 0; j < allowedExtensions.Length; j++)
+                {
+                    if (kzm == allowedExtensions[j])
+                    {
+                        fileOK = true;
+                    }
+                }
+            }
+            if (fileOK)
+            {
+                try
+                {
+                    // 判定该路径是否存在
+                    if (!Directory.Exists(juedui))
+                        Directory.CreateDirectory(juedui);
+                    LblFilename.Text = xiangdui + strName;
+                    StatusLabel.Text = "文件上传成功.";
+                    FileUploadControl.PostedFile.SaveAs(newFileName);//将图片存储到服务器上
+                }
+                catch (Exception)
+                {
+                    StatusLabel.Text = "文件上传失败.";
+                }
+            }
+            else
+            {
+                StatusLabel.Text = "只能够上传word文档.";
+            }
+        }
+    }
+
 }

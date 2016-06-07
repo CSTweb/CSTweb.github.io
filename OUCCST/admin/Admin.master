@@ -15,7 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1 id="head">中国海洋大学计算机系网站后台系统<a style="right:inherit">注销</a></h1>
+        <h1 id="head">中国海洋大学计算机系网站后台系统</h1>
 
         <ul id="navigation">
             <li><a href="index.aspx">首页</a></li>
@@ -25,6 +25,8 @@
             <li><a href="teachers.aspx">教师</a></li>
             <li><a href="lessons.aspx">本科生</a></li>
             <li><a href="cooperation.aspx">合作</a></li>
+            <li><a href="cooperation.aspx">密码管理</a></li>
+            <asp:LinkButton ID="logout" style="float:right" runat="server" OnClick="logout_Click">注销</asp:LinkButton>
         </ul>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

@@ -38,7 +38,7 @@ public partial class admin_login : System.Web.UI.Page
                         }
                         else if (ac.accountlevel == 1)
                         {
-                            Session["teachertid"] = ac.teacherid;
+                            Session["teacherid"] = ac.teacherid;
                             Response.Write("<script language=javascript>alert('登录成功');window.location = 'index2.aspx';</script>");
                         }
                         else

@@ -143,6 +143,10 @@
           <Property Name="credits" Type="float" Nullable="false" />
           <Property Name="lesscla" Type="int" Nullable="false" />
           <Property Name="lesfile" Type="nvarchar(max)" />
+          <Property Name="lesnum" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="lesgoal" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="lestest" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="lesbook" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="news">
           <Key>
@@ -628,6 +632,10 @@
           <NavigationProperty Name="lesrelation" Relationship="CstwebModel.FK_lesrelation_lesson" FromRole="lesson" ToRole="lesrelation" />
           <NavigationProperty Name="lesrelation1" Relationship="CstwebModel.FK_lesrelation_lesson1" FromRole="lesson" ToRole="lesrelation" />
           <Property Type="String" Name="lesfile" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lesnum" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lesgoal" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lestest" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lesbook" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_lesson_lesclass">
           <End Type="CstwebModel.lesclass" Role="lesclass" Multiplicity="1">
@@ -864,6 +872,10 @@
           <EntitySetMapping Name="lesson">
             <EntityTypeMapping TypeName="CstwebModel.lesson">
               <MappingFragment StoreEntitySet="lesson">
+                <ScalarProperty Name="lesbook" ColumnName="lesbook" />
+                <ScalarProperty Name="lestest" ColumnName="lestest" />
+                <ScalarProperty Name="lesgoal" ColumnName="lesgoal" />
+                <ScalarProperty Name="lesnum" ColumnName="lesnum" />
                 <ScalarProperty Name="lesfile" ColumnName="lesfile" />
                 <ScalarProperty Name="lesscla" ColumnName="lesscla" />
                 <ScalarProperty Name="credits" ColumnName="credits" />
