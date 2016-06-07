@@ -142,6 +142,7 @@
           <Property Name="experiment" Type="int" Nullable="false" />
           <Property Name="credits" Type="float" Nullable="false" />
           <Property Name="lesscla" Type="int" Nullable="false" />
+          <Property Name="lesfile" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="news">
           <Key>
@@ -626,6 +627,7 @@
           <NavigationProperty Name="lesclass" Relationship="CstwebModel.FK_lesson_lesclass" FromRole="lesson" ToRole="lesclass" />
           <NavigationProperty Name="lesrelation" Relationship="CstwebModel.FK_lesrelation_lesson" FromRole="lesson" ToRole="lesrelation" />
           <NavigationProperty Name="lesrelation1" Relationship="CstwebModel.FK_lesrelation_lesson1" FromRole="lesson" ToRole="lesrelation" />
+          <Property Type="String" Name="lesfile" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_lesson_lesclass">
           <End Type="CstwebModel.lesclass" Role="lesclass" Multiplicity="1">
@@ -862,6 +864,7 @@
           <EntitySetMapping Name="lesson">
             <EntityTypeMapping TypeName="CstwebModel.lesson">
               <MappingFragment StoreEntitySet="lesson">
+                <ScalarProperty Name="lesfile" ColumnName="lesfile" />
                 <ScalarProperty Name="lesscla" ColumnName="lesscla" />
                 <ScalarProperty Name="credits" ColumnName="credits" />
                 <ScalarProperty Name="experiment" ColumnName="experiment" />

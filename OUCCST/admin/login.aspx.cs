@@ -31,8 +31,20 @@ public partial class admin_login : System.Web.UI.Page
                     accounts ac = db.accounts.FirstOrDefault(a => a.account == TxtAccount.Text.Trim());
                     if (PasswordHash.PasswordHash.ValidatePassword(TxtPassword.Text.Trim(), ac.password))
                     {
-                        Session["admin"] = PasswordHash.PasswordHash.CreateHash(TxtAccount.Text.Trim())+":"+TxtAccount.Text.Trim();
-                        Response.Write("<script language=javascript>alert('登录成功');window.location = 'index.aspx';</script>");
+                        if (ac.accountlevel == 0)
+                        {
+                            Session["admin"] = PasswordHash.PasswordHash.CreateHash(TxtAccount.Text.Trim()) + ":" + TxtAccount.Text.Trim();
+                            Response.Write("<script language=javascript>alert('登录成功');window.location = 'index.aspx';</script>");
+                        }
+                        else if (ac.accountlevel == 1)
+                        {
+                            Session["teachertid"] = ac.teacherid;
+                            Response.Write("<script language=javascript>alert('登录成功');window.location = 'index2.aspx';</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('出现迷之错误')</script>");
+                        }
                     }
                     else
                     {

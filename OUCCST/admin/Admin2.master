@@ -1,12 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="admin_Admin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin2.master.cs" Inherits="admin_Admin2" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <asp:ContentPlaceHolder id="head1" runat="server">
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
         <link rel="stylesheet" href="css/960.css" type="text/css" media="screen" charset="utf-8" />
     <!--<link rel="stylesheet" href="css/fluid.css" type="text/css" media="screen" charset="utf-8" />-->
@@ -15,18 +15,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1 id="head">中国海洋大学计算机系网站后台系统<a style="right:inherit">注销</a></h1>
+        <h1 id="head">中国海洋大学计算机系网站后台系统</h1>
 
         <ul id="navigation">
-            <li><a href="index.aspx">首页</a></li>
-            <li><a href="introduce.aspx">简介</a></li>
-            <li><a href="news.aspx">新闻</a></li>
-            <li><a href="labslist.aspx">研究</a></li>
-            <li><a href="teachers.aspx">教师</a></li>
-            <li><a href="lessons.aspx">本科生</a></li>
-            <li><a href="cooperation.aspx">合作</a></li>
+            <li><a href="index2.aspx">首页</a></li>
+            <li><a href="introduce.aspx">个人信息</a></li>
         </ul>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
         
         </asp:ContentPlaceHolder>
                 <div id="foot">

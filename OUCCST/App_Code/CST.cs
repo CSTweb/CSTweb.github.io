@@ -84,6 +84,7 @@ public partial class lesson
     public int experiment { get; set; }
     public double credits { get; set; }
     public int lesscla { get; set; }
+    public string lesfile { get; set; }
 
     public virtual lesclass lesclass { get; set; }
     public virtual ICollection<lesrelation> lesrelation { get; set; }
