@@ -12,6 +12,7 @@
     <!--<link rel="stylesheet" href="css/fluid.css" type="text/css" media="screen" charset="utf-8" />-->
     <link rel="stylesheet" href="css/template.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="css/colour.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" src="../js/jquery-v1.10.2.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,7 +26,7 @@
             <li><a href="teachers.aspx">教师</a></li>
             <li><a href="lessons.aspx">本科生</a></li>
             <li><a href="cooperation.aspx">合作</a></li>
-            <li><a href="cooperation.aspx">密码管理</a></li>
+            <li><a href="pweditor.aspx">密码管理</a></li>
             <asp:LinkButton ID="logout" style="float:right" runat="server" OnClick="logout_Click">注销</asp:LinkButton>
         </ul>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

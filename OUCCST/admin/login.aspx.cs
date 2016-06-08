@@ -33,7 +33,7 @@ public partial class admin_login : System.Web.UI.Page
                     {
                         if (ac.accountlevel == 0)
                         {
-                            Session["admin"] = PasswordHash.PasswordHash.CreateHash(TxtAccount.Text.Trim()) + ":" + TxtAccount.Text.Trim();
+                            Session["admin"] = ac.id;
                             Response.Write("<script language=javascript>alert('登录成功');window.location = 'index.aspx';</script>");
                         }
                         else if (ac.accountlevel == 1)

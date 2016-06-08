@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="pweditor.aspx.cs" Inherits="admin_pweditor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin2.master" AutoEventWireup="true" CodeFile="pweditor2.aspx.cs" Inherits="admin_pweditor2" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <div id="content" class="container_16 clearfix">
     <div class="grid_6" >
         <p>
@@ -31,7 +31,7 @@
     </div>
         </div>
     <script type="text/javascript">
-        function check(){
+        function check() {
             var pw1 = $("#<%=NewPw1.ClientID%>").val();
             var pw2 = $("#<%=NewPw2.ClientID%>").val();
             if (pw1 == pw2) {
