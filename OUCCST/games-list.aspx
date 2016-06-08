@@ -13,6 +13,16 @@
         </ul>
     </section>
     <section class="right-all  clearfix">
+        <section class="right-content competition-intro">
+            <header class="header-default">竞赛介绍</header>
+            <ul>
+                <asp:Repeater ID="RptGame" runat="server">
+                    <ItemTemplate>
+                        <li class="border-dotted"><a href="games-con.aspx?id=<%#Eval("id")%>"><i class="icon-trophy"></i><%#Eval("gamename")%></a><%#Eval("gamestatus")%></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </ul>
+        </section>
         <section class="right-content news-list competition-news-list box-shadow">
             <header class="header-default">最新竞赛通知</header>
             <ul class="border-dotted">
@@ -50,16 +60,7 @@
                     </ul>
                 </footer>
         </section>
-        <section class="right-content competition-intro">
-            <header class="header-default">竞赛介绍</header>
-            <ul>
-                <asp:Repeater ID="RptGame" runat="server">
-                    <ItemTemplate>
-                        <li class="border-dotted"><a href="games-con.aspx?id=<%#Eval("id")%>"><i class="icon-trophy"></i><%#Eval("gamename")%></a><%#Eval("gamestatus")%></li>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </ul>
-        </section>
+
     </section>
 </section>
     <script src="js/jquery-v1.10.2.min.js"></script>

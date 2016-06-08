@@ -13,6 +13,17 @@
             </ul>
         </section>
         <section class="right-all  clearfix">
+            <section class="right-content competition-intro">
+                <header class="header-default">
+                    <asp:Label ID="Label1" runat="server" Text="合作项目"></asp:Label></header>
+                <ul>
+                    <asp:Repeater ID="RptGame" runat="server">
+                        <ItemTemplate>
+                            <li class="border-dotted"><a href="cooperation-con.aspx?id=<%#Eval("id")%>"><i class="icon-group"></i><%#Eval("cooperation1")%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </section>
             <section class="right-content news-list competition-news-list box-shadow">
                 <header class="header-default">最新通知</header>
                 <ul class="border-dotted">
@@ -50,16 +61,7 @@
                     </ul>
                 </footer>
             </section>
-            <section class="right-content competition-intro">
-                <header class="header-default"><asp:Label ID="Label1" runat="server" Text="竞赛介绍"></asp:Label></header>
-                <ul>
-                    <asp:Repeater ID="RptGame" runat="server">
-                        <ItemTemplate>
-                            <li class="border-dotted"><a href="cooperation-con.aspx?id=<%#Eval("id")%>"><i class="icon-group"></i><%#Eval("cooperation1")%></a></li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </ul>
-            </section>
+
         </section>
     </section>
     <script src="js/jquery-v1.10.2.min.js"></script>
