@@ -112,7 +112,7 @@
     <div class="screen-bg">
       <div class="one-con">
         <div class="one-close">X</div>
-        <h1>高级程序设计语言</h1>
+        <h1 id="lesname">高级程序设计语言</h1>
         <p id="lesnum"><span >课程编号：</span></p>
         <p id="lesgoal"><span>课程教学目标及基本要求：</span></p>
         <p id="lestest"><span>考试形式：</span></p>
@@ -122,7 +122,7 @@
     </div>
     <script src="js/jquery-v1.10.2.min.js"></script>
     <script src="js/index.js"></script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             var box = $('.screen-bg');
             var con = $('.one-con');
@@ -136,7 +136,10 @@
                     data: { id : num },
                     dataType: "text",
                     success: function (json) {
-                        var data = eval('(' + json + ')');
+                        //var data = eval('('+json+')');
+                        //var data = new Function("return" + json)();
+                        var data = JSON.parse(json);
+                        $("#lesname").html(data.lesname);
                         $("#lesnum").html("<span >课程编号：</span>" + data.lesnum);
                         $("#lesgoal").html("<span >课程教学目标及基本要求：</span>" + data.lesgoal);
                         $("#lestest").html("<span >考试形式：</span>" + data.lestest);

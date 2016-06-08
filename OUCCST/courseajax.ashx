@@ -15,32 +15,42 @@ public class courseajax : IHttpHandler
         res.ContentType = "text/plain";
         string id = context.Request.Form["id"];
         int lesid = Convert.ToInt16(id);
-        using (var db = new CstwebEntities())
+        try
         {
-            var se = (from it in db.lesson
-                      where it.id == lesid
-                      select it).ToList();
+            using (var db = new CstwebEntities())
+            {
+                lesson se = db.lesson.First(a => a.id == lesid);
 
-            StringBuilder sb = new StringBuilder("{");
-            sb.Append("\"id\":\"" + se[0].id+"\"");
-            sb.Append(",\"lesnum\":\"" + se[0].lesnum + "\"");
-            sb.Append(",\"lesgoal\":\"" + se[0].lesgoal + "\"");
-            if (se[0].lesbook != null)
-            {
-                sb.Append(",\"lesbook\":\"" + se[0].lesbook + "\"");
+                StringBuilder sb = new StringBuilder("{");
+                sb.Append("\"id\":\"" + se.id + "\"");
+                sb.Append(",\"lesname\":\"" + se.classname + "\"");
+                sb.Append(",\"lesnum\":\"" + se.lesnum + "\"");
+                sb.Append(",\"lesgoal\":\"" + se.lesgoal + "\"");
+                if (se.lesbook != null)
+                {
+                    sb.Append(",\"lesbook\":\"" + se.lesbook + "\"");
+                }
+                else
+                {
+                    sb.Append(",\"lesbook\":\"" + "无" + "\"");
+                }
+                sb.Append(",\"lestest\":\"" + se.lestest + "\"");
+                if (se.lesfile != null)
+                {
+                    string file = se.lesfile.Replace("\\", "/");
+                    file = file.Substring(1, file.Length - 1);
+                    sb.Append(",\"lesfile\":\"" + file + "\"");
+                }
+                else
+                {
+                    sb.Append(",\"lesfile\":\"" + "#" + "\"");
+                }
+                sb.Append("}");
+                res.Write(sb.ToString());
+                res.End();
             }
-            else
-            {
-                sb.Append(",\"lesbook\":\"" + "无" + "\"");
-            }
-            sb.Append(",\"lestest\":\"" + se[0].lestest + "\"");
-            string file = se[0].lesfile.Replace("\\","/");
-            file = file.Substring(1, file.Length - 1);
-            sb.Append(",\"lesfile\":\"" + file + "\"");
-            sb.Append("}");
-            res.Write(sb.ToString());
-            res.End();
         }
+        catch { }
 
     }
 
