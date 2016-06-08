@@ -851,12 +851,13 @@ section.course-content4,section.course-content5{
 
 
 /*================================competition css=======================================*/
-.competition-news-list{
-    margin-bottom: 30px;
-}
+
 .competition-news-list > ul{
     min-height: 220px;
     padding-bottom: 20px;
+}
+.competition-intro{
+    margin-bottom:30px;
 }
 .competition-intro >ul li{
     padding: 10px 20px 10px 20px;
