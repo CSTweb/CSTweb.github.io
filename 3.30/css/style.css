@@ -204,7 +204,7 @@ section.container {
 }
 .left-list header{
     height: 47px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 47px;
     color:#fff;
@@ -319,7 +319,16 @@ section.right-all >header{
     color: #959595;
     font-size:14px;
 }
-
+header.header-mid{
+    font-size:22px;
+    font-weight:600;
+    color:#0fa7d6;
+    text-align: center;
+    margin-top: -15px;
+    padding-bottom:10px;
+    border-bottom: 2px solid #ECEBE9;
+    margin-bottom: 16px;
+}
 header.header-normal{
     position: relative;
     width: 140px;
