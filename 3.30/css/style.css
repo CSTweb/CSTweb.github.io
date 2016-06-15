@@ -7,7 +7,7 @@ body{
 }
 .mid-con{
     width: 88%;
-    margin: 0 auto;
+    margin: 0 auto;i
 }
 .top-con{
     padding: 10px 0;
@@ -362,7 +362,7 @@ header.header-default{
     text-align: center;
     background-color: #0fa7d6;
 }
-
+i
 header.header-default:after{
     content: "";
     position: absolute;
@@ -411,17 +411,34 @@ section.index-content{
 
 .index-news-list >ul li a{
     display: inline-block;
+    height: 19px;
+    width: 100%;
+}
+
+.index-news-list >ul li a span{
+    display: inline-block;
+    height: 19px;
+}
+
+.index-news-list >ul li a span.index-news-title{
     color: #333333;
-    max-width: 90%;
+    max-width: 70%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis;
 }
 
-.index-news-list >ul li a:hover{
+.index-news-list >ul li a span.index-news-time{
+    font-size: 12px;
+    color: #333333;
+    float: right;
+}
+
+.index-news-list >ul li a:hover >span{
     color: rgb(60,190,230);
     text-decoration: underline;
 }
+
 .more{
 	border-top:1px solid #DFDFDF;
 	text-align:right;
@@ -591,7 +608,7 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 
 .news-list >ul li a span.news-time{
-    margin-left: 40px;
+/*    margin-left: 40px;*/
     float: right;
 }
 
