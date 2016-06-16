@@ -7,7 +7,7 @@ body{
 }
 .mid-con{
     width: 88%;
-    margin: 0 auto;i
+    margin: 0 auto;
 }
 .top-con{
     padding: 10px 0;
@@ -362,7 +362,7 @@ header.header-default{
     text-align: center;
     background-color: #0fa7d6;
 }
-i
+
 header.header-default:after{
     content: "";
     position: absolute;
