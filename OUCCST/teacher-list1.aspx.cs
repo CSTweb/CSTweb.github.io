@@ -24,7 +24,7 @@ public partial class teacher_list : System.Web.UI.Page
                 var a= from it in db.teachers
                        orderby it.time descending
                        select it.time;
-                //LBLTime.Text = a.First().ToString("yyyy年MM月dd日");       
+                LBLTime.Text = a.First().ToString("yyyy年MM月dd日");       
             }
         }
     }

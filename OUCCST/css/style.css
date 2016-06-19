@@ -318,6 +318,10 @@ section.right-all >header{
     color: #fff;
 }
 
+.right-time{
+    float:right;
+    margin-top: 6px;
+}
 .right-header>ul>li.time{
     float: right;
     color: #959595;

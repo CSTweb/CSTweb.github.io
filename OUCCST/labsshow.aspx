@@ -8,7 +8,7 @@
             <header>科学研究</header>
             <ul>
                 <li><a href="#">研究方向</a></li>
-                <li><a href="#">科研动态</a></li>
+                <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">

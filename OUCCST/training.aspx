@@ -20,7 +20,7 @@
                         <div class="news-time"></div>
                         <article>
                             <%#Eval("body")%>
-                            <embed id="pdfwatch" src="javaee04.pdf">
+                            <embed id="pdfwatch" src="">
                         </article>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -28,11 +28,6 @@
         </section>    
     </section>
 
-    <footer>
-        <div class="foot-con">
-            Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
-        </div>
-    </footer>
     <script src="js/jquery-v1.10.2.min.js"></script>
     <script src="js/index.js"></script>
         <script type="text/javascript">

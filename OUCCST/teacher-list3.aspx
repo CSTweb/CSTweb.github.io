@@ -36,6 +36,7 @@
                     </ul>
                 </section>
             </section>
+            <div class="right-time">更新时间：<asp:Label ID="LBLTime" runat="server" Text="Label"></asp:Label></div>
         </section>
     </section>
     <script src="js/jquery-v1.10.2.min.js"></script>

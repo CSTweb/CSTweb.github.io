@@ -38,7 +38,7 @@
                         <a href="#">科学研究</a>
                         <ul class="li-second">
                             <li><a href="labsshow.aspx">研究方向</a></li>
-                            <li><a href="#">科研动态</a></li>
+                            <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
                         </ul>
                     </li>
                     <li>
@@ -54,16 +54,12 @@
                             </li>
                             <li>
                                 <a href="#">研究生</a>
-                                <ul class="li-third">
-                                    <li><a href="#">测试一</a></li>
-                                    <li><a href="#">测试二</a></li>
-                                    <li><a href="#">测试三</a></li>
-                                </ul>
                             </li>
+                            <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">招生信息</a></li>
-                    <li><a href="#">招聘信息</a></li>
+                    <li><a href="wantted-list.aspx">招生信息</a></li>
+                    <li><a href="wantted-list.aspx?newclass=10">招聘信息</a></li>
                     <li>
                         <a href="#">新闻动态</a>
                         <ul class="li-second">

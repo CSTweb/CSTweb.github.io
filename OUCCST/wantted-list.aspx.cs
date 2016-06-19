@@ -17,15 +17,13 @@ public partial class news_list : System.Web.UI.Page
         }
         catch
         {
-            artclass = 1;
+            artclass = 9;
         }
         switch (artclass)
         {
-            case 1: hea.Text = "本系新闻"; break;
-            case 2: hea.Text = "科研动态"; break;
-            case 3: hea.Text = "教务动态"; break;
-            case 4: hea.Text = "学术报告"; break;
-            default: artclass = 1; hea.Text = "本系新闻"; break;
+            case 9: hea.Text = "招生公告"; break;
+            case 10: hea.Text = "招聘公告"; break;
+            default: artclass = 9; hea.Text = "招生公告"; break;
         }
         if (!IsPostBack)
         {
@@ -153,8 +151,11 @@ public partial class news_list : System.Web.UI.Page
                     LinFirstpage.Visible = false;
                     Linpre.Visible = false;
                     LinPageNum.Visible = false;
-                    LinLastpage.Visible = false;
-                    Linnext.Visible = false;
+                    if (pageCount == 0)
+                    {
+                        LinLastpage.Visible = false;
+                        Linnext.Visible = false;
+                    }
                 }
             }
         }
