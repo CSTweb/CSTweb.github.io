@@ -7,7 +7,8 @@
         <section class="left-list box-shadow">
             <header>计算机科学与技术</header>
             <ul>
-                <li><a href="#">本系简介</a></li>
+                <li><a href="introduce.aspx">本系简介</a></li>
+                <li><a href="contact.aspx">联系我们</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">
