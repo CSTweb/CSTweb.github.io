@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="mid-con intro-ban"></div>
     <section class="container clearfix">
         <section class="left-list box-shadow">
             <header>计算机科学与技术</header>

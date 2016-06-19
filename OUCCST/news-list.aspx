@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix">
         <section class="left-list box-shadow">
+            <header>新闻公告</header>
             <ul>
                 <li><a href="news-list.aspx">本系新闻</a></li>
                 <li><a href="#">通知公告</a></li>
@@ -13,7 +14,8 @@
         </section>
         <section class="right-all  clearfix">
             <section class="right-content news-list box-shadow">
-                <header class="header-default">
+                <header class="header-mid">
+                    <i class="icon-bullhorn"></i>
                     <asp:Label runat="server" ID="hea" Text="本系新闻"> </asp:Label>
                 </header>
                 <ul class="border-dotted">

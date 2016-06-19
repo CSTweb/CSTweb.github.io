@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link rel="stylesheet" href="css/flickerplate.css"/>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix index-content">
@@ -11,7 +12,7 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <li>
-                            <a href="news-con.aspx?id=<%#Eval("id") %>" title="<%#Eval("title")%>"><%#Eval("title")%></a>
+                            <a href="news-con.aspx?id=<%#Eval("id") %>" title="<%#Eval("title")%>"><span class="index-news-title"><%#Eval("title")%></span><span class="index-news-time" ><%#Eval("time","{0:yyyy-MM-dd}")%></span></a>
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -42,7 +43,7 @@
                  <asp:Repeater ID="Repeater2" runat="server">
                     <ItemTemplate>
                         <li>
-                            <a href="news-con.aspx?id=<%#Eval("id") %>" title="<%#Eval("title")%>"><%#Eval("title")%></a>
+                            <a href="news-con.aspx?id=<%#Eval("id") %>" title="<%#Eval("title")%>"><span class="index-news-title"><%#Eval("title")%></span><span class="index-news-time" ><%#Eval("time","{0:yyyy-MM-dd}")%></span></a>
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -55,7 +56,7 @@
                 <asp:Repeater ID="Repeater3" runat="server">
                     <ItemTemplate>
                         <li>
-                            <a href="news-con.aspx?id=<%#Eval("id") %>" title="<%#Eval("title")%>"><%#Eval("title")%></a>
+                            <a href="news-con.aspx?id=<%#Eval("id") %>" title="<%#Eval("title")%>"><span class="index-news-title"><%#Eval("title")%></span><span class="index-news-time" ><%#Eval("time","{0:yyyy-MM-dd}")%></span></a>
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>

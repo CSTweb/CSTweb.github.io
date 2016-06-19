@@ -10,6 +10,7 @@
     <title>计算机科学与技术系网站</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/moCss.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -18,19 +19,17 @@
         <header>
             <section class="top-con mid-con">
                 <div class="logo"></div>
-                <div class="logo-right">
-                    <p>
-                        <a href="#">中文</a> | <a href="#">English</a>
-                    </p>
+                <%--                <div class="logo-right">
                     <form>
                         <input type="text" value="全站搜索" onfocus="if(value =='全站搜索'){value=''}" onblur="if(value==''){value='全站搜索'}" />
                         <input type="submit" value=''>
                     </form>
-                </div>
+                </div>--%>
             </section>
+            <div class="menu-btn"></div>
             <nav class="mid-con">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="index.aspx">首页</a></li>
                     <li><a href="introduce.aspx">本系简介</a></li>
                     <li>
                         <a href="teacher-list.aspx">师资队伍</a>
@@ -38,6 +37,9 @@
                             <li><a href="teacher-list.aspx">教职工名录</a></li>
                             <li><a href="#">杰出人才</a></li>
                             <li><a href="#">名誉学衔</a></li>
+                            <li><a href="#">师资总览</a></li>
+                            <li><a href="#">博士生导师</a></li>
+                            <li><a href="#">硕士生导师</a></li>
                         </ul>
                     </li>
                     <li>
@@ -93,13 +95,12 @@
             </nav>
         </header>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
         </asp:ContentPlaceHolder>
-            <footer>
-        <div class="foot-con">
-            Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
-        </div>
-    </footer>
+        <footer>
+            <div class="foot-con">
+                Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
+            </div>
+        </footer>
     </form>
 </body>
 </html>

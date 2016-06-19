@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {padding: 0;margin: 0;}table {border-collapse: collapse;border-spacing: 0;}fieldset,img {border: 0;}address,caption,cite,code,dfn,em,strong,th,var {font-weight: normal;font-style: normal;}ol,ul {list-style: none;}caption,th {text-align: left;}h1,h2,h3,h4,h5,h6 {font-weight: normal;font-size: 100%;}abbr,acronym,a{color: #005ea7;text-decoration: none;}input{border:0;padding:2px;outline:none;color:#888;}
 body{
     background-color: #f5f4f2;
@@ -11,13 +11,17 @@ body{
 }
 .top-con{
     padding: 10px 0;
-    max-height: 100px;
+
+    height: 145px;
+    background: url(../images/topban.png) 50% 50% no-repeat;
+    background-size: cover;
 }
 .logo{
     width: 320px;
     height: 85px;
     background: url(../images/logo.png) 50% 50% no-repeat;
     float: left;
+    display: none;
 }
 .logo-right{
     float: right;
@@ -26,17 +30,18 @@ body{
 .logo-right p{
     text-align: right;
     margin-right: 10px;
+    color: #fff;
 }
 .logo-right a{
     padding: 10px;
-    color: #989898;
+    color: #fff;
 }
 .logo-right input[type='text']{
     width: 100px;
     border-radius: 20px;
     margin-top: 10px;
     padding: 2px 10px;
-    border: 1px solid #BCBCBC;
+    border: 1px solid #F3F3F3;
    -webkit-transition: width .45s;
     -o-transition: width .45s;
     -moz-transition: width .45s;
@@ -204,7 +209,7 @@ section.container {
 }
 .left-list header{
     height: 47px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 47px;
     color:#fff;
@@ -319,7 +324,16 @@ section.right-all >header{
     color: #959595;
     font-size:14px;
 }
-
+header.header-mid{
+    font-size:22px;
+    font-weight:600;
+    color:#0fa7d6;
+    text-align: center;
+    margin-top: -15px;
+    padding-bottom:10px;
+    border-bottom: 2px solid #ECEBE9;
+    margin-bottom: 16px;
+}
 header.header-normal{
     position: relative;
     width: 140px;
@@ -402,17 +416,34 @@ section.index-content{
 
 .index-news-list >ul li a{
     display: inline-block;
+    height: 19px;
+    width: 100%;
+}
+
+.index-news-list >ul li a span{
+    display: inline-block;
+    height: 19px;
+}
+
+.index-news-list >ul li a span.index-news-title{
     color: #333333;
-    max-width: 90%;
+    max-width: 70%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis;
 }
 
-.index-news-list >ul li a:hover{
+.index-news-list >ul li a span.index-news-time{
+    font-size: 12px;
+    color: #333333;
+    float: right;
+}
+
+.index-news-list >ul li a:hover >span{
     color: rgb(60,190,230);
     text-decoration: underline;
 }
+
 .more{
 	border-top:1px solid #DFDFDF;
 	text-align:right;
@@ -494,11 +525,6 @@ section.index-content{
     color: rgb(60,190,230);
     border-bottom: 1px rgb(60,190,230) solid;
 }
-.teacher-list-all{
-    margin-top:30px;
-}
-
-
 
 /*=========teacher-personal(by liu)==============*/
 
@@ -587,7 +613,7 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 
 .news-list >ul li a span.news-time{
-    margin-left: 40px;
+/*    margin-left: 40px;*/
     float: right;
 }
 
