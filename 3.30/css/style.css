@@ -11,13 +11,16 @@ body{
 }
 .top-con{
     padding: 10px 0;
-    max-height: 100px;
+    height: 145px;
+    background: url(../images/topban.png) 50% 50% no-repeat;
+    background-size: cover;
 }
 .logo{
     width: 320px;
     height: 85px;
     background: url(../images/logo.png) 50% 50% no-repeat;
     float: left;
+    display: none;
 }
 .logo-right{
     float: right;
@@ -26,17 +29,18 @@ body{
 .logo-right p{
     text-align: right;
     margin-right: 10px;
+    color: #fff;
 }
 .logo-right a{
     padding: 10px;
-    color: #989898;
+    color: #fff;
 }
 .logo-right input[type='text']{
     width: 100px;
     border-radius: 20px;
     margin-top: 10px;
     padding: 2px 10px;
-    border: 1px solid #BCBCBC;
+    border: 1px solid #F3F3F3;
    -webkit-transition: width .45s;
     -o-transition: width .45s;
     -moz-transition: width .45s;

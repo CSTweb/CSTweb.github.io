@@ -23,4 +23,11 @@
     nav,nav>ul>li{
         background: rgb(60,190,230);
     }
+    .logo{
+        display: block;
+    }
+    .top-con{
+        background: #f5f4f2;
+        height:85px;
+    }
 }
