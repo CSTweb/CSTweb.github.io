@@ -13,7 +13,7 @@
             </ul>
         </section>
         <section class="right-all  clearfix">
-            <section class="right-content competition-intro">
+            <section class="right-content competition-intro box-shadow">
                 <header class="header-default">
                     <asp:Label ID="Label1" runat="server" Text="合作项目"></asp:Label></header>
                 <ul>

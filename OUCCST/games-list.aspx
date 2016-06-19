@@ -13,7 +13,7 @@
         </ul>
     </section>
     <section class="right-all  clearfix">
-        <section class="right-content competition-intro">
+        <section class="right-content competition-intro box-shadow">
             <header class="header-default">竞赛介绍</header>
             <ul>
                 <asp:Repeater ID="RptGame" runat="server">
