@@ -5,6 +5,9 @@ body{
     font: 14px "微软雅黑",Arial,"宋体",sans-serif;
     color:#333;
 }
+.contactUs{
+    width: 100%;
+}
 .mid-con{
     width: 88%;
     margin: 0 auto;
