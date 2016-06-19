@@ -397,7 +397,7 @@ section.index-content{
     margin-top: 20px;
 }
 
-.index-news-list:first-child{
+.index-news-list:nth-child(2){
     margin-right: 0;
 }
 
@@ -457,8 +457,8 @@ section.index-content{
 .more a:hover{
 	text-decoration:underline;
 }
-.lunbo{
-    float: left;
+.Carousel{
+    float: right;
     width: 63%;
     height: 340px;
     margin-top: 20px;
@@ -1017,6 +1017,21 @@ section.course-content4,section.course-content5{
         width: 33%;
         padding: 20px 2%;
     }
+}
+
+@media (max-width: 450px){
+    .index-news-list{
+        width: 96%;
+        padding: 20px 2%;
+    }
+    .Carousel{
+        float: left;
+        width: 100%;
+    }
+    .expressway{
+        width: 100%;
+    }
+
 }
 
 /*===course media===*/
