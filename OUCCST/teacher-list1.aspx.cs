@@ -18,14 +18,13 @@ public partial class teacher_list : System.Web.UI.Page
             databind1(5, RptTitle5);
             databind1(6, RptTitle6);
             databind1(7, RptTitle7);
-            databind2(3, RptLevel3);
-            databind2(2, RptLevel2);
+
             using (var db = new CstwebEntities())
             {
                 var a= from it in db.teachers
                        orderby it.time descending
                        select it.time;
-                LBLTime.Text = a.First().ToString("yyyy年MM月dd日");       
+                //LBLTime.Text = a.First().ToString("yyyy年MM月dd日");       
             }
         }
     }

@@ -32,15 +32,7 @@
                     <li><a href="index.aspx">首页</a></li>
                     <li><a href="introduce.aspx">本系简介</a></li>
                     <li>
-                        <a href="teacher-list.aspx">师资队伍</a>
-                        <ul class="li-second">
-                            <li><a href="teacher-list.aspx">教职工名录</a></li>
-                            <li><a href="#">杰出人才</a></li>
-                            <li><a href="#">名誉学衔</a></li>
-                            <li><a href="#">师资总览</a></li>
-                            <li><a href="#">博士生导师</a></li>
-                            <li><a href="#">硕士生导师</a></li>
-                        </ul>
+                        <a href="teacher-list1.aspx">师资队伍</a>
                     </li>
                     <li>
                         <a href="#">科学研究</a>

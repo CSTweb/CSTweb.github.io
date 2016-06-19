@@ -17,7 +17,9 @@
                 <header class="border-dotted"><i class="icon-home"></i> 联系我们</header>
                 <div class="news-time"></div>
                 <article>
-                    <img class="contactUs" src="images/contactUsImg.png" alt="地址：山东省青岛市崂山区松岭路238号中国海洋大学;电话：0532-6678124;邮编：266100">
+                    <div class="contactUs">
+                        <img src="images/contactUsImg.png" alt="地址：山东省青岛市崂山区松岭路238号中国海洋大学;电话：0532-6678124;邮编：266100">
+                    </div>
                 </article>
                 
             </section>
