@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,width=device-width" /> 
+    <title>计算机科学与技术系网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<header>
+		<section class="top-con mid-con">
+			<div class="logo"></div>
+			<div class="logo-right">
+				<p>
+					<a href="#">中文</a> | <a href="#">English</a>
+				</p>
+				<form>
+					<input type="text" value="全站搜索" onfocus="if(value =='全站搜索'){value=''}" onblur="if(value==''){value='全站搜索'}" />
+					<input type="submit" value=''>
+				</form>
+			</div>
+		</section>
+        <div class="menu-btn"></div>
+		<nav class="mid-con">
+            <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="本系简介.html">本系简介</a></li>
+                <li>
+                    <a href="cs-teacher-list.html">师资队伍</a>
+                    <ul class="li-second">
+                        <li><a href="师资队伍.html">教职工名录</a></li>
+                        <li><a href="#">杰出人才</a></li>
+                        <li><a href="#">名誉学衔</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">科学研究</a>
+                    <ul class="li-second">
+                        <li><a href="#">研究方向</a></li>
+                        <li><a href="#">科研动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">教务教学</a>
+                    <ul class="li-second">
+                        <li>
+                            <a href="#">本科生</a>
+                            <ul class="li-third">
+                                <li><a href="培养方案.html">培养方案</a></li>
+                                <li><a href="课程大纲.html">课程大纲</a></li>
+                                <li><a href="学生竞赛.html">学生竞赛</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">研究生</a>
+                            <ul class="li-third">
+                                <li><a href="#">测试一</a></li>
+                                <li><a href="#">测试二</a></li>
+                                <li><a href="#">测试三</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">招生信息</a></li>
+                <li><a href="#">招聘信息</a></li>
+                <li>
+                    <a href="#">新闻动态</a>
+                    <ul class="li-second">
+                        <li><a href="新闻列表.html">本系动态</a></li>
+                        <li><a href="#">科研动态</a></li>
+                        <li><a href="#">教务动态</a></li>
+                        <li><a href="#">学术报告</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">校外合作</a>
+                    <ul class="li-second">
+                        <li><a href="#">校校合作</a></li>
+                        <li><a href="#">校企合作</a></li>
+                        <li><a href="#">企业招聘</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">系友工作</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </nav>
+	</header>
+    <section class="container clearfix">
+            <section class="right-content teacher-list-all box-shadow">
+                <section class="teacher-list foreign-stu">
+                    <header class="header-mid"><i class="icon-group"></i> 国际交流生</header>
+                    <ul>
+                        <li><a href="#">Andy Bob</a></li>
+                        <li><a href="#">Candy Donna</a></li>
+                        <li><a href="#">Andy Bob</a></li>
+                        <li><a href="#">Candy Donna</a></li>
+                        <li><a href="#">Andy Bob</a></li>
+                        <li><a href="#">Candy Donna</a></li>
+                        <li><a href="#">Andy Bob</a></li>
+                        <li><a href="#">Candy Donna</a></li>
+                    </ul>
+                </section>
+            <div class="right-time">更新时间：2016-06-19</div>
+        </section>
+    </section>
+    <footer>
+        <div class="foot-con">
+            Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
+        </div>
+    </footer>
+    <div class="screen-bg">
+      <div class="one-con">
+        <div class="one-close">X</div>
+        <section class="basicInfomation">
+            <header class="border-dotted">
+                <span class="foreign-intro-head">基本信息</span>
+            </header>
+            <section class="clearfix">
+                <img src="images/default-photo.png">
+                <ul>
+                    <li>姓名 : BOB BOOM</li>
+                    <li>专业：软件工程</li>
+                    <li>邮箱 : ...@example.com</li>
+                </ul>
+            </section>    
+        </section>
+        <section class="personl-introduction">
+            <header class="border-dotted">
+                <span class="foreign-intro-head">个人介绍</span>
+            </header>
+            <p>
+                介绍介绍介绍
+            </p>
+        </section>
+      </div>
+    </div>
+    <script src="js/jquery-v1.10.2.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+      $(document).ready(function() {
+        var box = $('.screen-bg');
+        var con = $('.one-con');
+        $("section.foreign-stu>ul>li").click(function(event) {
+          box.fadeIn('fast');
+        });
+        $(".one-close").click(function(event) {
+          box.fadeOut('fast');
+        });
+        box.click(function(event) {
+          box.fadeOut('fast');
+        });
+        con.click(function(event) {
+          event.stopPropagation();
+        });
+      });
+      
+    </script>
+</body>
+</html>

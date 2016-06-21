@@ -502,6 +502,7 @@ section.index-content{
 
 .teacher-list{
     padding-bottom: 25px;
+    min-height:500px;
 }
 
 .teacher-list>header{
@@ -512,11 +513,13 @@ section.index-content{
 .teacher-list ul li{
     display: inline-block;
     height: 45px;
-    width: 100px;
+    min-width: 100px;
     padding: 15px 50px 0 0px;
     text-align: center;
 }
-
+.foreign-stu ul li{
+    word-break:break-all;
+}
 .teacher-list>ul li a{
     display: inline-block;
     color: #333;
@@ -528,7 +531,10 @@ section.index-content{
     color: rgb(60,190,230);
     border-bottom: 1px rgb(60,190,230) solid;
 }
-
+.foreign-intro-head{
+    font-weight: bold;
+    font-size:18px;
+}
 /*=========teacher-personal(by liu)==============*/
 
 .teacher-personal header{
