@@ -986,6 +986,9 @@ section.course-content4,section.course-content5{
     width: 100%;
 }
 
+section.right-allwidth{
+    width:100%;
+}
 /*============media===========*/
 @media(max-width:595px){
     .logo-right{
