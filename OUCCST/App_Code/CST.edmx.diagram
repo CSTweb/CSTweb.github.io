@@ -17,14 +17,15 @@
         <AssociationConnector Association="CstwebModel.FK_accounts_teachers" />
         <AssociationConnector Association="CstwebModel.FK_teachers_teachlevel" />
         <AssociationConnector Association="CstwebModel.FK_teachers_title" />
-        <EntityTypeShape EntityType="CstwebModel.lesson" Width="1.5" PointX="6.25" PointY="6.5" />
-        <AssociationConnector Association="CstwebModel.FK_lesson_lesclass" />
-        <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson" />
-        <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson1" />
         <EntityTypeShape EntityType="CstwebModel.lessonandclass" Width="1.5" PointX="8.47422851457923" PointY="30.5666880451919" />
         <EntityTypeShape EntityType="CstwebModel.games" Width="1.5" PointX="8.625" PointY="3.375" />
         <EntityTypeShape EntityType="CstwebModel.cooperation" Width="1.5" PointX="3.7075237518677131" PointY="30.02471975890208" />
         <EntityTypeShape EntityType="CstwebModel.labs" Width="1.5" PointX="10.36170625796621" PointY="4.6824479869950784" />
+        <EntityTypeShape EntityType="CstwebModel.exchange" Width="1.5" PointX="9.75" PointY="6.875" />
+        <EntityTypeShape EntityType="CstwebModel.lesson" Width="1.5" PointX="8.50177840539337" PointY="31.729670569174768" />
+        <AssociationConnector Association="CstwebModel.FK_lesson_lesclass" />
+        <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson" />
+        <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -30,6 +30,19 @@ public partial class cooperation
     public int @class { get; set; }
 }
 
+public partial class exchange
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public string grade { get; set; }
+    public string major { get; set; }
+    public string email { get; set; }
+    public string phonenum { get; set; }
+    public string introduce { get; set; }
+    public string ect { get; set; }
+    public string photo { get; set; }
+}
+
 public partial class games
 {
     public int id { get; set; }
@@ -85,10 +98,7 @@ public partial class lesson
     public double credits { get; set; }
     public int lesscla { get; set; }
     public string lesfile { get; set; }
-    public string lesnum { get; set; }
-    public string lesgoal { get; set; }
-    public string lestest { get; set; }
-    public string lesbook { get; set; }
+    public string etc { get; set; }
 
     public virtual lesclass lesclass { get; set; }
     public virtual ICollection<lesrelation> lesrelation { get; set; }

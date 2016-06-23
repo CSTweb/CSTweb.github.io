@@ -20,10 +20,11 @@ public class courseajax : IHttpHandler
             using (var db = new CstwebEntities())
             {
                 lesson se = db.lesson.First(a => a.id == lesid);
-
+                
                 StringBuilder sb = new StringBuilder("{");
                 sb.Append("\"id\":\"" + se.id + "\"");
                 sb.Append(",\"lesname\":\"" + se.classname + "\"");
+                /*
                 sb.Append(",\"lesnum\":\"" + se.lesnum + "\"");
                 sb.Append(",\"lesgoal\":\"" + se.lesgoal + "\"");
                 if (se.lesbook != null)
@@ -34,7 +35,7 @@ public class courseajax : IHttpHandler
                 {
                     sb.Append(",\"lesbook\":\"" + "无" + "\"");
                 }
-                sb.Append(",\"lestest\":\"" + se.lestest + "\"");
+                sb.Append(",\"lestest\":\"" + se.lestest + "\"");*/
                 if (se.lesfile != null)
                 {
                     string file = se.lesfile.Replace("\\", "/");
@@ -45,8 +46,10 @@ public class courseajax : IHttpHandler
                 {
                     sb.Append(",\"lesfile\":\"" + "#" + "\"");
                 }
+                sb.Append(",\"lesetc\":\"" + se.etc + "\"");
                 sb.Append("}");
                 res.Write(sb.ToString());
+                //res.Write(sb);
                 res.End();
             }
         }

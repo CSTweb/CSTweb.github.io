@@ -94,14 +94,7 @@ public partial class lesson1 : System.Web.UI.Page
                     LblFilename.Text = les.lesfile;
                 }
                 catch { }
-                try
-                {
-                    TxtBook.Text = les.lesbook;
-                }
-                catch { }
-                TxtGoal.Text = les.lesgoal;
-                TxtNum.Text = les.lesnum;
-                TxtTest.Text = les.lestest;
+                myEditor.InnerHtml = les.etc;
                 DDLClass.SelectedValue = les.lesclass.ToString();
                 var less = db.lesrelation.Where(a => a.lesson == id).ToList();
                 try
@@ -187,33 +180,10 @@ public partial class lesson1 : System.Web.UI.Page
             catch { }
             try
             {
-                if (TxtNum.Text.Trim() != "")
+                string tempstr = Server.HtmlDecode(myEditor.InnerHtml);
+                if (tempstr.Trim() != "")
                 {
-                    les.lesnum = TxtNum.Text.Trim();
-                }
-            }
-            catch { }
-            try
-            {
-                if (TxtBook.Text.Trim() != "")
-                {
-                    les.lesbook = TxtBook.Text.Trim();
-                }
-            }
-            catch { }
-            try
-            {
-                if (TxtTest.Text.Trim() != "")
-                {
-                    les.lestest = TxtTest.Text.Trim();
-                }
-            }
-            catch { }
-            try
-            {
-                if (TxtGoal.Text.Trim() != "")
-                {
-                    les.lesgoal = TxtGoal.Text.Trim();
+                    les.etc = tempstr;
                 }
             }
             catch { }
@@ -288,21 +258,7 @@ public partial class lesson1 : System.Web.UI.Page
             Response.Write("<script>alert('学分不能为空')</script>");
             return false;
         }
-        if (TxtGoal.Text.Trim() == "")
-        {
-            Response.Write("<script>alert('课程教学目标及基本要求不能为空')</script>");
-            return false;
-        }
-        if (TxtNum.Text.Trim() == "")
-        {
-            Response.Write("<script>alert('课程编号不能为空')</script>");
-            return false;
-        }
-        if (TxtTest.Text.Trim() == "")
-        {
-            Response.Write("<script>alert('考核方式不能为空')</script>");
-            return false;
-        }
+        
         return true;
     }
 
@@ -357,13 +313,8 @@ public partial class lesson1 : System.Web.UI.Page
                         {
                             les.lesfile = LblFilename.Text;
                         }
-                        if (TxtBook.Text.Trim() != "")
-                        {
-                            les.lesbook = TxtBook.Text.Trim();
-                        }
-                        les.lesgoal = TxtGoal.Text.Trim();
-                        les.lesnum = TxtNum.Text.Trim();
-                        les.lestest = TxtTest.Text.Trim();
+                        string tempstr = Server.HtmlDecode(myEditor.InnerHtml);
+                        les.etc = tempstr.Trim();
                         les1 = new lesrelation();
                         les1.lesson = temp;
                         db.SaveChanges();
@@ -422,13 +373,8 @@ public partial class lesson1 : System.Web.UI.Page
                             les.lesfile = LblFilename.Text;
                             
                         }
-                        if (TxtBook.Text.Trim() != "")
-                        {
-                            les.lesbook = TxtBook.Text.Trim();
-                        }
-                        les.lesgoal = TxtGoal.Text.Trim();
-                        les.lesnum = TxtNum.Text.Trim();
-                        les.lestest = TxtTest.Text.Trim();
+                        string tempstr = Server.HtmlDecode(myEditor.InnerHtml);
+                        les.etc = tempstr.Trim();
                         db.lesson.Add(les);
                         db.SaveChanges();
                         temp = db.lesson.First(a => a.classname == TxtLessonName.Text.Trim()).id;

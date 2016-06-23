@@ -113,11 +113,11 @@
       <div class="one-con">
         <div class="one-close">X</div>
         <h1 id="lesname">高级程序设计语言</h1>
-        <p id="lesnum"><span >课程编号：</span></p>
-        <p id="lesgoal"><span>课程教学目标及基本要求：</span></p>
-        <p id="lestest"><span>考试形式：</span></p>
-        <p id="lesbook"><span>参考书：</span></p>
-        <p id="lesfile"><span>了解更多：</span><a href="#">点击下载</a></p>
+        <p id="lesnum"></p>
+        <p id="lesgoal"></p>
+        <p id="lestest"></p>
+        <p id="lesbook"></p>
+        <p id="lesfile"></p>
       </div>
     </div>
     <script src="js/jquery-v1.10.2.min.js"></script>
@@ -140,10 +140,11 @@
                         //var data = new Function("return" + json)();
                         var data = JSON.parse(json);
                         $("#lesname").html(data.lesname);
-                        $("#lesnum").html("<span >课程编号：</span>" + data.lesnum);
-                        $("#lesgoal").html("<span >课程教学目标及基本要求：</span>" + data.lesgoal);
-                        $("#lestest").html("<span >考试形式：</span>" + data.lestest);
-                        $("#lesbook").html("<span >参考书：</span>" + data.lesbook);
+                        $("#lesnum").html(data.lesetc);
+                        //$("#lesnum").html("<span >课程编号：</span>" + data.lesnum);
+                        //$("#lesgoal").html("<span >课程教学目标及基本要求：</span>" + data.lesgoal);
+                        //$("#lestest").html("<span >考试形式：</span>" + data.lestest);
+                        //$("#lesbook").html("<span >参考书：</span>" + data.lesbook);
                         $("#lesfile").html("<span>了解更多：</span><a href=\""+data.lesfile+"\">点击下载</a>");
                     }
                 });

@@ -8,6 +8,7 @@
         <EntityContainer Name="CstwebModelStoreContainer">
           <EntitySet Name="accounts" EntityType="CstwebModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cooperation" EntityType="CstwebModel.Store.cooperation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="exchange" EntityType="CstwebModel.Store.exchange" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="games" EntityType="CstwebModel.Store.games" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="labs" EntityType="CstwebModel.Store.labs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lesclass" EntityType="CstwebModel.Store.lesclass" store:Type="Tables" Schema="dbo" />
@@ -98,6 +99,20 @@
           <Property Name="addtime" Type="date" Nullable="false" />
           <Property Name="class" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="exchange">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="grade" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="major" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="phonenum" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="introduce" Type="nvarchar(max)" />
+          <Property Name="ect" Type="nvarchar(max)" />
+          <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="games">
           <Key>
             <PropertyRef Name="id" />
@@ -143,10 +158,7 @@
           <Property Name="credits" Type="float" Nullable="false" />
           <Property Name="lesscla" Type="int" Nullable="false" />
           <Property Name="lesfile" Type="nvarchar(max)" />
-          <Property Name="lesnum" Type="nvarchar" Nullable="false" MaxLength="20" />
-          <Property Name="lesgoal" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="lestest" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="lesbook" Type="nvarchar(max)" />
+          <Property Name="etc" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="news">
           <Key>
@@ -426,6 +438,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="lessonandclass" EntityType="CstwebModel.lessonandclass" />
+          <EntitySet Name="games" EntityType="CstwebModel.games" />
+          <EntitySet Name="cooperation" EntityType="CstwebModel.cooperation" />
+          <EntitySet Name="labs" EntityType="CstwebModel.labs" />
+          <EntitySet Name="exchange" EntityType="CstwebModel.exchange" />
           <EntitySet Name="lesson" EntityType="CstwebModel.lesson" />
           <AssociationSet Name="FK_lesson_lesclass" Association="CstwebModel.FK_lesson_lesclass">
             <End Role="lesclass" EntitySet="lesclass" />
@@ -439,10 +456,6 @@
             <End Role="lesson" EntitySet="lesson" />
             <End Role="lesrelation" EntitySet="lesrelation" />
           </AssociationSet>
-          <EntitySet Name="lessonandclass" EntityType="CstwebModel.lessonandclass" />
-          <EntitySet Name="games" EntityType="CstwebModel.games" />
-          <EntitySet Name="cooperation" EntityType="CstwebModel.cooperation" />
-          <EntitySet Name="labs" EntityType="CstwebModel.labs" />
         </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -618,63 +631,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="lesson">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="classname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="teach" Nullable="false" />
-          <Property Type="Int32" Name="experiment" Nullable="false" />
-          <Property Type="Double" Name="credits" Nullable="false" />
-          <Property Type="Int32" Name="lesscla" Nullable="false" />
-          <NavigationProperty Name="lesclass" Relationship="CstwebModel.FK_lesson_lesclass" FromRole="lesson" ToRole="lesclass" />
-          <NavigationProperty Name="lesrelation" Relationship="CstwebModel.FK_lesrelation_lesson" FromRole="lesson" ToRole="lesrelation" />
-          <NavigationProperty Name="lesrelation1" Relationship="CstwebModel.FK_lesrelation_lesson1" FromRole="lesson" ToRole="lesrelation" />
-          <Property Type="String" Name="lesfile" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="lesnum" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="lesgoal" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="lestest" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="lesbook" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_lesson_lesclass">
-          <End Type="CstwebModel.lesclass" Role="lesclass" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CstwebModel.lesson" Role="lesson" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lesclass">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="lesson">
-              <PropertyRef Name="lesscla" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_lesrelation_lesson">
-          <End Type="CstwebModel.lesson" Role="lesson" Multiplicity="1" />
-          <End Type="CstwebModel.lesrelation" Role="lesrelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lesson">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="lesrelation">
-              <PropertyRef Name="lesson" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_lesrelation_lesson1">
-          <End Type="CstwebModel.lesson" Role="lesson" Multiplicity="1" />
-          <End Type="CstwebModel.lesrelation" Role="lesrelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lesson">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="lesrelation">
-              <PropertyRef Name="firstlesson" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="lessonandclass">
           <Key>
             <PropertyRef Name="name" />
@@ -722,6 +678,74 @@
           <Property Type="String" Name="labbody" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="addtime" Nullable="false" Precision="0" />
         </EntityType>
+        <EntityType Name="exchange">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="grade" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="major" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phonenum" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="introduce" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ect" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="photo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="lesson">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="classname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="teach" Nullable="false" />
+          <Property Type="Int32" Name="experiment" Nullable="false" />
+          <Property Type="Double" Name="credits" Nullable="false" />
+          <Property Type="Int32" Name="lesscla" Nullable="false" />
+          <Property Type="String" Name="lesfile" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="etc" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="lesclass" Relationship="CstwebModel.FK_lesson_lesclass" FromRole="lesson" ToRole="lesclass" />
+          <NavigationProperty Name="lesrelation" Relationship="CstwebModel.FK_lesrelation_lesson" FromRole="lesson" ToRole="lesrelation" />
+          <NavigationProperty Name="lesrelation1" Relationship="CstwebModel.FK_lesrelation_lesson1" FromRole="lesson" ToRole="lesrelation" />
+        </EntityType>
+        <Association Name="FK_lesson_lesclass">
+          <End Type="CstwebModel.lesclass" Role="lesclass" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CstwebModel.lesson" Role="lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lesclass">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lesson">
+              <PropertyRef Name="lesscla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lesrelation_lesson">
+          <End Type="CstwebModel.lesson" Role="lesson" Multiplicity="1" />
+          <End Type="CstwebModel.lesrelation" Role="lesrelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lesson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lesrelation">
+              <PropertyRef Name="lesson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lesrelation_lesson1">
+          <End Type="CstwebModel.lesson" Role="lesson" Multiplicity="1" />
+          <End Type="CstwebModel.lesrelation" Role="lesrelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lesson">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lesrelation">
+              <PropertyRef Name="firstlesson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -869,23 +893,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CstwebModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CstwebModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="lesson">
-            <EntityTypeMapping TypeName="CstwebModel.lesson">
-              <MappingFragment StoreEntitySet="lesson">
-                <ScalarProperty Name="lesbook" ColumnName="lesbook" />
-                <ScalarProperty Name="lestest" ColumnName="lestest" />
-                <ScalarProperty Name="lesgoal" ColumnName="lesgoal" />
-                <ScalarProperty Name="lesnum" ColumnName="lesnum" />
-                <ScalarProperty Name="lesfile" ColumnName="lesfile" />
-                <ScalarProperty Name="lesscla" ColumnName="lesscla" />
-                <ScalarProperty Name="credits" ColumnName="credits" />
-                <ScalarProperty Name="experiment" ColumnName="experiment" />
-                <ScalarProperty Name="teach" ColumnName="teach" />
-                <ScalarProperty Name="classname" ColumnName="classname" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="lessonandclass">
             <EntityTypeMapping TypeName="CstwebModel.lessonandclass">
               <MappingFragment StoreEntitySet="lessonandclass">
@@ -927,6 +934,35 @@
                 <ScalarProperty Name="addtime" ColumnName="addtime" />
                 <ScalarProperty Name="labbody" ColumnName="labbody" />
                 <ScalarProperty Name="labname" ColumnName="labname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="exchange">
+            <EntityTypeMapping TypeName="CstwebModel.exchange">
+              <MappingFragment StoreEntitySet="exchange">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="ect" ColumnName="ect" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="phonenum" ColumnName="phonenum" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lesson">
+            <EntityTypeMapping TypeName="CstwebModel.lesson">
+              <MappingFragment StoreEntitySet="lesson">
+                <ScalarProperty Name="etc" ColumnName="etc" />
+                <ScalarProperty Name="lesfile" ColumnName="lesfile" />
+                <ScalarProperty Name="lesscla" ColumnName="lesscla" />
+                <ScalarProperty Name="credits" ColumnName="credits" />
+                <ScalarProperty Name="experiment" ColumnName="experiment" />
+                <ScalarProperty Name="teach" ColumnName="teach" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
