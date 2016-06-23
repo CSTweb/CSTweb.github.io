@@ -53,7 +53,7 @@ public partial class admin_teacher1 : System.Web.UI.Page
         else if (TxtGrade.Text.Trim() == "") Response.Write("<script>alert('入学年份不能为空')</script>");
         else if (TxtPhone.Text.Trim() == "") Response.Write("<script>alert('电话不能为空')</script>");
         else if (Txtintroduce.Text.Trim() == "") Response.Write("<script>alert('个人简介不能为空')</script>");
-        else if (TxtMajor.Text.Trim() == "") Response.Write("<script>alert('国籍不能为空')</script>");
+        else if (TxtMajor.Text.Trim() == "") Response.Write("<script>alert('专业不能为空')</script>");
         else
             using (var db = new CstwebEntities())
             {

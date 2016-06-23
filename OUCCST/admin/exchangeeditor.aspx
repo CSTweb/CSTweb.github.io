@@ -35,7 +35,7 @@
         </div>
         <div class="grid_5">
             <p>
-                <label for="title">国籍 </label>
+                <label for="title">专业</label>
                 <asp:TextBox runat="server" ID="TxtMajor"></asp:TextBox>
             </p>
         </div>

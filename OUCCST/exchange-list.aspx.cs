@@ -12,39 +12,17 @@ public partial class teacher_list : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            databind2(3, RptLevel3);
             using (var db = new CstwebEntities())
             {
-                var a= from it in db.teachers
-                       orderby it.time descending
-                       select it.time;
-                LBLTime.Text = a.First().ToString("yyyy年MM月dd日");       
+                var a= from it in db.exchange
+                       orderby it.grade descending
+                       select it;
+                Repeater1.DataSource = a.ToList();
+                Repeater1.DataBind();
             }
         }
     }
 
-    protected void databind1(int i, Repeater rpt1)
-    {
-        using (var db = new CstwebEntities()) 
-        {
-            var t = from it in db.teachers
-                     where it.title == i
-                     select it;
-            rpt1.DataSource = t.ToList();
-            rpt1.DataBind();
-        }
-    }
 
-    protected void databind2(int i, Repeater rpt1)
-    {
-        using (var db = new CstwebEntities())
-        {
-            var t = from it in db.teachers
-                    where it.teacherlevel == i
-                    select it;
-            rpt1.DataSource = t.ToList();
-            rpt1.DataBind();
-        }
-    }
 
 }
