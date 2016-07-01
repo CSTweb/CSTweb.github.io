@@ -32,8 +32,8 @@ public partial class admin_index2 : System.Web.UI.Page
                     TxtPartjob.Text = rstrp(tea.parttimejob);
                     TxtProject.Text = rstrp(tea.project);
                     TxtPhone.Text = tea.phone;
-                    DDLLevel.SelectedValue = tea.teacherlevel.ToString();
-                    DDLTitle.SelectedValue = tea.title.ToString();
+                    //DDLLevel.SelectedValue = tea.teacherlevel.ToString();
+                    //DDLTitle.SelectedValue = tea.title.ToString();
                     ImgIco.ImageUrl = tea.photo;
                 }
         }
@@ -48,14 +48,14 @@ public partial class admin_index2 : System.Web.UI.Page
             var d2 = (from it in db.teachlevel
                       select it).ToList();
             int i = 0;
-            for (i = 0; i < d1.Count; i++)
+            /*for (i = 0; i < d1.Count; i++)
             {
                 DDLTitle.Items.Add(new ListItem(d1[i].name, d1[i].id.ToString()));
             }
             for (i = 0; i < d2.Count; i++)
             {
                 DDLLevel.Items.Add(new ListItem(d2[i].name, d2[i].id.ToString()));
-            }
+            }*/
         }
     }
     protected void BtnSubmit_Click(object sender, EventArgs e)
@@ -81,10 +81,10 @@ public partial class admin_index2 : System.Web.UI.Page
                         tea.phone = TxtPhone.Text.Trim();
                         tea.field = Txtfield.Text.Trim();
                         tea.course = TxtCourse.Text.Trim();
-                        int i = Convert.ToInt32(DDLLevel.SelectedValue);
-                        tea.teacherlevel = i;
-                        i = Convert.ToInt32(DDLTitle.SelectedValue);
-                        tea.title = i;
+                        //int i = Convert.ToInt32(DDLLevel.SelectedValue);
+                        //tea.teacherlevel = i;
+                        //i = Convert.ToInt32(DDLTitle.SelectedValue);
+                        //tea.title = i;
                         if (Txtetc.Text.Trim() != "") tea.etc = strp(Txtetc.Text.Trim());
                         //else tea.etc = null;
                         if (TxtHome.Text.Trim() != "") tea.home = TxtHome.Text.Trim();

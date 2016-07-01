@@ -35,20 +35,7 @@
         </div>
         <br />
 
-        <div class="grid_5">
-            <p>
-                <label for="title">职称</label>
-                <asp:DropDownList ID="DDLTitle" runat="server">
-                </asp:DropDownList>
-            </p>
 
-        </div>
-        <div class="grid_5">
-            <p>
-                <label for="title">导师资格</label>
-                <asp:DropDownList ID="DDLLevel" runat="server"></asp:DropDownList>
-            </p>
-        </div>
 
         <div class="grid_5">
             <p>

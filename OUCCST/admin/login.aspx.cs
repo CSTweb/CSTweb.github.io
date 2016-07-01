@@ -34,16 +34,16 @@ public partial class admin_login : System.Web.UI.Page
                         if (ac.accountlevel == 0)
                         {
                             Session["admin"] = ac.id;
-                            Response.Write("<script language=javascript>alert('登录成功');window.location = 'index.aspx';</script>");
+                            Response.Write("<script language=javascript>window.location = 'index.aspx';</script>");
                         }
                         else if (ac.accountlevel == 1)
                         {
                             Session["teacherid"] = ac.teacherid;
-                            Response.Write("<script language=javascript>alert('登录成功');window.location = 'index2.aspx';</script>");
+                            Response.Write("<script language=javascript>window.location = 'index2.aspx';</script>");
                         }
                         else
                         {
-                            Response.Write("<script>alert('出现迷之错误')</script>");
+                            Response.Write("<script>alert(用户名或密码错误)</script>");
                         }
                     }
                     else
