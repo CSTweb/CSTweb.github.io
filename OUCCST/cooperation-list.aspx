@@ -7,9 +7,10 @@
         <section class="left-list box-shadow">
             <header>校外合作</header>
             <ul>
-                <li><a href="#">校校合作</a></li>
-                <li><a href="#">校企合作</a></li>
-                <li><a href="#">企业招聘</a></li>
+                <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
+                <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
+                <li><a href="exchange-list.aspx">国际交流生</a></li>
+                <li><a href="app-list.aspx">企业招聘</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">
@@ -30,7 +31,7 @@
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
                             <li>
-                                <a href="games-news-con.aspx?id=<%#Eval("id") %>">
+                                <a href="cooperation-news-con.aspx?id=<%#Eval("id") %>">
                                     <span class="news-title"><%#Eval("title")%></span>
                                     <span class="news-time"><%#Eval("time","{0:yyyy-MM-dd}")%></span>
                                 </a>

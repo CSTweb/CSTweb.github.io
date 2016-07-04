@@ -20,13 +20,6 @@
                 <asp:TextBox runat="server" ID="TxtTitle"></asp:TextBox>
             </p>
         </div>
-        <div class="grid_5">
-                            <label>新闻类别 </label>
-            <asp:dropdownlist runat="server" ID="DdlNew">
-                <asp:ListItem Value="7">校校合作</asp:ListItem>
-                <asp:ListItem Value="8">校企合作</asp:ListItem>
-            </asp:dropdownlist>
-        </div>
         <div class="grid_16">
             <p>
                 <label>正文 </label>

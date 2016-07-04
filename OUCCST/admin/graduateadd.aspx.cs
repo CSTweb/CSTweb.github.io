@@ -18,8 +18,8 @@ public partial class admin_newsadd1 : System.Web.UI.Page
             {
                 using (var db = new CstwebEntities())
                 {
-                    cooperation ne = db.cooperation.First<cooperation>(a => a.id == neid);
-                    TxtTitle.Text = ne.cooperation1;
+                    graduate ne = db.graduate.First<graduate>(a => a.id == neid);
+                    TxtTitle.Text = ne.graduate1;
                     myEditor.InnerHtml = ne.body;
                 }
             }
@@ -32,7 +32,7 @@ public partial class admin_newsadd1 : System.Web.UI.Page
     }
     protected void BtnReturn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("cooperation.aspx");
+        Response.Redirect("graduate.aspx");
     }
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
@@ -44,26 +44,26 @@ public partial class admin_newsadd1 : System.Web.UI.Page
             {
                 using (var db = new CstwebEntities())
                 {
-                    cooperation ne;
+                    graduate ne;
                     if (neid == 0)
-                        ne = new cooperation();
+                        ne = new graduate();
                     else
-                        ne = db.cooperation.First<cooperation>(a => a.id == neid);
+                        ne = db.graduate.First<graduate>(a => a.id == neid);
 
-                    ne.cooperation1 = TxtTitle.Text.Trim();
+                    ne.graduate1 = TxtTitle.Text.Trim();
                     ne.body = str.Trim();
-                    ne.@class =Convert.ToInt32(DdlNew.SelectedValue);
+                    
                     ne.addtime = DateTime.Now;
                     if (neid == 0)
                     {
-                        db.cooperation.Add(ne);
+                        db.graduate.Add(ne);
                         db.SaveChanges();
-                        Response.Write("<script language=javascript>alert('发布成功');window.location = 'cooperation.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('发布成功');window.location = 'graduate.aspx';</script>");
                     }
                     else
                     {
                         db.SaveChanges();
-                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'cooperation.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'graduate.aspx';</script>");
                     }
 
                 }

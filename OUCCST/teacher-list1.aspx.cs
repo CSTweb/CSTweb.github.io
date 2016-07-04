@@ -11,13 +11,39 @@ public partial class teacher_list : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            databind1(1, RptTitle1);
-            databind1(2, RptTitle2);
-            databind1(3, RptTitle3);
-            databind1(4, RptTitle4);
-            databind1(5, RptTitle5);
-            databind1(6, RptTitle6);
-            databind1(7, RptTitle7);
+            
+            using (var db = new CstwebEntities())
+            {
+                var t = from it in db.teachers
+                        where it.title == 1
+                        select it;
+                RptTitle1.DataSource = t.ToList();
+                RptTitle1.DataBind();
+            }
+            using (var db = new CstwebEntities())
+            {
+                var t = from it in db.teachers
+                        where it.title == 2 || it.title == 4 || it.title == 5
+                        select it;
+                RptTitle2.DataSource = t.ToList();
+                RptTitle2.DataBind();
+            }
+            using (var db = new CstwebEntities())
+            {
+                var t = from it in db.teachers
+                        where it.title == 3 || it.title == 6 || it.title == 7
+                        select it;
+                RptTitle3.DataSource = t.ToList();
+                RptTitle3.DataBind();
+            }
+            using (var db = new CstwebEntities())
+            {
+                var t = from it in db.teachers
+                        where it.title == 12 || it.title == 13 
+                        select it;
+                RptTitle8.DataSource = t.ToList();
+                RptTitle8.DataBind();
+            }
 
             using (var db = new CstwebEntities())
             {

@@ -29,7 +29,7 @@
                             <tr>
                                 <td class="auto-style1"><%#Eval("title")%></td>
                                 <td><%#Eval("time")%></td>
-                                <td><a href="cooperationnewadd.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
+                                <td><a href="graduatenewadd.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
                                 <td>
                                     <asp:LinkButton ID="LinDel" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('是否删除?');" CommandName="del" runat="server">Delete</asp:LinkButton></td>
                             </tr>

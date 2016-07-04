@@ -28,10 +28,10 @@ public partial class admin_news1 : System.Web.UI.Page
             {
                 try
                 {
-                    cooperation ne = db.cooperation.FirstOrDefault<cooperation>(a => a.id == id);
-                    db.cooperation.Remove(ne);
+                    graduate ne = db.graduate.FirstOrDefault<graduate>(a => a.id == id);
+                    db.graduate.Remove(ne);
                     db.SaveChanges();
-                    Response.Write("<script>alert('删除成功');window.location = 'cooperation.aspx';</script>");
+                    Response.Write("<script>alert('删除成功');window.location = 'graduate.aspx';</script>");
                 }
                 catch { Response.Write("<script>alert('删除失败')</script>"); }
             }
@@ -42,10 +42,10 @@ public partial class admin_news1 : System.Web.UI.Page
     {
         using (var db = new CstwebEntities())
         {
-            var dataSource = from items in db.cooperation
-                             where items.@class == newsclass
+            var dataSource = from items in db.graduate
+                             
                              orderby items.id descending
-                             select new { items.id, items.cooperation1, items.addtime };
+                             select new { items.id, items.graduate1, items.addtime };
             int totalAmount = dataSource.Count();
             Session["pageCount"] = Math.Ceiling((double)totalAmount / (double)PageSize); //总页数，向上取整
             dataSource = dataSource.Skip(PageSize * (CurrentPage - 1)).Take(PageSize); //分页
@@ -69,7 +69,7 @@ public partial class admin_news1 : System.Web.UI.Page
         {
             using (var db = new CstwebEntities())
             {
-                var dataSource = from items in db.cooperation
+                var dataSource = from items in db.graduate
                                  orderby items.id
                                  select new { items };
                 int totalAmount = dataSource.Count();
@@ -155,11 +155,11 @@ public partial class admin_news1 : System.Web.UI.Page
     }
     protected void BtnAddnews_Click(object sender, EventArgs e)
     {
-        Response.Redirect("cooperationadd.aspx");
+        Response.Redirect("graduateadd.aspx");
     }
     protected void DdlSeClass_SelectedIndexChanged(object sender, EventArgs e)
     {
-        newsclass = Convert.ToInt32(DdlSeClass.SelectedValue);
+        newsclass = 11;
         int currentPage = 1;
         int pageSize = 20;
         Session["pagenum"] = 1;

@@ -397,7 +397,7 @@ section.index-content{
     margin-top: 20px;
 }
 
-.index-news-list:first-child{
+.index-news-list:nth-child(2){
     margin-right: 0;
 }
 
@@ -457,8 +457,8 @@ section.index-content{
 .more a:hover{
 	text-decoration:underline;
 }
-.lunbo{
-    float: left;
+.Carousel{
+    float: right;
     width: 63%;
     height: 340px;
     margin-top: 20px;
@@ -502,6 +502,7 @@ section.index-content{
 
 .teacher-list{
     padding-bottom: 25px;
+    min-height:500px;
 }
 
 .teacher-list>header{
@@ -512,11 +513,13 @@ section.index-content{
 .teacher-list ul li{
     display: inline-block;
     height: 45px;
-    width: 100px;
+    min-width: 100px;
     padding: 15px 50px 0 0px;
     text-align: center;
 }
-
+.foreign-stu ul li{
+    word-break:break-all;
+}
 .teacher-list>ul li a{
     display: inline-block;
     color: #333;
@@ -528,7 +531,10 @@ section.index-content{
     color: rgb(60,190,230);
     border-bottom: 1px rgb(60,190,230) solid;
 }
-
+.foreign-intro-head{
+    font-weight: bold;
+    font-size:18px;
+}
 /*=========teacher-personal(by liu)==============*/
 
 .teacher-personal header{
@@ -986,6 +992,9 @@ section.course-content4,section.course-content5{
     width: 100%;
 }
 
+section.right-allwidth{
+    width:100%;
+}
 /*============media===========*/
 @media(max-width:595px){
     .logo-right{
@@ -1017,6 +1026,21 @@ section.course-content4,section.course-content5{
         width: 33%;
         padding: 20px 2%;
     }
+}
+
+@media (max-width: 450px){
+    .index-news-list{
+        width: 96%;
+        padding: 20px 2%;
+    }
+    .Carousel{
+        float: left;
+        width: 100%;
+    }
+    .expressway{
+        width: 100%;
+    }
+
 }
 
 /*===course media===*/

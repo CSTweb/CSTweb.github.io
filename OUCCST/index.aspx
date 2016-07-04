@@ -38,7 +38,7 @@
         </div>
     </section>
         <section class="index-news-list box-shadow">
-            <header><i class="icon-comments"></i> 本系新闻</header>
+            <header><i class="icon-comments"></i> 本系动态</header>
             <ul>
                  <asp:Repeater ID="Repeater2" runat="server">
                     <ItemTemplate>

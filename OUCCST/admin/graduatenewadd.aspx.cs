@@ -32,7 +32,7 @@ public partial class admin_newsadd1 : System.Web.UI.Page
     }
     protected void BtnReturn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("cooperationnews.aspx");
+        Response.Redirect("graduatenews.aspx");
     }
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
@@ -52,18 +52,18 @@ public partial class admin_newsadd1 : System.Web.UI.Page
 
                     ne.title = TxtTitle.Text.Trim();
                     ne.body = str.Trim();
-                    ne.@class =Convert.ToInt32(DdlNew.SelectedValue);
+                    ne.@class =11;
                     ne.time = DateTime.Now;
                     if (neid == 0)
                     {
                         db.news.Add(ne);
                         db.SaveChanges();
-                        Response.Write("<script language=javascript>alert('发布成功');window.location = 'cooperationnews.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('发布成功');window.location = 'graduatenews.aspx';</script>");
                     }
                     else
                     {
                         db.SaveChanges();
-                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'cooperationnews.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'graduatenews.aspx';</script>");
                     }
 
                 }

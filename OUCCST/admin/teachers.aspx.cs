@@ -66,5 +66,18 @@ public partial class admin_teachers1 : System.Web.UI.Page
                 Response.Write("<script>alert('删除成功');window.location = 'teachers.aspx';</script>");
             }
         }
+        else if (e.CommandName == "res")
+        {
+            using (var db = new CstwebEntities())
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                
+                accounts ac = db.accounts.FirstOrDefault(a => a.teacherid == id);
+                ac.password = PasswordHash.PasswordHash.CreateHash(ac.account);
+                
+                db.SaveChanges();
+                Response.Write("<script>alert('重置成功');window.location = 'teachers.aspx';</script>");
+            }
+        }
     }
 }

@@ -10,16 +10,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ul id="navigation2">
-            <li><a href="cooperation.aspx">合作项目</a></li>
-            <li><a href="cooperationnews.aspx">合作公告</a></li>
+            <li><a href="graduate.aspx">培养</a></li>
+            <li><a href="graduatenews.aspx">公告</a></li>
         </ul>
     <div id="content" class="container_16 clearfix">
-        <div class="grid_5">
-            <asp:DropDownList  AutoPostBack="True"  runat="server" ID="DdlSeClass" OnSelectedIndexChanged="DdlSeClass_SelectedIndexChanged">
-                <asp:ListItem Value="1">校校合作</asp:ListItem>
-                <asp:ListItem Value="2">校企合作</asp:ListItem>
-            </asp:DropDownList>
-        </div>
         <div class="grid_16">
             <table>
                 <thead>
@@ -33,7 +27,7 @@
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                         <ItemTemplate>
                             <tr>
-                                <td class="auto-style1"><%#Eval("cooperation1")%></td>
+                                <td class="auto-style1"><%#Eval("graduate1")%></td>
                                 <td><%#Eval("addtime")%></td>
                                 <td><a href="newsadd.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
                                 <td>

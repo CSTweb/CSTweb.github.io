@@ -5,18 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix">
         <section class="left-list box-shadow">
-        <header>本科生</header>
-        <ul>
-            <li><a href="#">培养方案</a></li>
-            <li><a href="#">课程大纲</a></li>
-            <li><a href="#">学生竞赛</a></li>
-        </ul>
-    </section>
+            <header>校外合作</header>
+            <ul>
+                <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
+                <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
+                <li><a href="exchange-list.aspx">国际交流生</a></li>
+                <li><a href="app-list.aspx">企业招聘</a></li>
+            </ul>
+        </section>
         <section class="right-all  clearfix">
             <section class="right-content intro-con box-shadow">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
-                        <header class="border-dotted"><%#Eval("gamename") %></header>
+                        <header class="border-dotted"><%#Eval("cooperation1") %></header>
                         <article>
                             <%#Eval("body")%>
                         </article>

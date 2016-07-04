@@ -47,7 +47,7 @@
         </div>
         <div class="grid_5">
             <p>
-                <label for="title">电话 </label>
+                <label for="title">国籍 </label>
                 <asp:TextBox runat="server" ID="TxtPhone"></asp:TextBox>
             </p>
         </div>

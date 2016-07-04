@@ -32,7 +32,7 @@ public partial class admin_teacher1 : System.Web.UI.Page
 
                     TxtGrade.Text = tea.grade;
 
-                    TxtPhone.Text = tea.phonenum;
+                    TxtPhone.Text = tea.nation;
 
                     Txtintroduce.Text = tea.introduce;
 
@@ -68,7 +68,7 @@ public partial class admin_teacher1 : System.Web.UI.Page
                         tea.major = TxtMajor.Text.Trim();
                         tea.introduce = Txtintroduce.Text.Trim();
                         tea.grade = TxtGrade.Text.Trim();
-                        tea.phonenum = TxtPhone.Text.Trim();
+                        tea.nation = TxtPhone.Text.Trim();
                         string tempstr = Server.HtmlDecode(myEditor.InnerHtml);
                         if (tempstr != "") tea.ect = tempstr;
                         db.exchange.Add(tea);
@@ -82,7 +82,7 @@ public partial class admin_teacher1 : System.Web.UI.Page
                         exchange tea = db.exchange.First<exchange>(a => a.id == teaid);
                         tea.name = Txtname.Text.Trim();
                         tea.email = TxtMail.Text.Trim();
-                        tea.phonenum = TxtPhone.Text.Trim();
+                        tea.nation = TxtPhone.Text.Trim();
                         tea.photo = ImgIco.ImageUrl.ToString();
                         tea.grade = TxtGrade.Text.Trim();
                         tea.major = TxtMajor.Text.Trim();

@@ -38,7 +38,7 @@
                         <th>姓名</th>
                         <th>职称</th>
                         <th>导师资格</th>
-                        <th colspan="2" width="10%">Actions</th>
+                        <th colspan="3" width="10">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +51,8 @@
                                 <td><a href="teacher.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
                                 <td>
                                     <asp:LinkButton runat="server" ID="LikDel" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('是否删除?');" CommandName="del" class="delete">Delete</asp:LinkButton></td>
+                                <td>
+                                    <asp:LinkButton runat="server" ID="LikRe" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('是否重置密码?');" CommandName="res" class="delete">Reset</asp:LinkButton></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

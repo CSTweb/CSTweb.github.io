@@ -9,7 +9,9 @@
           <EntitySet Name="accounts" EntityType="CstwebModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cooperation" EntityType="CstwebModel.Store.cooperation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="exchange" EntityType="CstwebModel.Store.exchange" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="friends" EntityType="CstwebModel.Store.friends" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="games" EntityType="CstwebModel.Store.games" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="graduate" EntityType="CstwebModel.Store.graduate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="labs" EntityType="CstwebModel.Store.labs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lesclass" EntityType="CstwebModel.Store.lesclass" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="lesrelation" EntityType="CstwebModel.Store.lesrelation" store:Type="Tables" Schema="dbo" />
@@ -108,10 +110,25 @@
           <Property Name="grade" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="major" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="phonenum" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nation" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="introduce" Type="nvarchar(max)" />
           <Property Name="ect" Type="nvarchar(max)" />
           <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="birth" Type="nvarchar" MaxLength="100" />
+          <Property Name="home" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="friends">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cyear" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="workplace" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="major" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ect" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="games">
           <Key>
@@ -122,6 +139,15 @@
           <Property Name="status" Type="int" Nullable="false" />
           <Property Name="body" Type="nvarchar(max)" Nullable="false" />
           <Property Name="addtime" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="graduate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="graduate" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="addtime" Type="date" Nullable="false" />
+          <Property Name="body" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="labs">
           <Key>
@@ -442,7 +468,6 @@
           <EntitySet Name="games" EntityType="CstwebModel.games" />
           <EntitySet Name="cooperation" EntityType="CstwebModel.cooperation" />
           <EntitySet Name="labs" EntityType="CstwebModel.labs" />
-          <EntitySet Name="exchange" EntityType="CstwebModel.exchange" />
           <EntitySet Name="lesson" EntityType="CstwebModel.lesson" />
           <AssociationSet Name="FK_lesson_lesclass" Association="CstwebModel.FK_lesson_lesclass">
             <End Role="lesclass" EntitySet="lesclass" />
@@ -456,6 +481,9 @@
             <End Role="lesson" EntitySet="lesson" />
             <End Role="lesrelation" EntitySet="lesrelation" />
           </AssociationSet>
+          <EntitySet Name="graduate" EntityType="CstwebModel.graduate" />
+          <EntitySet Name="exchange" EntityType="CstwebModel.exchange" />
+          <EntitySet Name="friends" EntityType="CstwebModel.friends" />
         </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -678,20 +706,6 @@
           <Property Type="String" Name="labbody" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="addtime" Nullable="false" Precision="0" />
         </EntityType>
-        <EntityType Name="exchange">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="grade" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="major" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="phonenum" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="introduce" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ect" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="photo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="lesson">
           <Key>
             <PropertyRef Name="id" />
@@ -746,6 +760,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="graduate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="graduate1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="addtime" Nullable="false" Precision="0" />
+          <Property Type="String" Name="body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="exchange">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="grade" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="major" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="introduce" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ect" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="photo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="birth" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="home" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="friends">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="fname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cyear" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="workplace" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="major" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="phone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ect" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -938,21 +990,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="exchange">
-            <EntityTypeMapping TypeName="CstwebModel.exchange">
-              <MappingFragment StoreEntitySet="exchange">
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="ect" ColumnName="ect" />
-                <ScalarProperty Name="introduce" ColumnName="introduce" />
-                <ScalarProperty Name="phonenum" ColumnName="phonenum" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="major" ColumnName="major" />
-                <ScalarProperty Name="grade" ColumnName="grade" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="lesson">
             <EntityTypeMapping TypeName="CstwebModel.lesson">
               <MappingFragment StoreEntitySet="lesson">
@@ -963,6 +1000,47 @@
                 <ScalarProperty Name="experiment" ColumnName="experiment" />
                 <ScalarProperty Name="teach" ColumnName="teach" />
                 <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="graduate">
+            <EntityTypeMapping TypeName="CstwebModel.graduate">
+              <MappingFragment StoreEntitySet="graduate">
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="graduate1" ColumnName="graduate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="exchange">
+            <EntityTypeMapping TypeName="CstwebModel.exchange">
+              <MappingFragment StoreEntitySet="exchange">
+                <ScalarProperty Name="home" ColumnName="home" />
+                <ScalarProperty Name="birth" ColumnName="birth" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="ect" ColumnName="ect" />
+                <ScalarProperty Name="introduce" ColumnName="introduce" />
+                <ScalarProperty Name="nation" ColumnName="nation" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="friends">
+            <EntityTypeMapping TypeName="CstwebModel.friends">
+              <MappingFragment StoreEntitySet="friends">
+                <ScalarProperty Name="ect" ColumnName="ect" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="workplace" ColumnName="workplace" />
+                <ScalarProperty Name="cyear" ColumnName="cyear" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

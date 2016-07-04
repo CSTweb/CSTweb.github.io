@@ -37,10 +37,24 @@ public partial class exchange
     public string grade { get; set; }
     public string major { get; set; }
     public string email { get; set; }
-    public string phonenum { get; set; }
+    public string nation { get; set; }
     public string introduce { get; set; }
     public string ect { get; set; }
     public string photo { get; set; }
+    public string birth { get; set; }
+    public string home { get; set; }
+}
+
+public partial class friends
+{
+    public int id { get; set; }
+    public string fname { get; set; }
+    public string cyear { get; set; }
+    public string workplace { get; set; }
+    public string major { get; set; }
+    public string email { get; set; }
+    public string phone { get; set; }
+    public string ect { get; set; }
 }
 
 public partial class games
@@ -50,6 +64,14 @@ public partial class games
     public int status { get; set; }
     public string body { get; set; }
     public System.DateTime addtime { get; set; }
+}
+
+public partial class graduate
+{
+    public int id { get; set; }
+    public string graduate1 { get; set; }
+    public System.DateTime addtime { get; set; }
+    public string body { get; set; }
 }
 
 public partial class labs

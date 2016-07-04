@@ -4,19 +4,31 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix">
-        <section class="right-content teacher-list-all box-shadow">
-            <section class="teacher-list foreign-stu">
-                <header class="header-mid"><i class="icon-group"></i>国际交流生</header>
-                <ul>
-                    <asp:Repeater ID="Repeater1" runat="server">
-                        <ItemTemplate><li><a href="#"><%#Eval("name")%></a><input type="hidden" value="<%#Eval("id")%>"/></li></ItemTemplate>
-                    </asp:Repeater>
-                </ul>
+        <section class="left-list box-shadow">
+            <header>校外合作</header>
+            <ul>
+                <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
+                <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
+                <li><a href="exchange-list.aspx">国际交流生</a></li>
+                <li><a href="app-list.aspx">企业招聘</a></li>
+            </ul>
+        </section>
+        <section class="right-all  clearfix">
+            <section class="right-content teacher-list-all box-shadow">
+                <section class="teacher-list foreign-stu">
+                    <header class="header-mid"><i class="icon-group"></i>国际交流生</header>
+                    <ul>
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
+                                <li><a href="#"><%#Eval("name")%></a><input type="hidden" value="<%#Eval("id")%>" /></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </section>
+                <div class="right-time">更新时间：2016-06-19</div>
             </section>
-            <div class="right-time">更新时间：2016-06-19</div>
         </section>
     </section>
-
 
     <div class="screen-bg">
         <div class="one-con">
@@ -28,9 +40,9 @@
                 <section class="clearfix">
                     <img id="pmg" src="images/default-photo.png">
                     <ul>
-                        <li id ="exname">姓名 : BOB BOOM</li>
-                        <li id ="exmajor">专业：软件工程</li>
-                        <li id ="exmail">邮箱 : ...@example.com</li>
+                        <li id="exname">姓名 : BOB BOOM</li>
+                        <li id="exmajor">专业：软件工程</li>
+                        <li id="exmail">邮箱 : ...@example.com</li>
                     </ul>
                 </section>
             </section>

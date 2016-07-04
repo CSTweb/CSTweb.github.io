@@ -12,7 +12,7 @@ public partial class admin_news1 : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            newsclass = 7;
+            newsclass = 11;
             int currentPage = 1;
             int pageSize = 20;
             Session["pagenum"] = 1;
@@ -31,7 +31,7 @@ public partial class admin_news1 : System.Web.UI.Page
                     news ne = db.news.FirstOrDefault<news>(a => a.id == id);
                     db.news.Remove(ne);
                     db.SaveChanges();
-                    Response.Write("<script>alert('删除成功');window.location = 'cooperationnews.aspx';</script>");
+                    Response.Write("<script>alert('删除成功');window.location = 'graduatenews.aspx';</script>");
                 }
                 catch { Response.Write("<script>alert('删除失败')</script>"); }
             }
@@ -155,11 +155,11 @@ public partial class admin_news1 : System.Web.UI.Page
     }
     protected void BtnAddnews_Click(object sender, EventArgs e)
     {
-        Response.Redirect("cooperationnewadd.aspx");
+        Response.Redirect("graduatenewadd.aspx");
     }
     protected void DdlSeClass_SelectedIndexChanged(object sender, EventArgs e)
     {
-        newsclass = Convert.ToInt32(DdlSeClass.SelectedValue);
+        newsclass = 11;
         int currentPage = 1;
         int pageSize = 20;
         Session["pagenum"] = 1;

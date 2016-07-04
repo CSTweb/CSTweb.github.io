@@ -36,10 +36,8 @@
                         </asp:Repeater>
                     </ul>
 
-                </section>
-                <section class="teacher-list">
                     <header class="border-dotted">
-                        <span class="border-left">副教授</span>
+                        <span class="border-left">副教授/高级实验师/高级工程师</span>
                     </header>
 
                     <ul>
@@ -50,10 +48,8 @@
                         </asp:Repeater>
                     </ul>
 
-                </section>
-                <section class="teacher-list">
                     <header class="border-dotted">
-                        <span class="border-left">讲师</span>
+                        <span class="border-left">讲师/实验师/工程师</span>
                     </header>
 
                     <ul>
@@ -64,14 +60,12 @@
                         </asp:Repeater>
                     </ul>
 
-                </section>
-                <section class="teacher-list">
                     <header class="border-dotted">
-                        <span class="border-left">高级工程师</span>
+                        <span class="border-left">助教/其他</span>
                     </header>
 
                     <ul>
-                        <asp:Repeater ID="RptTitle4" runat="server">
+                        <asp:Repeater ID="RptTitle8" runat="server">
                             <ItemTemplate>
                                 <li><a href="teacher-personal.aspx?id=<%#Eval("id")%>"><%#Eval("name")%></a></li>
                             </ItemTemplate>
@@ -79,47 +73,8 @@
                     </ul>
 
                 </section>
-                <section class="teacher-list">
-                    <header class="border-dotted">
-                        <span class="border-left">高级实验师</span>
-                    </header>
-
-                    <ul>
-                        <asp:Repeater ID="RptTitle5" runat="server">
-                            <ItemTemplate>
-                                <li><a href="teacher-personal.aspx?id=<%#Eval("id")%>"><%#Eval("name")%></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
-
-                </section>
-                <section class="teacher-list">
-                    <header class="border-dotted">
-                        <span class="border-left">助理工程师</span>
-                    </header>
-
-                    <ul>
-                        <asp:Repeater ID="RptTitle6" runat="server">
-                            <ItemTemplate>
-                                <li><a href="teacher-personal.aspx?id=<%#Eval("id")%>"><%#Eval("name")%></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
-
-                </section>
-                <section class="teacher-list">
-                    <header class="border-dotted">
-                        <span class="border-left">助理实验师</span>
-                    </header>
-
-                    <ul>
-                        <asp:Repeater ID="RptTitle7" runat="server">
-                            <ItemTemplate>
-                                <li><a href="teacher-personal.aspx?id=<%#Eval("id")%>"><%#Eval("name")%></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
-                </section>
+                
+                
             </section>
             <div class="right-time">更新时间：<asp:Label ID="LBLTime" runat="server" Text="Label"></asp:Label></div>
             </section>

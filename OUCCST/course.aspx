@@ -5,11 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix">
         <section class="left-list box-shadow">
-            <header>师资队伍</header>
+            <header>本科生</header>
             <ul>
-                <li><a href="cs-teacher-list.html">教职工名录</a></li>
-                <li><a href="#">杰出人才</a></li>
-                <li><a href="#">名誉学衔</a></li>
+                <li><a href="training.aspx">培养方案</a></li>
+                <li><a href="course.aspx">课程大纲</a></li>
+                <li><a href="games-list.aspx">学生竞赛</a></li>
             </ul>
         </section>
         <section class="right-all course clearfix">

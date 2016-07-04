@@ -7,9 +7,9 @@
         <section class="left-list box-shadow">
             <header>师资队伍</header>
             <ul>
-                <li><a href="cs-teacher-list.html">教职工名录</a></li>
-                <li><a href="#">杰出人才</a></li>
-                <li><a href="#">名誉学衔</a></li>
+                <li><a href="teacher-list1.aspx">师资总览</a></li>
+                <li><a href="teacher-list2.aspx">博士生导师</a></li>
+                <li><a href="teacher-list3.aspx">硕士生导师</a></li>
             </ul>
         </section>
         <asp:Repeater ID="Repeater1" runat="server">

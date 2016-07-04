@@ -38,7 +38,7 @@
                         <a href="#">科学研究</a>
                         <ul class="li-second">
                             <li><a href="labsshow.aspx">研究方向</a></li>
-                            <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
+                            <li><a href="tec-list.aspx">科研动态</a></li>
                         </ul>
                     </li>
                     <li>
@@ -53,9 +53,9 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">研究生</a>
+                                <a href="graduate-list.aspx">研究生</a>
                             </li>
-                            <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
+                            <li><a href="teaching-list.aspx">教务动态</a></li>
                         </ul>
                     </li>
                     <li><a href="wantted-list.aspx">招生信息</a></li>
@@ -75,11 +75,11 @@
                             <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
                             <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
                             <li><a href="exchange-list.aspx">国际交流生</a></li>
-                            <li><a href="#">企业招聘</a></li>
+                            <li><a href="app-list.aspx">企业招聘</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">系友工作</a></li>
-                    <li><a href="#">联系我们</a></li>
+                    <li><a href="系友工作.html">系友工作</a></li>
+                    <li><a href="contact.aspx">联系我们</a></li>
                 </ul>
             </nav>
         </header>

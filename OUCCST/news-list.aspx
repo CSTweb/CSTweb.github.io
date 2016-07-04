@@ -7,16 +7,17 @@
         <section class="left-list box-shadow">
             <header>新闻公告</header>
             <ul>
-                <li><a href="news-list.aspx">本系新闻</a></li>
-                <li><a href="#">通知公告</a></li>
-                <li><a href="news-list.aspx">学术报告</a></li>
+                <li><a href="news-list.aspx">本系动态</a></li>
+                <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
+                <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
+                <li><a href="news-list.aspx?newclass=4">学术报告</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">
             <section class="right-content news-list box-shadow">
                 <header class="header-mid">
                     <i class="icon-bullhorn"></i>
-                    <asp:Label runat="server" ID="hea" Text="本系新闻"> </asp:Label>
+                    <asp:Label runat="server" ID="hea" Text="本系动态"> </asp:Label>
                 </header>
                 <ul class="border-dotted">
                     <asp:Repeater ID="Repeater1" runat="server">
