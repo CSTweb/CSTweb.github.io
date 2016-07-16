@@ -101,7 +101,7 @@ public partial class admin_index2 : System.Web.UI.Page
                         //else tea.project = null;
                         tea.time = System.DateTime.Now;
                         db.SaveChanges();
-                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'teachers.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'index2.aspx';</script>");
 
 
 

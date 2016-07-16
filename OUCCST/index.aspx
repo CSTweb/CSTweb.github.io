@@ -6,6 +6,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix index-content">
+        
+     <section class="Carousel box-shadow">
+        <div class="flicker-example" data-block-text="false">
+            <ul>
+                <li data-background="images/field.jpg">
+                    <div class="lick-title">测试图片1</div>
+                    <div class="flick-sub-text">这里是一些简单的介绍文本</div>
+                </li>
+                <li data-background="images/forest.jpg">
+                    <div class="flick-title">测试图片2</div>
+                    <div class="flick-sub-text">这里是一些简单的介绍文本</div>
+                </li>
+                <li data-background="images/frozen-water.jpg">
+                    <div class="flick-title">测试图片3</div>
+                    <div class="flick-sub-text">这里是一些简单的介绍文本</div>
+                </li>
+            </ul>
+        </div>
+    </section>    
         <section class="index-news-list box-shadow">
             <header><i class="icon-bullhorn"></i> 通知公告</header>
             <ul>
@@ -19,24 +38,6 @@
             </ul>
             <div class="more"><a href="news-list.aspx">查看更多</a></div>
         </section>
-         <section class="lunbo box-shadow">
-        <div class="flicker-example" data-block-text="false">
-            <ul>
-                <li data-background="images/field.jpg">
-                    <div class="flick-title">测试图片1</div>
-                    <div class="flick-sub-text">这里是一些简单的介绍文本</div>
-                </li>
-                <li data-background="images/forest.jpg">
-                    <div class="flick-title">测试图片2</div>
-                    <div class="flick-sub-text">这里是一些简单的介绍文本</div>
-                </li>
-                <li data-background="images/frozen-water.jpg">
-                    <div class="flick-title">测试图片3</div>
-                    <div class="flick-sub-text">这里是一些简单的介绍文本</div>
-                </li>
-            </ul>
-        </div>
-    </section>
         <section class="index-news-list box-shadow">
             <header><i class="icon-comments"></i> 本系动态</header>
             <ul>
