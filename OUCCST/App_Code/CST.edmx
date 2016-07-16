@@ -107,15 +107,14 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="grade" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="grade" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="major" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="nation" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="introduce" Type="nvarchar(max)" />
-          <Property Name="ect" Type="nvarchar(max)" />
           <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="birth" Type="nvarchar" MaxLength="100" />
-          <Property Name="home" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="home" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="birth" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ect" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="friends">
           <Key>
@@ -123,12 +122,14 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="fname" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="cyear" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="sex" Type="int" Nullable="false" />
+          <Property Name="cyear" Type="nvarchar" MaxLength="50" />
           <Property Name="workplace" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="major" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="phone" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="ect" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="birth" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ect" Type="nvarchar(max)" />
+          <Property Name="photo" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="games">
           <Key>
@@ -775,15 +776,14 @@
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="grade" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="grade" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="major" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="nation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="introduce" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ect" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="photo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="birth" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="home" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="home" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="birth" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ect" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="friends">
           <Key>
@@ -791,12 +791,14 @@
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="fname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="cyear" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sex" Nullable="false" />
+          <Property Type="String" Name="cyear" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="workplace" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="major" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="phone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ect" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="birth" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="String" Name="ect" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="photo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1017,13 +1019,12 @@
           <EntitySetMapping Name="exchange">
             <EntityTypeMapping TypeName="CstwebModel.exchange">
               <MappingFragment StoreEntitySet="exchange">
-                <ScalarProperty Name="home" ColumnName="home" />
-                <ScalarProperty Name="birth" ColumnName="birth" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="ect" ColumnName="ect" />
-                <ScalarProperty Name="introduce" ColumnName="introduce" />
-                <ScalarProperty Name="nation" ColumnName="nation" />
+                <ScalarProperty Name="birth" ColumnName="birth" />
+                <ScalarProperty Name="home" ColumnName="home" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="nation" ColumnName="nation" />
                 <ScalarProperty Name="major" ColumnName="major" />
                 <ScalarProperty Name="grade" ColumnName="grade" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1034,12 +1035,14 @@
           <EntitySetMapping Name="friends">
             <EntityTypeMapping TypeName="CstwebModel.friends">
               <MappingFragment StoreEntitySet="friends">
+                <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="ect" ColumnName="ect" />
+                <ScalarProperty Name="birth" ColumnName="birth" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="major" ColumnName="major" />
                 <ScalarProperty Name="workplace" ColumnName="workplace" />
                 <ScalarProperty Name="cyear" ColumnName="cyear" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
                 <ScalarProperty Name="fname" ColumnName="fname" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

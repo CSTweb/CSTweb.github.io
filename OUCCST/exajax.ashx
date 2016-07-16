@@ -27,6 +27,8 @@ public class courseajax : IHttpHandler
                 sb.Append(",\"exname\":\"" + se.name + "\"");
                 sb.Append(",\"exemail\":\"" + se.email + "\"");
                 sb.Append(",\"exmajor\":\"" + se.major + "\"");
+                sb.Append(",\"exnation\":\"" + se.nation + "\"");
+                sb.Append(",\"exhome\":\"" + se.home + "\"");
                 /*
                 sb.Append(",\"lesgoal\":\"" + se.lesgoal + "\"");
                 if (se.lesbook != null)

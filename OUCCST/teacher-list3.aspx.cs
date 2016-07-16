@@ -29,6 +29,7 @@ public partial class teacher_list : System.Web.UI.Page
         {
             var t = from it in db.teachers
                      where it.title == i
+                    orderby it.name
                      select it;
             rpt1.DataSource = t.ToList();
             rpt1.DataBind();
@@ -41,6 +42,7 @@ public partial class teacher_list : System.Web.UI.Page
         {
             var t = from it in db.teachers
                     where it.teacherlevel == i
+                    orderby it.name
                     select it;
             rpt1.DataSource = t.ToList();
             rpt1.DataBind();

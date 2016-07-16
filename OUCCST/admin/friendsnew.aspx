@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="cooperationnews.aspx.cs" Inherits="admin_news1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="friendsnew.aspx.cs" Inherits="admin_news1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="Server">
     <style type="text/css">
@@ -10,17 +10,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ul id="navigation2">
-        <li><a href="cooperation.aspx">合作项目</a></li>
-        <li><a href="cooperationnews.aspx">合作公告</a></li>
-        <li><a href="app.aspx">企业招聘</a></li>
+        <li><a href="friendslist.aspx">系友名录</a></li>
+        <li><a href="friendsnew.aspx">系友通知</a></li>
     </ul>
     <div id="content" class="container_16 clearfix">
-        <div class="grid_5">
-            <asp:DropDownList AutoPostBack="True" runat="server" ID="DdlSeClass" OnSelectedIndexChanged="DdlSeClass_SelectedIndexChanged">
-                <asp:ListItem Value="7">校校合作</asp:ListItem>
-                <asp:ListItem Value="8">校企合作</asp:ListItem>
-            </asp:DropDownList>
-        </div>
         <div class="grid_16">
             <table>
                 <thead>
@@ -36,7 +29,7 @@
                             <tr>
                                 <td class="auto-style1"><%#Eval("title")%></td>
                                 <td><%#Eval("time")%></td>
-                                <td><a href="cooperationnewadd.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
+                                <td><a href="friendsnewadd.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
                                 <td>
                                     <asp:LinkButton ID="LinDel" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('是否删除?');" CommandName="del" runat="server">Delete</asp:LinkButton></td>
                             </tr>

@@ -36,25 +36,26 @@ public partial class exchange
     public string name { get; set; }
     public string grade { get; set; }
     public string major { get; set; }
-    public string email { get; set; }
     public string nation { get; set; }
-    public string introduce { get; set; }
-    public string ect { get; set; }
     public string photo { get; set; }
-    public string birth { get; set; }
+    public string email { get; set; }
     public string home { get; set; }
+    public string birth { get; set; }
+    public string ect { get; set; }
 }
 
 public partial class friends
 {
     public int id { get; set; }
     public string fname { get; set; }
+    public int sex { get; set; }
     public string cyear { get; set; }
     public string workplace { get; set; }
-    public string major { get; set; }
     public string email { get; set; }
     public string phone { get; set; }
+    public string birth { get; set; }
     public string ect { get; set; }
+    public string photo { get; set; }
 }
 
 public partial class games

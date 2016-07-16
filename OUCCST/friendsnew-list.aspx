@@ -1,23 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="app-list.aspx.cs" Inherits="news_list" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="friendsnew-list.aspx.cs" Inherits="news_list" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix">
         <section class="left-list box-shadow">
-            <header>校外合作</header>
+            <header>系友工作</header>
             <ul>
-                <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
-                <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
-                <li><a href="app-list.aspx">企业招聘</a></li>
-                <li><a href="exchange-list.aspx">国际交流生</a></li>
+                <li><a href="friendslist.aspx">系友名录</a></li>
+                <li><a href="friendsnew-list.aspx">系友通知</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">
             <section class="right-content news-list box-shadow">
                 <header class="header-mid">
                     <i class="icon-bullhorn"></i>
-                    <asp:Label runat="server" ID="hea" Text="企业招聘"> </asp:Label></header>
+                    <asp:Label runat="server" ID="hea" Text="系友通知"> </asp:Label></header>
 
                     <ul class="border-dotted">
                     <asp:Repeater ID="Repeater1" runat="server">

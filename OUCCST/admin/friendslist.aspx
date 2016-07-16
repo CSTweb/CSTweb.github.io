@@ -1,8 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="exchangelist.aspx.cs" Inherits="admin_exchange" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" ValidateRequest="false" AutoEventWireup="true" CodeFile="friendslist.aspx.cs" Inherits="admin_exchange" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <ul id="navigation2">
+        <li><a href="friendslist.aspx">系友名录</a></li>
+        <li><a href="friendsnew.aspx">系友通知</a></li>
+    </ul>
         <div id="content" class="container_16 clearfix">
         <div class="grid_4">
             <p>
@@ -12,14 +16,14 @@
         </div>
         <div class="grid_5">
             <p>
-                <label>入学年份</label>
+                <label>工作单位</label>
                 <asp:DropDownList ID="DDLTitle" runat="server">
                 </asp:DropDownList>
             </p>
         </div>
         <div class="grid_5">
             <p>
-                <label>国籍</label>
+                <label>联系电话</label>
                 <asp:DropDownList ID="DDLLevel" runat="server"></asp:DropDownList>
             </p>
         </div>
@@ -35,8 +39,8 @@
                 <thead>
                     <tr>
                         <th>姓名</th>
-                        <th>入学年份</th>
-                        <th>国籍</th>
+                        <th>工作单位</th>
+                        <th>联系电话</th>
                         <th colspan="2" width="10%">Actions</th>
                     </tr>
                 </thead>
@@ -44,10 +48,10 @@
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Eval("name")%></td>
-                                <td><%#Eval("grade")%></td>
-                                <td><%#Eval("nation") %></td>
-                                <td><a href="exchangeeditor.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
+                                <td><%#Eval("fname")%></td>
+                                <td><%#Eval("workplace")%></td>
+                                <td><%#Eval("phone") %></td>
+                                <td><a href="friendseditor.aspx?id=<%#Eval("id")%>" class="edit">Edit</a></td>
                                 <td>
                                     <asp:LinkButton runat="server" ID="LikDel" CommandArgument='<%#Eval("id")%>' OnClientClick="return confirm('是否删除?');" CommandName="del" class="delete">Delete</asp:LinkButton></td>
                             </tr>

@@ -26,9 +26,10 @@
             <li><a href="teachers.aspx">教师</a></li>
             <li><a href="lessons.aspx">本科生</a></li>
             <li><a href="graduate.aspx">研究生</a></li>
-            <li><a href="cooperation.aspx">合作</a></li>
+            <li><a href="cooperation.aspx">校外合作</a></li>
             <li><a href="exchangelist.aspx">交流生</a></li>
             <li><a href="wanttednews.aspx">招生招聘</a></li>
+            <li><a href="friendslist.aspx">系友工作</a></li>
             <li><a href="pweditor.aspx">密码管理</a></li>
             <asp:LinkButton ID="logout" style="float:right" runat="server" OnClick="logout_Click">注销</asp:LinkButton>
         </ul>

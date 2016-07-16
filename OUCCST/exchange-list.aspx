@@ -9,8 +9,9 @@
             <ul>
                 <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
                 <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
-                <li><a href="exchange-list.aspx">国际交流生</a></li>
                 <li><a href="app-list.aspx">企业招聘</a></li>
+                <li><a href="exchange-list.aspx">国际交流生</a></li>
+                
             </ul>
         </section>
         <section class="right-all  clearfix">
@@ -43,6 +44,8 @@
                         <li id="exname">姓名 : BOB BOOM</li>
                         <li id="exmajor">专业：软件工程</li>
                         <li id="exmail">邮箱 : ...@example.com</li>
+                        <li id="exnation">邮箱 : ...@example.com</li>
+                        <li id="exhome">邮箱 : ...@example.com</li>
                     </ul>
                 </section>
             </section>
@@ -76,6 +79,8 @@
                         $("#pmg").attr("src", data.exurl);
                         $("#exname").html("姓名 : " + data.exname);
                         $("#exmajor").html("专业 : " + data.exmajor);
+                        $("#exnation").html("国籍 : " + data.exnation);
+                        $("#exhome").html("毕业院校 : " + data.exhome);
                         $("#exmail").html("邮箱 : " + data.exemail);
                         $("#exetc").html(data.exetc);
                         //$("#lesname").html(data.lesname);

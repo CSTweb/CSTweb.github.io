@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" ValidateRequest="false"  AutoEventWireup="true" CodeFile="exchangeeditor.aspx.cs" Inherits="admin_teacher1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" ValidateRequest="false"  AutoEventWireup="true" CodeFile="friendseditor.aspx.cs" Inherits="admin_teacher1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="Server">
     <title>交流生</title>
@@ -33,30 +33,21 @@
                 <asp:TextBox runat="server" ID="Txtname"></asp:TextBox>
             </p>
         </div>
+        
+
         <div class="grid_5">
             <p>
-                <label for="title">专业</label>
-                <asp:TextBox runat="server" ID="TxtMajor"></asp:TextBox>
+                <label for="title">工作单位 </label>
+                <asp:TextBox runat="server" ID="TxtWork"></asp:TextBox>
             </p>
         </div>
         <div class="grid_5">
             <p>
-                <label for="title">入学年份 </label>
-                <asp:TextBox runat="server" ID="TxtGrade"></asp:TextBox>
-            </p>
-        </div>
-        <div class="grid_5">
-            <p>
-                <label for="title">国籍 </label>
+                <label for="title">联系电话 </label>
                 <asp:TextBox runat="server" ID="TxtPhone"></asp:TextBox>
             </p>
         </div>
-        <div class="grid_5">
-            <p>
-                <label for="title">毕业院校 </label>
-                <asp:TextBox runat="server" ID="TxtHome"></asp:TextBox>
-            </p>
-        </div>
+        
         <div class="grid_5">
             <p>
                 <label for="title">出生年月 </label>
@@ -67,6 +58,15 @@
             <p>
                 <label for="title">邮箱 </label>
                 <asp:TextBox runat="server" ID="TxtMail"></asp:TextBox>
+            </p>
+        </div>
+        <div class="grid_6">
+            <p>
+                <label for="title">性别</label>
+                <asp:DropDownList ID="DdlSex" runat="server">
+                    <asp:ListItem Text="男" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="女" Value="0"></asp:ListItem>
+                </asp:DropDownList>
             </p>
         </div>
         <div class="grid_16">

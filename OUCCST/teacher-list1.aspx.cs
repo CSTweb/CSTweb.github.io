@@ -16,6 +16,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 1
+                        orderby it.name
                         select it;
                 RptTitle1.DataSource = t.ToList();
                 RptTitle1.DataBind();
@@ -24,6 +25,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 2 || it.title == 4 || it.title == 5
+                        orderby it.name
                         select it;
                 RptTitle2.DataSource = t.ToList();
                 RptTitle2.DataBind();
@@ -32,6 +34,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 3 || it.title == 6 || it.title == 7
+                        orderby it.name
                         select it;
                 RptTitle3.DataSource = t.ToList();
                 RptTitle3.DataBind();
@@ -39,7 +42,8 @@ public partial class teacher_list : System.Web.UI.Page
             using (var db = new CstwebEntities())
             {
                 var t = from it in db.teachers
-                        where it.title == 12 || it.title == 13 
+                        where it.title == 12 || it.title == 13
+                        orderby it.name
                         select it;
                 RptTitle8.DataSource = t.ToList();
                 RptTitle8.DataBind();
@@ -61,6 +65,7 @@ public partial class teacher_list : System.Web.UI.Page
         {
             var t = from it in db.teachers
                      where it.title == i
+                    orderby it.name
                      select it;
             rpt1.DataSource = t.ToList();
             rpt1.DataBind();
@@ -73,6 +78,7 @@ public partial class teacher_list : System.Web.UI.Page
         {
             var t = from it in db.teachers
                     where it.teacherlevel == i
+                    orderby it.name
                     select it;
             rpt1.DataSource = t.ToList();
             rpt1.DataBind();

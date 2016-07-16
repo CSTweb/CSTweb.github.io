@@ -9,8 +9,8 @@
             <ul>
                 <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
                 <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
-                <li><a href="exchange-list.aspx">国际交流生</a></li>
                 <li><a href="app-list.aspx">企业招聘</a></li>
+                <li><a href="exchange-list.aspx">国际交流生</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">

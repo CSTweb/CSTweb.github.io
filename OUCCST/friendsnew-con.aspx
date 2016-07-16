@@ -1,16 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="news-con.aspx.cs" Inherits="news_con" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="friendsnew-con.aspx.cs" Inherits="news_con" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container clearfix">
         <section class="left-list box-shadow">
-            <header>新闻公告</header>
+            <header>系友工作</header>
             <ul>
-                <li><a href="news-list.aspx">本系动态</a></li>
-                <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
-                <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
-                <li><a href="news-list.aspx?newclass=4">学术报告</a></li>
+                <li><a href="friendslist.aspx">系友名录</a></li>
+                <li><a href="friendsnew-list.aspx">系友通知</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">

@@ -25,20 +25,20 @@ public partial class admin_teacher1 : System.Web.UI.Page
             if (teaid != 0)
                 using (var db = new CstwebEntities())
                 {
-                    var tea = db.exchange.FirstOrDefault(a => a.id == teaid);
-                    Txtname.Text = tea.name;
+                    var tea = db.friends.FirstOrDefault(a => a.id == teaid);
+                    Txtname.Text = tea.fname;
                     
                     TxtMail.Text = tea.email;
 
-                    TxtGrade.Text = tea.grade;
+                    TxtWork.Text = tea.workplace;
 
-                    TxtPhone.Text = tea.nation;
+                    TxtPhone.Text = tea.phone;
 
                     TxtBirth.Text = tea.birth;
 
-                    TxtHome.Text = tea.home;
+                    DdlSex.SelectedValue = tea.sex.ToString();
 
-                    TxtMajor.Text = tea.major; 
+                     
  
                     ImgIco.ImageUrl = tea.photo;
 
@@ -52,11 +52,11 @@ public partial class admin_teacher1 : System.Web.UI.Page
     {
         if (Txtname.Text.Trim() == "") Response.Write("<script>alert('姓名不能为空')</script>");
         else if (TxtMail.Text.Trim() == "") Response.Write("<script>alert('邮箱不能为空')</script>");
-        else if (TxtGrade.Text.Trim() == "") Response.Write("<script>alert('入学年份不能为空')</script>");
-        else if (TxtPhone.Text.Trim() == "") Response.Write("<script>alert('国籍不能为空')</script>");
+        else if (TxtWork.Text.Trim() == "") Response.Write("<script>alert('工作单位不能为空')</script>");
+        
         else if (TxtBirth.Text.Trim() == "") Response.Write("<script>alert('出生年月不能为空')</script>");
-        else if (TxtHome.Text.Trim() == "") Response.Write("<script>alert('毕业院校不能为空')</script>");
-        else if (TxtMajor.Text.Trim() == "") Response.Write("<script>alert('专业不能为空')</script>");
+        else if (TxtPhone.Text.Trim() == "") Response.Write("<script>alert('联系电话不能为空')</script>");
+      
         else
             using (var db = new CstwebEntities())
             {
@@ -64,39 +64,41 @@ public partial class admin_teacher1 : System.Web.UI.Page
                 {
                     if (teaid == 0)
                     {
-                        var tea = new exchange();
-                        tea.name = Txtname.Text.Trim();
+                        var tea = new friends();
+                        tea.fname = Txtname.Text.Trim();
                         tea.email = TxtMail.Text.Trim();
                         tea.photo = ImgIco.ImageUrl.ToString();
-                        tea.major = TxtMajor.Text.Trim();
-                        tea.home = TxtHome.Text.Trim();
+                        tea.phone = TxtPhone.Text.Trim();
+                        int sex = Convert.ToInt32(DdlSex.SelectedValue);
+                        tea.sex = sex;
                         tea.birth = TxtBirth.Text.Trim();
-                        tea.grade = TxtGrade.Text.Trim();
-                        tea.nation = TxtPhone.Text.Trim();
+                        tea.workplace = TxtWork.Text.Trim();
+                        
                         string tempstr = Server.HtmlDecode(myEditor.InnerHtml);
                         if (tempstr != "") tea.ect = tempstr;
-                        db.exchange.Add(tea);
+                        db.friends.Add(tea);
                         db.SaveChanges();
                         
-                        Response.Write("<script language=javascript>alert('添加成功');window.location = 'exchangelist.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('添加成功');window.location = 'friendslist.aspx';</script>");
 
                     }
                     else
                     {
-                        exchange tea = db.exchange.First<exchange>(a => a.id == teaid);
-                        tea.name = Txtname.Text.Trim();
+                        friends tea = db.friends.First<friends>(a => a.id == teaid);
+                        tea.fname = Txtname.Text.Trim();
                         tea.email = TxtMail.Text.Trim();
                         tea.photo = ImgIco.ImageUrl.ToString();
-                        tea.major = TxtMajor.Text.Trim();
-                        tea.home = TxtHome.Text.Trim();
+                        tea.phone = TxtPhone.Text.Trim();
+                        int sex = Convert.ToInt32(DdlSex.SelectedValue);
+                        tea.sex = sex;
                         tea.birth = TxtBirth.Text.Trim();
-                        tea.grade = TxtGrade.Text.Trim();
-                        tea.nation = TxtPhone.Text.Trim();
+                        tea.workplace = TxtWork.Text.Trim();
+                        
                         string tempstr = Server.HtmlDecode(myEditor.InnerHtml);
                         if (tempstr != "") tea.ect = tempstr;
 
                         db.SaveChanges();
-                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'exchangelist.aspx';</script>");
+                        Response.Write("<script language=javascript>alert('修改成功');window.location = 'friendslist.aspx';</script>");
                     }
 
 
@@ -198,6 +200,6 @@ public partial class admin_teacher1 : System.Web.UI.Page
 
     protected void BtnReset_Click(object sender, EventArgs e)
     {
-        Response.Redirect("exchangelist.aspx");
+        Response.Redirect("friendslist.aspx");
     }
 }

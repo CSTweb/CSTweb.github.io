@@ -26,8 +26,8 @@
         <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson" />
         <AssociationConnector Association="CstwebModel.FK_lesrelation_lesson1" />
         <EntityTypeShape EntityType="CstwebModel.graduate" Width="1.5" PointX="3.375" PointY="16.5" />
-        <EntityTypeShape EntityType="CstwebModel.exchange" Width="1.5" PointX="6.125" PointY="19" />
-        <EntityTypeShape EntityType="CstwebModel.friends" Width="1.5" PointX="2.125" PointY="24.625" />
+        <EntityTypeShape EntityType="CstwebModel.exchange" Width="1.5" PointX="0.5" PointY="23.375" />
+        <EntityTypeShape EntityType="CstwebModel.friends" Width="1.5" PointX="3.25" PointY="23.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
