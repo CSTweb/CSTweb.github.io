@@ -11,6 +11,7 @@
                 <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
                 <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
                 <li><a href="news-list.aspx?newclass=4">学术报告</a></li>
+                <li><a href="news-list.aspx?newclass=14">公告通知</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">

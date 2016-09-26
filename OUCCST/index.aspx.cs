@@ -14,7 +14,7 @@ public partial class index : System.Web.UI.Page
             using (var db = new CstwebEntities())
             {
                 var se1 = from it in db.news
-                          where it.@class == 1
+                          where it.@class == 14
                           orderby it.time descending
                           select it;
                 Repeater1.DataSource = se1.Take(7).ToList();

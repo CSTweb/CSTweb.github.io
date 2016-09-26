@@ -25,6 +25,7 @@ public partial class news_list : System.Web.UI.Page
             case 2: hea.Text = "科研动态"; break;
             case 3: hea.Text = "教务动态"; break;
             case 4: hea.Text = "学术报告"; break;
+            case 14: hea.Text = "通知公告"; break;
             default: artclass = 1; hea.Text = "本系动态"; break;
         }
         if (!IsPostBack)

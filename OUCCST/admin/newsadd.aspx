@@ -27,6 +27,7 @@
                 <asp:ListItem Value="2">科研动态</asp:ListItem>
                 <asp:ListItem Value="3">教务动态</asp:ListItem>
                 <asp:ListItem Value="4">学术报告</asp:ListItem>
+                <asp:ListItem Value="14">通知公告</asp:ListItem>
             </asp:dropdownlist>
         </div>
         <div class="grid_16">
