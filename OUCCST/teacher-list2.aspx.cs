@@ -40,13 +40,29 @@ public partial class teacher_list : System.Web.UI.Page
     {
         using (var db = new CstwebEntities())
         {
-            var t = from it in db.teachers
+            var t = (from it in db.teachers
                     where it.teacherlevel == i
-                    orderby it.accounts
-                    select it;
-            rpt1.DataSource = t.ToList();
+                    select it).ToList();
+            List<teacherview> tv = new List<teacherview>();
+            for (int m = 0; m < t.Count; m++)
+            {
+                teacherview tvdemo = new teacherview();
+                tvdemo.id = t[m].id;
+                tvdemo.name = t[m].name;
+                int temp = t[i].id;
+                tvdemo.account = db.accounts.First(a => a.teacherid == temp).account;
+                tv.Add(tvdemo);
+            }
+            tv.OrderBy(a => a.account);
+            rpt1.DataSource = tv;
             rpt1.DataBind();
         }
     }
 
+}
+public class teacherview
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public string account { get; set; }
 }

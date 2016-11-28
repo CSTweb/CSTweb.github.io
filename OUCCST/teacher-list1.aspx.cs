@@ -14,38 +14,78 @@ public partial class teacher_list : System.Web.UI.Page
             
             using (var db = new CstwebEntities())
             {
-                var t = from it in db.teachers
-                        where it.title == 1
-                        orderby it.accounts
-                        select it;
-                RptTitle1.DataSource = t.ToList();
+                var t = (from it in db.teachers
+                         where it.title == 1
+                         select it).ToList();
+                List<teacherview> tv = new List<teacherview>();
+                for(int i = 0; i < t.Count; i++)
+                {
+                    teacherview tvdemo = new teacherview();
+                    tvdemo.id = t[i].id;
+                    tvdemo.name = t[i].name;
+                    int temp = t[i].id;
+                    tvdemo.account = db.accounts.First(a => a.teacherid == temp).account;
+                    tv.Add(tvdemo);
+                }
+                tv.OrderBy(a=>a.account);
+                RptTitle1.DataSource = tv;
                 RptTitle1.DataBind();
             }
             using (var db = new CstwebEntities())
             {
-                var t = from it in db.teachers
+                var t = (from it in db.teachers
                         where it.title == 2 || it.title == 4 || it.title == 5
-                        orderby it.accounts
-                        select it;
-                RptTitle2.DataSource = t.ToList();
+                        select it).ToList();
+                List<teacherview> tv = new List<teacherview>();
+                for (int i = 0; i < t.Count; i++)
+                {
+                    teacherview tvdemo = new teacherview();
+                    tvdemo.id = t[i].id;
+                    tvdemo.name = t[i].name;
+                    int temp = t[i].id;
+                    tvdemo.account = db.accounts.First(a => a.teacherid == temp).account;
+                    tv.Add(tvdemo);
+                }
+                tv.OrderBy(a => a.account);
+                RptTitle2.DataSource = tv;
                 RptTitle2.DataBind();
             }
             using (var db = new CstwebEntities())
             {
-                var t = from it in db.teachers
+                var t = (from it in db.teachers
                         where it.title == 3 || it.title == 6 || it.title == 7
-                        orderby it.accounts
-                        select it;
-                RptTitle3.DataSource = t.ToList();
+                        select it).ToList();
+                List<teacherview> tv = new List<teacherview>();
+                for (int i = 0; i < t.Count; i++)
+                {
+                    teacherview tvdemo = new teacherview();
+                    tvdemo.id = t[i].id;
+                    tvdemo.name = t[i].name;
+                    int temp = t[i].id;
+                    tvdemo.account = db.accounts.First(a => a.teacherid == temp).account;
+                    tv.Add(tvdemo);
+                }
+                tv.OrderBy(a => a.account);
+                RptTitle3.DataSource = tv;
                 RptTitle3.DataBind();
             }
             using (var db = new CstwebEntities())
             {
-                var t = from it in db.teachers
+                var t = (from it in db.teachers
                         where it.title == 12 || it.title == 13
-                        orderby it.accounts
-                        select it;
-                RptTitle8.DataSource = t.ToList();
+                        select it).ToList();
+                List<teacherview> tv = new List<teacherview>();
+                for (int i = 0; i < t.Count; i++)
+                {
+                    teacherview tvdemo = new teacherview();
+                    tvdemo.id = t[i].id;
+                    tvdemo.name = t[i].name;
+                    int temp = t[i].id;
+                    tvdemo.account = db.accounts.First(a => a.teacherid == temp).account;
+                    tv.Add(tvdemo);
+                }
+                tv.OrderBy(a => a.account);
+                RptTitle8.DataSource = tv;
                 RptTitle8.DataBind();
             }
 
@@ -85,4 +125,11 @@ public partial class teacher_list : System.Web.UI.Page
         }
     }
 
+
+}
+public class teacherview
+{
+    public int id { get; set; }
+    public string name { get; set; }
+    public string account { get; set; }
 }

@@ -46,7 +46,7 @@ public class courseajax : IHttpHandler
                 {
                     sb.Append(",\"lesfile\":\"" + "#" + "\"");
                 }
-                sb.Append(",\"lesetc\":\"" + se.etc + "\"");
+                sb.Append(",\"lesetc\":\"" + se.etc.Replace("\"", "'") + "\"");
                 sb.Append("}");
                 res.Write(sb.ToString());
                 //res.Write(sb);
