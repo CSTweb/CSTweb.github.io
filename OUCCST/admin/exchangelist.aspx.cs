@@ -12,7 +12,7 @@ public partial class admin_exchange : System.Web.UI.Page
         if (!IsPostBack)
         {
             databind();
-            initDDL();
+            //initDDL();
         }
 
     }
@@ -28,25 +28,25 @@ public partial class admin_exchange : System.Web.UI.Page
         }
     }
 
-    protected void initDDL()
-    {
-        using (var db = new CstwebEntities())
-        {
-            var d1 = (from it in db.title
-                      select it).ToList();
-            var d2 = (from it in db.teachlevel
-                      select it).ToList();
-            int i = 0;
-            for (i = 0; i < d1.Count; i++)
-            {
-                DDLTitle.Items.Add(new ListItem(d1[i].name, d1[i].id.ToString()));
-            }
-            for (i = 0; i < d2.Count; i++)
-            {
-                DDLLevel.Items.Add(new ListItem(d2[i].name, d2[i].id.ToString()));
-            }
-        }
-    }
+    //protected void initDDL()
+    //{
+    //    using (var db = new CstwebEntities())
+    //    {
+    //        var d1 = (from it in db.title
+    //                  select it).ToList();
+    //        var d2 = (from it in db.teachlevel
+    //                  select it).ToList();
+    //        int i = 0;
+    //        for (i = 0; i < d1.Count; i++)
+    //        {
+    //            DDLTitle.Items.Add(new ListItem(d1[i].name, d1[i].id.ToString()));
+    //        }
+    //        for (i = 0; i < d2.Count; i++)
+    //        {
+    //            DDLLevel.Items.Add(new ListItem(d2[i].name, d2[i].id.ToString()));
+    //        }
+    //    }
+    //}
     protected void BtnADD_Click(object sender, EventArgs e)
     {
         Response.Redirect("exchangeeditor.aspx");

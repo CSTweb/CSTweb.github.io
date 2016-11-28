@@ -10,8 +10,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ul id="navigation2">
-            <li><a href="graduate.aspx">培养</a></li>
-            <li><a href="graduatenews.aspx">公告</a></li>
+            <li><a href="graduate.aspx">培养计划</a></li>
+            <li><a href="graduatenews.aspx">最新通知</a></li>
         </ul>
     <div id="content" class="container_16 clearfix">
         <div class="grid_16">

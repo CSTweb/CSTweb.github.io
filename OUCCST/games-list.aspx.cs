@@ -21,6 +21,7 @@ public partial class games_list : System.Web.UI.Page
         using (var db = new CstwebEntities())
         {
             var lo = (from it in db.games
+                      orderby it.addtime descending
                      select it).ToList();
             List<games1> lo2 = new List<games1>();
             foreach (games ga in lo)

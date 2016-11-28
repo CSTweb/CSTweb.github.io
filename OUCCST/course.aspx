@@ -128,7 +128,8 @@
             var con = $('.one-con');
             $("section.course-content>ul>li").click(function (event) {
                 var i = $(this).index();
-                var go = $("section.course-content>ul>li>input");
+                var go = $("section.course-content[style^='display: block']>ul>li>input");
+                //var go = $("section.course-content>ul>li>input");
                 var num = $(go[i]).val();
                 $.ajax({
                     type: "POST",
@@ -152,6 +153,9 @@
             });
             $(".one-close").click(function (event) {
                 box.fadeOut('fast');
+                $("#lesname").html('');
+                $("#lesnum").html('');
+                $("#lesfile").html('');
             });
             box.click(function (event) {
                 box.fadeOut('fast');

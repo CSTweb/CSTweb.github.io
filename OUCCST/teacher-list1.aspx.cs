@@ -16,7 +16,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 1
-                        orderby it.name
+                        orderby it.accounts
                         select it;
                 RptTitle1.DataSource = t.ToList();
                 RptTitle1.DataBind();
@@ -25,7 +25,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 2 || it.title == 4 || it.title == 5
-                        orderby it.name
+                        orderby it.accounts
                         select it;
                 RptTitle2.DataSource = t.ToList();
                 RptTitle2.DataBind();
@@ -34,7 +34,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 3 || it.title == 6 || it.title == 7
-                        orderby it.name
+                        orderby it.accounts
                         select it;
                 RptTitle3.DataSource = t.ToList();
                 RptTitle3.DataBind();
@@ -43,7 +43,7 @@ public partial class teacher_list : System.Web.UI.Page
             {
                 var t = from it in db.teachers
                         where it.title == 12 || it.title == 13
-                        orderby it.name
+                        orderby it.accounts
                         select it;
                 RptTitle8.DataSource = t.ToList();
                 RptTitle8.DataBind();

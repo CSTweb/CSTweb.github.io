@@ -13,8 +13,8 @@
     <ul id="navigation2">
             <li><a href="training.aspx">培养方案</a></li>
             <li><a href="lessons.aspx">课程</a></li>
-            <li><a href="games.aspx">学生竞赛</a></li>
-            <li><a href="competionnews.aspx">竞赛公告</a></li>
+            <li><a href="games.aspx">竞赛介绍</a></li>
+            <li><a href="competionnews.aspx">最新竞赛通知</a></li>
         </ul>
     <div id="content" class="container_16 clearfix">
         <div class="grid_16">
