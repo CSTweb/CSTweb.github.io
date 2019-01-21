@@ -7,35 +7,32 @@ using System.Web.UI.WebControls;
 
 public partial class games_list : System.Web.UI.Page
 {
-    int neid;
+    Int16 neid;
+    int pageCount;
+    int pageSize;
+    int pageNum;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (!Int16.TryParse(Request.QueryString["co"], out neid)) neid = 1;
+        if (neid <= 0 && neid > 2) neid = 1;
+        if (!Int32.TryParse(Request.QueryString["page"], out pageNum)) pageNum = 1;
+        pageSize = 10;
+        pageCount = getPageCount(pageSize);
         if (!IsPostBack)
         {
-            try
-            {
-                neid = Convert.ToInt16(Request.QueryString["cooperation"]);
-            }
-            catch
-            {
-                neid = 1;
-            }
-            int currentPage = 1;
-            int pageSize = 10;
-            Session["pagenum"] = 1;
-            ArticlesBind(currentPage, pageSize);
-            
+
+            if (pageNum >= pageCount) pageNum = pageCount;
+            ArticlesBind(pageNum, pageSize);
+             using (var db = new CstwebEntities())
+             {
+                  var lo = (from it in db.cooperation
+                           where it.@class == neid
+                            select it).ToList();
+                 RptGame.DataSource = lo;
+                  RptGame.DataBind();
+             }
+              effect();
         }
-        using (var db = new CstwebEntities())
-        {
-            var lo = (from it in db.cooperation
-                      where it.@class == neid
-                     select it).ToList();
-                RptGame.DataSource = lo;
-            RptGame.DataBind();
-        }
-        effect();
     }
     void ArticlesBind(int CurrentPage, int PageSize) //文章绑定
     {
@@ -46,126 +43,116 @@ public partial class games_list : System.Web.UI.Page
                              orderby items.id descending
                              select new { items.id, items.title, items.time };
             int totalAmount = dataSource.Count();
-            Session["pageCount"] = Math.Ceiling((double)totalAmount / (double)PageSize); //总页数，向上取整
+            pageCount = (int)Math.Ceiling((double)totalAmount / (double)PageSize); //总页数，向上取整
             dataSource = dataSource.Skip(PageSize * (CurrentPage - 1)).Take(PageSize); //分页
-            Repeater1.DataSource = dataSource.ToList();
-            Repeater1.DataBind();
+            if (totalAmount != 0)
+            {
+                Repeater1.DataSource = dataSource.ToList();
+                Repeater1.DataBind();
+            }
         }
     }
 
 
     int getPageCount(int pageSize) //获得总页数
     {
-        int pageCount = 1;
-        if (Session["pageCount"] == null)
+        using (var db = new CstwebEntities())
         {
-            using (var db = new CstwebEntities())
-            {
-                var dataSource = from items in db.news
-                                 orderby items.id
-                                 select new { items };
-                int totalAmount = dataSource.Count();
-                pageCount = (int)Math.Ceiling((double)totalAmount / (double)pageSize); //总页数，向上取整
-            }
-            Session["pageCount"] = pageCount;
+            var dataSource = from items in db.news
+                             where items.@class == neid+6
+                             orderby items.id
+                             select new { items };
+            int totalAmount = dataSource.Count();
+            pageCount = (int)Math.Ceiling((double)totalAmount / (double)pageSize); //总页数，向上取整
         }
-        else
-        {
-            pageCount = Convert.ToInt32(Session["pageCount"]);
-        }
+        if (pageCount <= 0) pageCount = 1;
         return pageCount;
     }
 
     protected void BtnPreviousPage_Click(object sender, EventArgs e)
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]) - 1;
-        int pageSize = 20;
+        pageNum -= 1;
+
         if (pageNum < 1)
         {
             pageNum = 1;
             return;
         }
-        Session["pagenum"] = pageNum;
-        ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        Response.Redirect("cooperation-list.aspx?co=" + neid.ToString() + "&page=" + pageNum.ToString());
     }
 
     protected void BtnNextPage_Click(object sender, EventArgs e)
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]) + 1;
-        int pageSize = 10;
-        if (pageNum >= getPageCount(pageSize))
+        pageNum += 1;
+
+        if (pageNum >= pageCount)
         {
-            pageNum = getPageCount(pageSize);
+            pageNum = pageCount;
         }
-        Session["pagenum"] = pageNum;
-        ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        Response.Redirect("cooperation-list.aspx?co=" + neid.ToString() + "&page=" + pageNum.ToString());
     }
 
-
-    protected void BtnTrailerPage_Click(object sender, EventArgs e)
-    {
-        int pageSize = 10;
-        int pageNum = getPageCount(pageSize);
-        if (pageNum <= 0) //没有内容的情况
-        {
-            pageNum = 1;
-        }
-        Session["pagenum"] = pageNum;
-        ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
-    }
 
     protected void LinbtnJump(object sender, EventArgs e)
     {
         LinkButton link = (LinkButton)sender;
         int pageNum = Convert.ToInt32(link.Text);
-        int pageSize = 10;
+
         if (pageNum < 1)
         {
             pageNum = 1;
         }
-        else if (pageNum > pageSize)
+        else if (pageNum > pageCount)
         {
-            pageNum = getPageCount(pageSize);
+            pageNum = pageCount;
         }
-        ArticlesBind(pageNum, pageSize);
-        LinPageNum.Text = pageNum.ToString();
+        Response.Redirect("cooperation-list.aspx?co=" + neid.ToString() + "&page=" + pageNum.ToString());
     }
 
 
     protected void effect()
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]);
-        int pageCount = getPageCount(10);
         LinPageNum.Text = pageNum.ToString();
         LinPageNumnext.Text = (pageNum + 1).ToString();
         LinPageNumpre.Text = (pageNum - 1).ToString();
         LinLastpage.Text = pageCount.ToString();
-        if (pageNum <= 3)
+
+        LinFirstpage.Visible = true;
+        Linpre.Visible = true;
+        LinPageNumpre.Visible = true;
+        LinPageNum.Visible = true;
+        LinPageNumnext.Visible = true;
+        Linnext.Visible = true;
+        LinLastpage.Visible = true;
+        Lblnext.Visible = true;
+        Lblpre.Visible = true;
+
+        //初始页面格式 [上一页] [1] ... [i-1]  [i]  [i+1] ... [n] [下一页] 
+
+        if (pageNum <= 3) //如果当前页小于等于3，则前页省略号不显示
         {
             Lblpre.Visible = false;
-            if (pageNum <= 2)
+            if (pageNum <= 2) //如果当前页小于等于2 ,首页消失
             {
-                LinPageNumpre.Visible = false;
-                if (pageNum == 1)
+                LinFirstpage.Visible = false;
+
+                if (pageNum == 1)//如果当前页等于1，则上一页也消失
                 {
-                    LinFirstpage.Visible = false;
                     Linpre.Visible = false;
-                    LinPageNum.Visible = false;
+                    LinPageNumpre.Visible = false;
                 }
             }
         }
-        if (pageCount - pageNum <= 2)
+        if (pageCount - pageNum <= 2) //如果页面差值小于等于2，则后页省略号消失
         {
             Lblnext.Visible = false;
-            if (pageCount - pageNum <= 1)
+            if (pageCount - pageNum <= 1) //如果页面差值小于等于1，则尾页消失
             {
-                LinPageNumnext.Visible = false;
-                if (pageCount == pageNum)
+                LinLastpage.Visible = false;
+
+                if (pageCount <= pageNum)
                 {
-                    LinLastpage.Visible = false;
+                    LinPageNumnext.Visible = false;
                     Linnext.Visible = false;
                 }
             }

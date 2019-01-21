@@ -44,5 +44,9 @@
             </section>
         </section>
     </section>
+    <script src="js/jquery-v1.10.2.min.js"></script>
+    <script src="js/modernizr-custom-v2.7.1.min.js"></script>
+    <script src="js/flickerplate.min.js"></script>
+    <script src="js/index.js"></script>
 </asp:Content>
 

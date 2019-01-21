@@ -21,7 +21,7 @@
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
                             <li>
-                                <a href="teaching-con.aspx?id=<%#Eval("id") %>">
+                                <a href="friendsnew-con.aspx?id=<%#Eval("id") %>">
                                     <span class="news-title"><%#Eval("title")%></span>
                                     <span class="news-time"><%#Eval("time","{0:yyyy-MM-dd}")%></span>
                                 </a>

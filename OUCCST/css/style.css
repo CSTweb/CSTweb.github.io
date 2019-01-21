@@ -587,7 +587,7 @@ section.personl-introduction>header,.basicInfomation>header{
 }
 .news-list >ul li{
     display: block;
-    padding: 10px 0px;
+    padding: 5px 0px;
 }
 
 .news-list >ul li a{
@@ -847,26 +847,32 @@ section.course-content4,section.course-content5{
 .intro-con article{
     min-height: 500px;
 }
+
+.intro-con article p img {
+	max-width: 900px;
+}
+
+.intro-con article p{
+    text-indent: 2em;
+}
+
 .intro-con header{
     font-size: 22px;
     color: #0fa7d6;
     text-align: center;
     padding-bottom: 15px;
 }
-.intro-con article p{
-    text-indent: 2em;
-    line-height: 1.5em;
-    padding-bottom: 1em;
-}
+
 .intro-con embed{
     width:100%;
     height:800px;
+    border: 1px solid #eee;
 }
 .right-content div.news-time{
     color:#868686;
     text-align: right;
     font-size: 12px;
-    margin-bottom: 15px;
+    margin: 6px 0;
 }
 .other-news{
     margin-top: 20px;
@@ -890,7 +896,7 @@ section.course-content4,section.course-content5{
     min-height: 220px;
     padding-bottom: 20px;
 }
-.competition-intro{
+.bot30{
     margin-bottom:30px;
 }
 .competition-intro >ul li{
@@ -1288,6 +1294,10 @@ table.table th,table.table td{
     .expressway{
         width: 100%;
     }
+	
+	.intro-con article p img {
+		max-width: 250px;
+	}
 
 }
 

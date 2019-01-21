@@ -11,8 +11,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="content" class="container_16 clearfix">
         <div class="grid_16">
-            <h2>Submit News Article</h2>
-            <p class="error">Something went wronk.</p>
+            <h2>填写招聘信息</h2>
+            <%--<p class="error">Something went wronk.</p>--%>
         </div>
         <div class="grid_10">
             <p>

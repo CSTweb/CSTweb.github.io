@@ -7,15 +7,20 @@ using System.Web.UI.WebControls;
 
 public partial class admin_news1 : System.Web.UI.Page
 {
-    int newsclass;
+    int pageNum;
+    int pageCount;
+    int pageSize;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Int32.TryParse(Request.QueryString["page"], out pageNum)) pageNum = 1;
+        if (pageNum <= 0) pageNum = 1;
+        pageSize = 20;
+        pageCount = getPageCount(pageSize);
         if (!IsPostBack)
         {
-            int currentPage = 1;
-            int pageSize = 20;
-            Session["pagenum"] = 1;
-            ArticlesBind(currentPage, pageSize);
+            if (pageNum >= pageCount) pageNum = pageCount;
+            ArticlesBind(pageNum, pageSize);
+            TxtPageNum.Text = pageNum.ToString();
         }
     }
     protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -45,10 +50,13 @@ public partial class admin_news1 : System.Web.UI.Page
                              orderby items.id descending
                              select new { items.id, items.gamename, items.addtime };
             int totalAmount = dataSource.Count();
-            Session["pageCount"] = Math.Ceiling((double)totalAmount / (double)PageSize); //总页数，向上取整
+            pageCount = (int)Math.Ceiling((double)totalAmount / (double)PageSize); //总页数，向上取整
             dataSource = dataSource.Skip(PageSize * (CurrentPage - 1)).Take(PageSize); //分页
-            Repeater1.DataSource = dataSource.ToList();
-            Repeater1.DataBind();
+            if (totalAmount != 0)
+            {
+                Repeater1.DataSource = dataSource.ToList();
+                Repeater1.DataBind();
+            }
             LtlArticlesCount.Text = totalAmount.ToString();
         }
     }
@@ -62,94 +70,75 @@ public partial class admin_news1 : System.Web.UI.Page
 
     int getPageCount(int pageSize) //获得总页数
     {
-        int pageCount = 1;
-        if (Session["pageCount"] == null)
+        using (var db = new CstwebEntities())
         {
-            using (var db = new CstwebEntities())
-            {
-                var dataSource = from items in db.games
-                                 orderby items.id
-                                 select new { items };
-                int totalAmount = dataSource.Count();
-                pageCount = (int)Math.Ceiling((double)totalAmount / (double)pageSize); //总页数，向上取整
-            }
-            Session["pageCount"] = pageCount;
+            var dataSource = from items in db.games
+                             orderby items.id
+                             select new { items };
+            int totalAmount = dataSource.Count();
+            pageCount = (int)Math.Ceiling((double)totalAmount / (double)pageSize); //总页数，向上取整
         }
-        else
-        {
-            pageCount = Convert.ToInt32(Session["pageCount"]);
-        }
+        if (pageCount <= 0) pageCount = 1;
         return pageCount;
     }
 
 
     int getPageNum() //获得当前文本框中的合法数字页码
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]);
+        int pageNum;
+        if (!Int32.TryParse(TxtPageNum.Text, out pageNum))
+        {
+            pageNum = 1;
+        }
         return pageNum;
     }
 
     protected void BtnPreviousPage_Click(object sender, EventArgs e)
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]) - 1;
-        int pageSize = 20;
+        pageNum -= 1;
+
         if (pageNum < 1)
         {
             pageNum = 1;
             return;
         }
-        Session["pagenum"] = pageNum;
-        ArticlesBind(pageNum, pageSize);
-        TxtPageNum.Text = pageNum.ToString();
+        Response.Redirect("games.aspx?page=" + pageNum.ToString());
+        //TxtPageNum.Text = pageNum.ToString();
     }
 
     protected void BtnNextPage_Click(object sender, EventArgs e)
     {
-        int pageNum = Convert.ToInt16(Session["pagenum"]) + 1;
-        int pageSize = 20;
-        if (pageNum >= getPageCount(pageSize))
+        pageNum += 1;
+
+        if (pageNum >= pageCount)
         {
-            pageNum = getPageCount(pageSize);
+            pageNum = pageCount;
         }
-        Session["pagenum"] = pageNum;
-        ArticlesBind(pageNum, pageSize);
-        TxtPageNum.Text = pageNum.ToString();
+        Response.Redirect("games.aspx?page=" + pageNum.ToString());
     }
 
     protected void BtnHomePage_Click(object sender, EventArgs e)
     {
-        ArticlesBind(1, 20);
-        TxtPageNum.Text = "1";
-        Session["pagenum"] = 1;
+        Response.Redirect("games.aspx?page=1");
     }
 
     protected void BtnTrailerPage_Click(object sender, EventArgs e)
     {
-        int pageSize = 20;
-        int pageNum = getPageCount(pageSize);
-        if (pageNum <= 0) //没有内容的情况
-        {
-            pageNum = 1;
-        }
-        Session["pagenum"] = pageNum;
-        ArticlesBind(pageNum, pageSize);
-        TxtPageNum.Text = pageNum.ToString();
+        Response.Redirect("games.aspx?page=" + pageCount.ToString());
     }
 
     protected void BtnJumpPage_Click(object sender, EventArgs e)
     {
-        int pageNum = getPageNum();
-        int pageSize = 20;
+        pageNum = getPageNum();
+        if (pageNum > pageCount)
+        {
+            pageNum = pageCount;
+        }
         if (pageNum < 1)
         {
             pageNum = 1;
         }
-        else if (pageNum > pageSize)
-        {
-            pageNum = getPageCount(pageSize);
-        }
-        ArticlesBind(pageNum, pageSize);
-        TxtPageNum.Text = pageNum.ToString();
+        Response.Redirect("games.aspx?page=" + pageNum.ToString());
     }
     protected void BtnAddnews_Click(object sender, EventArgs e)
     {

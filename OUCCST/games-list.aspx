@@ -40,23 +40,23 @@
             <footer>
                     <ul class="paging">
                         <li>
-                            <asp:LinkButton ID="Linpre" runat="server">上一页</asp:LinkButton></li>
+                            <asp:LinkButton ID="Linpre" runat="server" OnClick="BtnPreviousPage_Click">上一页</asp:LinkButton></li>
                         <li>
-                            <asp:LinkButton ID="LinFirstpage" runat="server">1</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinFirstpage" runat="server" OnClick="LinbtnJump">1</asp:LinkButton></li>
                         <li>
                             <asp:Label ID="Lblpre" runat="server" Text="..."></asp:Label></li>
                         <li>
-                            <asp:LinkButton ID="LinPageNumpre" runat="server">LinkButton</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinPageNumpre" runat="server" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
-                            <asp:LinkButton ID="LinPageNum" runat="server">LinkButton</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinPageNum" runat="server" ForeColor="Blue" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
-                            <asp:LinkButton ID="LinPageNumnext" runat="server">LinkButton</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinPageNumnext" runat="server" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
                             <asp:Label ID="Lblnext" runat="server" Text="..."></asp:Label></li>
                         <li>
-                            <asp:LinkButton ID="LinLastpage" runat="server">LinkButton</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinLastpage" runat="server" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
-                            <asp:LinkButton ID="Linnext" runat="server">上一页</asp:LinkButton></li>
+                            <asp:LinkButton ID="Linnext" runat="server" OnClick="BtnNextPage_Click">下一页</asp:LinkButton></li>
                     </ul>
                 </footer>
         </section>

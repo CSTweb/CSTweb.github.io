@@ -19,6 +19,9 @@
                 <asp:Repeater ID="Repeater1" runat="server">
                     <ItemTemplate>
                         <header class="border-dotted"><%#Eval("title") %></header>
+                        <div class="news-time">
+                            <!--这里是新闻时间-->
+                        </div>
                         <article>
                             <%#Eval("body")%>
                         </article>

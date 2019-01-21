@@ -1,0 +1,217 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn" class=""><head>
+		<base href="https://www.navicat.com.cn/sponsorship/education/student">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="Super User">
+	<meta name="description" content="卓软数码科技公司提供免费的学生许可证，帮助学生透过科技来提升学习体验。">
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>中国海洋大学与Navicat学术伙伴计划</title>
+	<link href="https://www.navicat.com.cn/media/jui/css/chosen.css?5792539438f7ed5b0e8187f9d8710722" rel="stylesheet" type="text/css">
+	<link href="https://www.navicat.com.cn/media/com_finder/css/finder.css" rel="stylesheet" type="text/css">
+	<script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="/media/jui/js/jquery.min.js?5792539438f7ed5b0e8187f9d8710722" type="text/javascript"></script>
+	<script src="https://www.navicat.com.cn/media/jui/js/jquery-noconflict.js?5792539438f7ed5b0e8187f9d8710722" type="text/javascript"></script>
+	<script src="https://www.navicat.com.cn/media/jui/js/jquery-migrate.min.js?5792539438f7ed5b0e8187f9d8710722" type="text/javascript"></script>
+	<script src="https://www.navicat.com.cn/media/system/js/caption.js?5792539438f7ed5b0e8187f9d8710722" type="text/javascript"></script>
+	<script src="https://www.navicat.com.cn/media/jui/js/chosen.jquery.min.js?5792539438f7ed5b0e8187f9d8710722" type="text/javascript"></script>
+	<script src="https://www.navicat.com.cn/media/jui/js/bootstrap.min.js?5792539438f7ed5b0e8187f9d8710722" type="text/javascript"></script>
+	<script type="text/javascript">
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+
+	jQuery(function ($) {
+		initChosen();
+		$("body").on("subform-row-add", initChosen);
+
+		function initChosen(event, container)
+		{
+			container = container || document;
+			$(container).find(".advancedSelect").chosen({"disable_search_threshold":10,"search_contains":true,"allow_single_deselect":true,"placeholder_text_multiple":"Type or select some options","placeholder_text_single":"\u8bf7\u9009\u62e9\u4e00\u9879","no_results_text":"\u6ca1\u6709\u5339\u914d\u7684\u7ed3\u679c"});
+		}
+	});
+	
+jQuery(function($){ $(".hasTooltip").tooltip({"html": true,"container": "body"}); });
+
+jQuery(document).ready(function() {
+	var value, searchword = jQuery('#mod-finder-searchword105');
+
+		// Get the current value.
+		value = searchword.val();
+
+		// If the current value equals the default value, clear it.
+		searchword.on('focus', function ()
+		{
+			var el = jQuery(this);
+
+			if (el.val() === '智能搜索...')
+			{
+				el.val('');
+			}
+		});
+
+		// If the current value is empty, set the previous value.
+		searchword.on('blur', function ()
+		{
+			var el = jQuery(this);
+
+			if (!el.val())
+			{
+				el.val(value);
+			}
+		});
+
+		jQuery('#mod-finder-searchform105').on('submit', function (e)
+		{
+			e.stopPropagation();
+			var advanced = jQuery('#mod-finder-advanced105');
+
+			// Disable select boxes with no value selected.
+			if (advanced.length)
+			{
+				advanced.find('select').each(function (index, el)
+				{
+					var el = jQuery(el);
+
+					if (!el.val())
+					{
+						el.attr('disabled', 'disabled');
+					}
+				});
+			}
+		});});
+	</script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/images/02.Product_00_AllProducts_Premium.png" type="image/x-icon">
+		<link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/css/reset.css" type="text/css">
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/css/jquery.bxslider.css" type="text/css">
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/css/style.css" type="text/css">
+		<script src="https://www.navicat.com.cn/templates/Navicat/js/jquery_1.9.1.js"></script>
+		<script src="https://www.navicat.com.cn/templates/Navicat/js/bootstrap.min.js"></script>
+		<script src="https://www.navicat.com.cn/templates/Navicat/js/jquery.bxslider.min.js"></script>
+		<script src="https://www.navicat.com.cn/templates/Navicat/js/function.js"></script>
+		<script src="https://www.navicat.com.cn/templates/Navicat/js/form_submission.js"></script>
+		<script src="https://www.navicat.com.cn/templates/Navicat/js/script.js"></script>
+		<script>
+			var store = "";
+		</script>
+		
+		<!--Fancybox-->
+		<script type="text/javascript" src="https://www.navicat.com.cn/templates/Navicat/fancybox/lib/jquery.mousewheel.pack.js"></script>
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen">
+		<script type="text/javascript" src="https://www.navicat.com.cn/templates/Navicat/fancybox/source/jquery.fancybox.js?v=2.1.7"></script>
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen">
+		<script type="text/javascript" src="https://www.navicat.com.cn/templates/Navicat/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+		<script type="text/javascript" src="https://www.navicat.com.cn/templates/Navicat/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+		<link rel="stylesheet" href="https://www.navicat.com.cn/templates/Navicat/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen">
+		<script type="text/javascript" src="https://www.navicat.com.cn/templates/Navicat/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+		
+		
+	<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+
+	
+	<body>
+		<div class="main">
+			<div class="back-to-top-btn" style="display: block;"><img src="/images/00_BacktoTop.svg"></div>
+
+			
+			<div class="modules-banner">
+				<div class="custom">
+					<div class="product-banner napp-banner ouc">
+					<div class="partner-banner-text" style="display: none;">
+						<div class="container">
+							<h1>建立伙伴关系，携手迈向成功</h1>
+						</div>
+					</div>
+				</div></div>
+			</div>
+			<div class="main-article" style="min-height:188px;">
+				<div class="item-page" itemscope="" itemtype="https://schema.org/Article">
+	<meta itemprop="inLanguage" content="zh-CN">
+	
+		
+						
+		
+	
+	
+		
+									<div itemprop="articleBody">
+		<div class="container page-container">
+	<h1 id="normal_heading" style="display: none;">学术伙伴计划 - 学生</h1>
+	<div id="normal_content" style="display: none;">
+		<p>卓软数码科技有限公司提供免费的 Navicat Essentials 许可证，透过科技提高学生的学习体验。</p>
+		<p>如果你是认可的中学、大学或社区学院的学生，并具备有效的学校电子邮箱，你则合符资格申请一年免费不得转售 (NFR) 的 Navicat Essentials 许可证。</p>
+		<p>*只有认可的非营利学术机构才有资格申请 Navicat 学术伙伴计划 (NAPP)。非认可的学校、私立学校或培训中心则不符合申请本计划的资格。</p>
+		<p>*每位符合资格之学生只能申请本计划一次。</p>
+		<p>此计划的 Navicat 许可证必须保证仅用于教育用途，且在任何情况下均不能让第三方透过此许可证得到任何利益。</p>
+	</div>
+	<div id="ouc_content" style="margin-top: 50px;">
+		<p><b class="app-pro" style="font-size: 28px; font-weight:400;">Navicat - 最佳的数据库管理工具</b></p>
+		<p>Navicat™ 是一套快速，可靠并价格相宜的数据库管理工具，专门用于简化数据库管理和降低管理成本。有了直观的图形用户介面，Navicat 提供一个简单的方法让你管理，设计和操作 MySQL、SQL Server、SQLite、Oracle 和 PostgreSQL 的数据。</p>
+		<p><b>超过四成的《财富》世界 500 强企业每天都会使用 Navicat。</b>Navicat 是闻名世界，广受全球各大企业，政府机构，教育机构所信赖，更是各界从业员每天必备的工作伙伴。凭借卓越的客户服务和 6 种语言翻译，Navicat 为超过 70000 名用户提供优质的客户体验。自 2001 年以来，Navicat 已在全球被下载超过 2,000,000 次。当前世界五百大企业中有超过 100 间公司也都正在使用 Navicat。</p>
+		<p>今天，Navicat 被公认为世界上最好的数据库设计和管理工具。 <a href="https://www.navicat.com.cn/" class="default-links">了解更多></a></p>		</p>
+		<div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12 screenshot-container">
+					<img class="screenshot-expand" src="/images/00_ExpandScreenshot.png">
+					<a class="fancybox" rel="gallery1" href="/images/02.Product_01_Essentials_Mac_01_Mainscreen.png" width="100%"><img class="screenshot" src="/images/02.Product_01_Essentials_Mac_01_Mainscreen.png" style="margin-bottom:20px;"></a>
+					<br/>Mac 系统
+				</div>
+				<div class="col-md-6 col-sm-12 screenshot-container">
+					<img class="screenshot-expand" src="/images/00_ExpandScreenshot.png">
+					<a class="fancybox" rel="gallery1" href="/images/02.Product_01_Essentials_Windows_01_Mainscreen.png" width="100%"><img class="screenshot" src="/images/02.Product_01_Essentials_Windows_01_Mainscreen.png" style="margin-bottom:20px;"></a>
+					<br/>Window 系统
+				</div>
+			</div>	
+		</div>		
+		<p style="margin-top:50px;"><b class="app-pro" style="font-size: 28px; font-weight:400;">中国海洋大学与Navicat学术伙伴计划</b></p>
+		<p>卓软数码科技有限公司提供免费的 Navicat Essentials 许可证，透过科技提高学生的学习体验。如果你是中国海洋大学的学生，并具备有效的学校电子邮箱，你则合符资格申请一年免费不得转售 (NFR) 的 Navicat Essentials 许可证。</p>
+		<p>*每位符合资格之学生只能申请本计划一次。</p>	
+		<p>此计划的 Navicat 许可证必须保证仅用于教育用途，且在任何情况下均不能让第三方透过此许可证得到任何利益。</p>
+	</div>
+	<div id="fudan_content" style="display:none; margin-top:50px;">
+		<p><b class="app-pro" style="font-size: 28px; font-weight:400;">Navicat - 最佳的数据库管理工具</b></p>
+		<p>Navicat™ 是一套快速，可靠并价格相宜的数据库管理工具，专门用于简化数据库管理和降低管理成本。有了直观的图形用户介面，Navicat 提供一个简单的方法让你管理，设计和操作 MySQL、SQL Server、SQLite、Oracle 和 PostgreSQL 的数据。</p>
+		<p>Navicat 是闻名世界，广受全球各大企业，政府机构，教育机构所信赖，更是各界从业员每天必备的工作伙伴。凭借卓越的客户服务和 6 种语言翻译，Navicat 为超过 70000 名用户提供优质的客户体验。自 2001 年以来，Navicat 已在全球被下载超过 2,000,000 次。当前世界五百大企业中有超过 100 间公司也都正在使用 Navicat。</p>
+		<p>今天，Navicat 被公认为世界上最好的数据库设计和管理工具。</p>		
+		<p style="margin-top:50px;"><b class="app-pro" style="font-size: 28px; font-weight:400;">复旦大学与Navicat学术伙伴计划</b></p>
+		<p>卓软数码科技有限公司提供免费的 Navicat Essentials 许可证，透过科技提高学生的学习体验。如果你是复旦大学的学生，并具备有效的学校电子邮箱，你则合符资格申请一年免费不得转售 (NFR) 的 Navicat Essentials 许可证。</p>
+		<p>*每位符合资格之学生只能申请本计划一次。</p>	
+		<p>此计划的 Navicat 许可证必须保证仅用于教育用途，且在任何情况下均不能让第三方透过此许可证得到任何利益。</p>	
+	</div>
+	
+	<p style="margin-top:50px;"><b class="app-pro" style="font-size: 28px; font-weight:400;">申请手续</b></p>
+	<p>请填妥并提交 <a class="default-links" href="https://www.navicat.com.cn/sponsorship/education/student?uni=ouc">NAPP 申请表</a>。</p>
+	
+	
+</div>
+
+<script>
+$(document).ready(function($) {	
+	//screenshot 
+	$(".fancybox").fancybox({
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+</script>
+
+
+	
+							</div>
+			</div>
+
+		</div>
+	
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-9800047-2', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</body></html>

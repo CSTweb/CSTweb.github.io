@@ -7,7 +7,7 @@
         <section class="left-list box-shadow">
             <ul>
                 <li><a href="wantted-list.aspx">招生公告</a></li>
-                <li><a href="wantted-list.aspx?newclass=10">招聘公告</a></li>
+                <li><a href="wantted-list.aspx?nc=10">招聘公告</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">

@@ -7,25 +7,15 @@
         <section class="left-list box-shadow">
             <header>校外合作</header>
             <ul>
-                <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
-                <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
+                <li><a href="cooperation-list.aspx?co=1">校校合作</a></li>
+                <li><a href="cooperation-list.aspx?co=2">校企合作</a></li>
                 <li><a href="app-list.aspx">企业招聘</a></li>
                 <li><a href="exchange-list.aspx">国际交流生</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">
-            <section class="right-content competition-intro box-shadow">
-                <header class="header-default">
-                    <asp:Label ID="Label1" runat="server" Text="合作项目"></asp:Label></header>
-                <ul>
-                    <asp:Repeater ID="RptGame" runat="server">
-                        <ItemTemplate>
-                            <li class="border-dotted"><a href="cooperation-con.aspx?id=<%#Eval("id")%>"><i class="icon-group"></i><%#Eval("cooperation1")%></a></li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </ul>
-            </section>
-            <section class="right-content news-list competition-news-list box-shadow">
+            
+            <section class="right-content news-list competition-news-list box-shadow bot30">
                 <header class="header-default">最新通知</header>
                 <ul class="border-dotted">
                     <asp:Repeater ID="Repeater1" runat="server">
@@ -61,6 +51,19 @@
                             <asp:LinkButton ID="Linnext" runat="server" OnClick="BtnNextPage_Click">下一页</asp:LinkButton></li>
                     </ul>
                 </footer>
+            </section>
+
+            <section class="right-content competition-intro box-shadow">
+                <header class="header-default">
+                    <asp:Label ID="Label1" runat="server" Text="合作项目"></asp:Label></header>
+                <ul>
+                    <asp:Repeater ID="RptGame" runat="server">
+                        <ItemTemplate>
+                            <li class="border-dotted"><a href="cooperation-con.aspx?id=<%#Eval("id")%>"><i class="icon-group"></i><%#Eval("cooperation1")%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+			<li class="border-dotted"><a href="ouc.html"><i class="icon-group"></i>Navicat - 最佳的数据库管理工具</a></li>
+                </ul>
             </section>
 
         </section>

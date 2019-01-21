@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" validateRequest="false" AutoEventWireup="true" CodeFile="newsadd.aspx.cs" Inherits="admin_newsadd1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeFile="newsadd.aspx.cs" Inherits="admin_newsadd1" ValidateRequest="false"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="Server">
     <title>新闻添加</title>
@@ -11,8 +11,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="content" class="container_16 clearfix">
         <div class="grid_16">
-            <h2>Submit News Article</h2>
-            <p class="error">Something went wronk.</p>
+            <h2>添加新闻</h2>
+            <%--<p class="error">Something went wronk.</p>--%>
         </div>
         <div class="grid_10">
             <p>

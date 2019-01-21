@@ -59,21 +59,21 @@
                         </ul>
                     </li>
                     <li><a href="wantted-list.aspx">招生信息</a></li>
-                    <li><a href="wantted-list.aspx?newclass=10">招聘信息</a></li>
+                    <li><a href="wantted-list.aspx?nc=10">招聘信息</a></li>
                     <li>
                         <a href="#">新闻动态</a>
                         <ul class="li-second">
                             <li><a href="news-list.aspx">本系动态</a></li>
-                            <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
-                            <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
-                            <li><a href="news-list.aspx?newclass=4">学术报告</a></li>
+                            <li><a href="news-list.aspx?nc=2">科研动态</a></li>
+                            <li><a href="news-list.aspx?nc=3">教务动态</a></li>
+                            <li><a href="news-list.aspx?nc=4">学术报告</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#">校外合作</a>
                         <ul class="li-second">
-                            <li><a href="cooperation-list.aspx?cooperation=1">校校合作</a></li>
-                            <li><a href="cooperation-list.aspx?cooperation=2">校企合作</a></li>
+                            <li><a href="cooperation-list.aspx?co=1">校校合作</a></li>
+                            <li><a href="cooperation-list.aspx?co=2">校企合作</a></li>
                             <li><a href="app-list.aspx">企业招聘</a></li>
                             <li><a href="exchange-list.aspx">国际交流生</a></li>
                         </ul>
@@ -91,9 +91,11 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <footer>
-            <div class="foot-con">
-                Copyright © 2016 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
+            <div class="foot-con" id="footerdiv">
+                Copyright @ 2016- 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.
             </div>
+            <script> var today = new Date(); var toyear = today.getFullYear(); $("#footerdiv").text("Copyright © 2016-" + toyear + " 中国海洋大学 - 计算机科学与技术系. All Rights Reserved.");
+            </script>
         </footer>
     </form>
 </body>

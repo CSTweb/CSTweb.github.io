@@ -8,10 +8,10 @@
             <header>新闻公告</header>
             <ul>
                 <li><a href="news-list.aspx">本系动态</a></li>
-                <li><a href="news-list.aspx?newclass=2">科研动态</a></li>
-                <li><a href="news-list.aspx?newclass=3">教务动态</a></li>
-                <li><a href="news-list.aspx?newclass=4">学术报告</a></li>
-                <li><a href="news-list.aspx?newclass=14">通知公告</a></li>
+                <li><a href="news-list.aspx?nc=2">科研动态</a></li>
+                <li><a href="news-list.aspx?nc=3">教务动态</a></li>
+                <li><a href="news-list.aspx?nc=4">学术报告</a></li>
+                <li><a href="news-list.aspx?nc=14">通知公告</a></li>
             </ul>
         </section>
         <section class="right-all  clearfix">
@@ -43,7 +43,7 @@
                         <li>
                             <asp:LinkButton ID="LinPageNumpre" runat="server" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
-                            <asp:LinkButton ID="LinPageNum" runat="server" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
+                            <asp:LinkButton ID="LinPageNum" runat="server" ForeColor="Blue" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
                             <asp:LinkButton ID="LinPageNumnext" runat="server" OnClick="LinbtnJump">LinkButton</asp:LinkButton></li>
                         <li>
